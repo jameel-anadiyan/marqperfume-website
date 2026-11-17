@@ -1,0 +1,62 @@
+<section class="section-pad scrolling-layers color-scheme-2">
+  <div class="page-width">
+    <div class="section-head-center">
+      <p class="text-subheading">{{ section.settings.eyebrow }}</p>
+      <h2 class="h1">Shop by occasion,<br>from office hours to gala nights</h2>
+    </div>
+
+    <div class="scrolling-layers__stack">
+      <article class="scrolling-layer-card color-scheme-2">
+        <div class="scrolling-layer-card__text">
+          <h3 class="h1">Daily &amp; Office Wear</h3>
+          <p>Crisp citrus, oceanic sea spray, airy cotton musk, and aromatic lavender engineered for clean, confident daytime presence.</p>
+          {% render 'button', label: 'Shop Daily Wear', href: '/collections/daily-office', style: 'icon-solid' %}
+        </div>
+        <div class="scrolling-layer-card__media">
+          <img src="{{ 'marq-cotton-hero.jpg' | asset_url }}" alt="Daily & Office Wear" loading="lazy">
+        </div>
+      </article>
+
+      <article class="scrolling-layer-card color-scheme-2">
+        <div class="scrolling-layer-card__text">
+          <h3 class="h1">Evening &amp; Date Night</h3>
+          <p>Seductive black cherry liqueur, decadent kulfi spice, roasted cardamom, and warm tonka bean crafted for unforgettable nights.</p>
+          {% render 'button', label: 'Shop Evening Scents', href: '/collections/evening-dates', style: 'icon-solid' %}
+        </div>
+        <div class="scrolling-layer-card__media">
+          <img src="{{ 'marq-midnight-spice-hero.jpg' | asset_url }}" alt="Evening & Date Night" loading="lazy">
+        </div>
+      </article>
+
+      <article class="scrolling-layer-card color-scheme-2">
+        <div class="scrolling-layer-card__text">
+          <h3 class="h1">Weddings &amp; Celebrations</h3>
+          <p>Opulent passionfruit oud, damask rose velvet, smoky leather, and crystal saffron with commanding 5/5 longevity.</p>
+          {% render 'button', label: 'Shop Formal Scents', href: '/collections/weddings-formal', style: 'icon-solid' %}
+        </div>
+        <div class="scrolling-layer-card__media">
+          <img src="{{ 'marq-velvet-oud-hero.jpg' | asset_url }}" alt="Weddings & Celebrations" loading="lazy">
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scrolling Scent Layers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Subheading",
+      "default": "SHOP BY OCCASION"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling Scent Layers"
+    }
+  ]
+}
+{% endschema %}

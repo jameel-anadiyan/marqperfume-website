@@ -1,0 +1,19 @@
+# macOS & Python
+.DS_Store
+**/.DS_Store
+__pycache__/
+*.py[cod]
+*.log
+
+# Raw local source asset folders (already optimized & included inside wellina-theme/assets/)
+ATTAR*
+BAKHOOR*
+FIRST IMAGE OF ATTAR/
+PRODUCT IMAGE & DATA/
+REFER IMAGE/
+SLIDER IMAGES/
+first image of perfume/
+logo and brand colour /
+personilisation image /
+untitled folder/
+PACKAGING IMAGE .png

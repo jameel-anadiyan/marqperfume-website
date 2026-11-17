@@ -1,0 +1,19 @@
+<section class="section-pad color-scheme-1">
+  <div class="page-width page-width--narrow" style="max-width:48rem;">
+    <div class="section-head-center">
+      <p class="text-subheading">JOIN MARQ PERFUMES</p>
+      <h1 class="h1">{{ 'customer.register.title' | t }}</h1>
+    </div>
+    {% form 'create_customer', class: 'contact-form' %}
+      {{ form.errors | default_errors }}
+      <input type="text" name="customer[first_name]" placeholder="First name" class="pill-input">
+      <input type="text" name="customer[last_name]" placeholder="Last name" class="pill-input">
+      <input type="email" name="customer[email]" placeholder="Email" class="pill-input" required>
+      <input type="password" name="customer[password]" placeholder="Password" class="pill-input" required>
+      <button type="submit" class="btn btn--primary btn--full">
+        <span class="btn__text-wrap"><span class="btn__text" data-text="Create Account">Create Account</span></span>
+      </button>
+    {% endform %}
+  </div>
+</section>
+

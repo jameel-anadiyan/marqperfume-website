@@ -1,0 +1,27 @@
+<section class="full-banner color-scheme-2">
+  <img
+    src="{{ 'marq-slider-2.jpg' | asset_url }}"
+    alt="Pure oceanic freshness distilled in glass"
+    class="full-banner__img"
+    loading="lazy"
+  >
+  <span class="hero-slide__scrim"></span>
+  <div class="page-width full-banner__content">
+    <p class="text-subheading">FINE PERFUMERY</p>
+    <h2 class="display-title">Pure oceanic freshness<br>distilled <em>in sapphire.</em></h2>
+    {% render 'button', label: 'Shop Navy', href: '/products/marq-navy', style: 'primary' %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Full Fragrance Banner",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Full Fragrance Banner"
+    }
+  ]
+}
+{% endschema %}
+

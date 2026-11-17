@@ -1,0 +1,53 @@
+<section class="section-pad color-scheme-1" data-cart-page>
+  <div class="page-width page-width--narrow">
+    <div class="section-head-center">
+      <h1 class="h1">Your cart</h1>
+    </div>
+
+    <div class="cart-shipping-bar" data-page-shipping-bar>
+      <p class="cart-shipping-bar__text" data-page-shipping-msg>Spend <strong>₹1,000</strong> more to reach free shipping!</p>
+      <div class="cart-shipping-bar__track">
+        <span class="cart-shipping-bar__fill" data-page-shipping-fill style="width: 0%"></span>
+      </div>
+    </div>
+
+    <div class="cart-page-items" data-page-cart-items>
+      {%- if cart != blank and cart.item_count > 0 -%}
+        {%- for item in cart.items -%}
+          <div class="cart-line">
+            <img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}">
+            <div class="cart-line__info">
+              <strong>{{ item.product.title }}</strong>
+              <span>{{ item.variant.title }}</span>
+            </div>
+            <div class="cart-line__price">{{ item.final_line_price | money }}</div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    <div class="cart-page-summary color-scheme-2">
+      <div class="cart-drawer__total-line">
+        <span>Estimated total</span>
+        <strong data-page-cart-total>{{ cart.total_price | default: 0 | money }}</strong>
+      </div>
+      <p class="cart-drawer__tax-note">Taxes and shipping calculated at checkout.</p>
+      <div class="cart-page-summary__actions">
+        <a href="/collections/all" class="btn btn--outline-light">
+          <span class="btn__text-wrap"><span class="btn__text" data-text="Continue Shopping">Continue Shopping</span></span>
+        </a>
+        <a href="/checkout" class="btn btn--primary">
+          <span class="btn__text-wrap"><span class="btn__text" data-text="Check Out">Check Out</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Cart",
+  "settings": []
+}
+{% endschema %}
+

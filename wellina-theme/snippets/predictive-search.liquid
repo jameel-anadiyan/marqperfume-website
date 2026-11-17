@@ -1,0 +1,63 @@
+{%- comment -%}
+  Predictive Search Dropdown anchored right below Header search bar.
+{%- endcomment -%}
+<div class="predictive-search-panel color-scheme-1" data-predictive-panel aria-hidden="true">
+  <div class="predictive-search__default" data-search-default>
+    <div class="predictive-search__group">
+      <p class="predictive-search__heading">{{ 'general.search.popular' | t }}</p>
+      <div class="predictive-search__pills">
+        <button type="button" class="search-pill" data-search-chip="Attar">Attar</button>
+        <button type="button" class="search-pill" data-search-chip="Bakhoor">Bakhoor</button>
+        <button type="button" class="search-pill" data-search-chip="Fresh">Fresh</button>
+        <button type="button" class="search-pill" data-search-chip="Oriental">Oriental</button>
+        <button type="button" class="search-pill" data-search-chip="Oud">Oud</button>
+      </div>
+    </div>
+
+    <div class="predictive-search__group">
+      <p class="predictive-search__heading">{{ 'general.search.featured_products' | t }}</p>
+      <div class="predictive-search__grid" data-search-featured>
+        <a href="/products/marq-navy" class="mini-search-card">
+          <div class="mini-search-card__img">
+            <img src="{{ 'marq-navy-hero.jpg' | asset_url }}" alt="Navy" loading="lazy">
+          </div>
+          <span class="mini-search-card__title">Navy</span>
+          <span class="mini-search-card__price">₹1,200</span>
+        </a>
+        <a href="/products/marq-passion-oud" class="mini-search-card">
+          <div class="mini-search-card__img">
+            <img src="{{ 'marq-passion-oud-hero.jpg' | asset_url }}" alt="Passion Oud" loading="lazy">
+          </div>
+          <span class="mini-search-card__title">Passion Oud</span>
+          <span class="mini-search-card__price">₹1,200</span>
+        </a>
+        <a href="/products/marq-dark-cherry" class="mini-search-card">
+          <div class="mini-search-card__img">
+            <img src="{{ 'marq-dark-cherry-hero.jpg' | asset_url }}" alt="Dark Cherry" loading="lazy">
+          </div>
+          <span class="mini-search-card__title">Dark Cherry</span>
+          <span class="mini-search-card__price">₹1,200</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="predictive-search__live" data-search-results hidden>
+    <div class="predictive-search__group">
+      <p class="predictive-search__heading">{{ 'general.search.related_products' | t }}</p>
+      <div class="predictive-search__grid" data-search-results-grid></div>
+    </div>
+    <div class="predictive-search__group">
+      <p class="predictive-search__heading">Collections</p>
+      <div class="predictive-search__collections">
+        <a href="/collections/perfumes" class="link-underlined">Eau de Parfum</a>
+        <a href="/collections/attar" class="link-underlined">Attar &bull; Oil</a>
+        <a href="/collections/bakhoor" class="link-underlined">Bakhoor &bull; Incense</a>
+        <a href="/collections/all" class="link-underlined">Shop All</a>
+      </div>
+    </div>
+    <a href="/search" class="btn btn--primary btn--full" data-search-view-all>
+      <span class="btn__text-wrap"><span class="btn__text" data-text="View All Results">View All Results</span></span>
+    </a>
+  </div>
+</div>

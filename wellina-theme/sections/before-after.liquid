@@ -1,0 +1,155 @@
+<section class="section-pad section-try-personalise color-scheme-1" data-try-personalise>
+  <div class="page-width">
+    <div class="try-engrave-grid">
+      <div class="try-engrave-media">
+        <div class="engraving-stage">
+          <span class="try-engrave-badge">
+            {% render 'icon', name: 'gift' %}
+            <span>Complimentary Engraving</span>
+          </span>
+
+          <img
+            src="{{ 'marq-personalisation-bottle.jpg' | asset_url }}"
+            alt="MARQ Perfumes Live Bottle Personalisation Preview"
+            class="engraving-stage__img"
+            width="900"
+            height="900"
+            loading="lazy"
+          >
+
+          <div
+            class="engraving-stage__custom-text is-font-classic"
+            data-try-preview
+            aria-live="polite"
+          >AARAV</div>
+
+          <div class="engraving-stage__perfume-name" data-try-perfume-label>
+            NAVY
+          </div>
+        </div>
+      </div>
+
+      <div class="try-engrave-panel">
+        <p class="text-subheading">{{ section.settings.eyebrow }}</p>
+        <h2 class="h1 try-engrave-heading">{{ section.settings.heading }}</h2>
+        <p class="try-engrave-sub">
+          Etch a name, initials, or date onto our brushed-silver flacon plaque—try different fonts live on the bottle and add your custom-engraved scent directly to your bag.
+        </p>
+
+        <div class="try-engrave-selectors">
+          <div class="try-engrave-field">
+            <label for="TryEngraveScent" class="try-engrave-label">Select Fragrance</label>
+            <div class="try-engrave-select-wrap">
+              <select id="TryEngraveScent" class="try-engrave-select" data-try-scent>
+                <option value="marq-navy" data-title="Navy" data-p50="120000" data-p100="250000" selected>Navy — Fresh • Men</option>
+                <option value="marq-passion-oud" data-title="Passion Oud" data-p50="120000" data-p100="250000">Passion Oud — Woody • Unisex</option>
+                <option value="marq-dark-cherry" data-title="Dark Cherry" data-p50="120000" data-p100="250000">Dark Cherry — Oriental • Unisex</option>
+                <option value="marq-frost" data-title="Frost" data-p50="120000" data-p100="250000">Frost — Fresh • Unisex</option>
+                <option value="marq-velvet-oud" data-title="Velvet Oud" data-p50="120000" data-p100="250000">Velvet Oud — Oriental • Unisex</option>
+                <option value="marq-leather-night" data-title="Leather Night" data-p50="120000" data-p100="250000">Leather Night — Woody • Unisex</option>
+                <option value="marq-midnight-spice" data-title="Midnight Spice" data-p50="120000" data-p100="250000">Midnight Spice — Oriental • Men</option>
+                <option value="marq-saffron-glow" data-title="Saffron Glow" data-p50="120000" data-p100="250000">Saffron Glow — Oriental • Unisex</option>
+                <option value="marq-pearl" data-title="Pearl" data-p50="120000" data-p100="250000">Pearl — Woody • Unisex</option>
+                <option value="marq-stay-close" data-title="Stay Close" data-p50="120000" data-p100="250000">Stay Close — Woody • Men</option>
+                <option value="marq-cotton" data-title="Cotton" data-p50="120000" data-p100="250000">Cotton — Florals • Women</option>
+                <option value="marq-red-apple" data-title="Red Apple" data-p50="120000" data-p100="250000">Red Apple — Oriental • Men</option>
+                <option value="marq-ocean-breeze" data-title="Ocean Breeze" data-p50="120000" data-p100="250000">Ocean Breeze — Fresh • Unisex</option>
+              </select>
+              {% render 'icon', name: 'chevron-down' %}
+            </div>
+          </div>
+
+          <div class="try-engrave-field try-engrave-field--size">
+            <span class="try-engrave-label">Size</span>
+            <div class="try-engrave-sizes" data-try-sizes>
+              <button type="button" class="variant-pill is-active" data-try-size="50ml">
+                <span>50ml</span>
+              </button>
+              <button type="button" class="variant-pill" data-try-size="100ml">
+                <span>100ml</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="try-engrave-input-block">
+          <div class="personalise-modal__label-row">
+            <label for="TryEngravingInput" class="try-engrave-label">
+              Text For Engraving
+            </label>
+            <span class="personalise-modal__counter" data-try-counter>5 / 15</span>
+          </div>
+
+          <input
+            id="TryEngravingInput"
+            type="text"
+            maxlength="15"
+            value="AARAV"
+            class="personalise-modal__input"
+            placeholder="Write your text here (max 15 characters)..."
+            autocomplete="off"
+            spellcheck="false"
+            data-try-input
+          >
+
+          <div class="try-engrave-samples" aria-label="Sample engraving ideas">
+            <span class="try-engrave-samples__label">Try sample:</span>
+            <button type="button" class="try-sample-chip is-active" data-try-sample="AARAV">AARAV</button>
+            <button type="button" class="try-sample-chip" data-try-sample="ANANYA">ANANYA</button>
+            <button type="button" class="try-sample-chip" data-try-sample="M &amp; R">M &amp; R</button>
+            <button type="button" class="try-sample-chip" data-try-sample="FOREVER">FOREVER</button>
+            <button type="button" class="try-sample-chip try-sample-chip--clear" data-try-sample="">Clear</button>
+          </div>
+        </div>
+
+        <div class="try-engrave-fonts-block">
+          <p class="try-engrave-label">Choose Font</p>
+          <div class="personalise-font-grid" role="radiogroup" aria-label="Choose engraving font">
+            <button type="button" class="personalise-font-btn is-font-classic is-active" data-try-font="Classic" data-font-class="is-font-classic" aria-pressed="true">Classic</button>
+            <button type="button" class="personalise-font-btn is-font-elegant" data-try-font="Elegant" data-font-class="is-font-elegant" aria-pressed="false">Elegant</button>
+            <button type="button" class="personalise-font-btn is-font-playful" data-try-font="Playful" data-font-class="is-font-playful" aria-pressed="false">PLAYFUL</button>
+            <button type="button" class="personalise-font-btn is-font-cursive" data-try-font="Cursive" data-font-class="is-font-cursive" aria-pressed="false">Cursive</button>
+            <button type="button" class="personalise-font-btn is-font-roman" data-try-font="Roman" data-font-class="is-font-roman" aria-pressed="false">ROMAN</button>
+            <button type="button" class="personalise-font-btn is-font-sleek" data-try-font="Sleek" data-font-class="is-font-sleek" aria-pressed="false">Sleek</button>
+          </div>
+        </div>
+
+        <div class="try-engrave-actions">
+          <button type="button" class="pdp-atc-btn try-engrave-submit" data-try-submit>
+            {% render 'icon', name: 'gift' %}
+            <span data-try-submit-label>Add Engraved Bottle to Cart &bull; ₹1,200</span>
+          </button>
+          <a href="/products/marq-navy" class="try-engrave-view-link" data-try-product-link>
+            <span>View Fragrance Details</span>
+            {% render 'icon', name: 'arrow-right' %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Personalisation Try-On",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Subheading",
+      "default": "COMPLIMENTARY BOTTLE ENGRAVING"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Try on live bottle personalisation"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Personalisation Try-On"
+    }
+  ]
+}
+{% endschema %}

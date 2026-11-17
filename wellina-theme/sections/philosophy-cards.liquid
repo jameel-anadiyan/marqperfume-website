@@ -1,0 +1,80 @@
+<section class="section-pad color-scheme-1">
+  <div class="page-width">
+    <div class="section-head-center">
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="philosophy-grid">
+      <article class="philosophy-card color-scheme-2" data-expand-card>
+        <img src="{{ 'marq-slider-1.jpg' | asset_url }}" alt="22% Fine Eau de Parfum" loading="lazy">
+        <span class="science-card__gradient"></span>
+        <div class="philosophy-card__bottom">
+          <div>
+            <span class="philosophy-card__num">01.</span>
+            <h3 class="h3">22% Fine Extrait Oils</h3>
+          </div>
+          <button type="button" class="circle-btn circle-btn--lime" data-expand-btn aria-label="Toggle 22% Fine Extrait Oils details">
+            {% render 'icon', name: 'plus' %}
+          </button>
+        </div>
+        <div class="philosophy-card__drawer">
+          <p>Formulated at true Eau de Parfum strength—free from phthalates, parabens, and synthetic dyes for pure, lasting clarity on skin.</p>
+        </div>
+      </article>
+
+      <article class="philosophy-card color-scheme-2" data-expand-card>
+        <img src="{{ 'marq-slider-2.jpg' | asset_url }}" alt="Master Perfumer Craft" loading="lazy">
+        <span class="science-card__gradient"></span>
+        <div class="philosophy-card__bottom">
+          <div>
+            <span class="philosophy-card__num">02.</span>
+            <h3 class="h3">Master Perfumer Craft</h3>
+          </div>
+          <button type="button" class="circle-btn circle-btn--lime" data-expand-btn aria-label="Toggle Master Perfumer Craft details">
+            {% render 'icon', name: 'plus' %}
+          </button>
+        </div>
+        <div class="philosophy-card__drawer">
+          <p>Macerated in small batches for six weeks to harmonize sparkling Mediterranean citrus with crystalline marine wave accords.</p>
+        </div>
+      </article>
+
+      <article class="philosophy-card color-scheme-2" data-expand-card>
+        <img src="{{ 'marq-slider-3.jpg' | asset_url }}" alt="Architectural Sapphire Glass" loading="lazy">
+        <span class="science-card__gradient"></span>
+        <div class="philosophy-card__bottom">
+          <div>
+            <span class="philosophy-card__num">03.</span>
+            <h3 class="h3">Sapphire Glass Flacon</h3>
+          </div>
+          <button type="button" class="circle-btn circle-btn--lime" data-expand-btn aria-label="Toggle Sapphire Glass Flacon details">
+            {% render 'icon', name: 'plus' %}
+          </button>
+        </div>
+        <div class="philosophy-card__drawer">
+          <p>UV-protective cobalt glass shields delicate botanical oils from light degradation while anchoring any modern vanity.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Philosophy Expand Cards",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The art of modern perfumery"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Philosophy Expand Cards"
+    }
+  ]
+}
+{% endschema %}
+

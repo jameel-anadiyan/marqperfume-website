@@ -1,0 +1,156 @@
+{%- comment -%}
+  Renders MARQ Perfumes .color-scheme-12 (#EAF3FA) 20px-radius Product Card.
+  Supports Eau de Parfum, Attar (Perfumed Oil), and Bakhoor (Incense Powder).
+{%- endcomment -%}
+{%- liquid
+  assign default_card_img = 'marq-navy-hero.jpg' | asset_url
+  if card_product != blank and card_product.title != blank
+    assign p_handle = card_product.handle
+    assign p_title = card_product.title | remove_first: 'MARQ ' | remove_first: 'Marq '
+    assign p_url = card_product.url | default: '/products/' | append: p_handle
+    assign p_category = card_product.category | default: 'Eau de Parfum'
+    assign p_family = card_product.family | default: card_product.type | default: 'Fresh'
+    assign p_gender = card_product.gender | default: 'Unisex'
+    assign p_occasion = card_product.occasion_tag | default: 'Daily & Office'
+    assign p_type = card_product.type | default: 'Eau de Parfum'
+    assign p_vendor = card_product.vendor | default: 'MARQ Perfumes'
+    assign p_price = card_product.price
+    assign p_compare = card_product.compare_at_price
+    assign p_available = card_product.available
+    assign p_variant_id = card_product.selected_or_first_available_variant.id
+    if card_product.featured_image != blank
+      assign p_img_1 = card_product.featured_image | image_url: width: 800
+    else
+      assign p_img_1 = default_card_img
+    endif
+    if card_product.images[1] != blank
+      assign p_img_2 = card_product.images[1] | image_url: width: 800
+    else
+      assign p_img_2 = ''
+    endif
+    assign p_badge = card_product.badge | default: ''
+    assign p_badge_type = card_product.badge_type | default: ''
+    if p_badge == blank
+      if p_available == false
+        assign p_badge = 'Sold Out'
+        assign p_badge_type = 'soldout'
+      elsif p_compare > p_price
+        assign p_badge = 'Sale'
+        assign p_badge_type = 'sale'
+      elsif card_product.tags contains 'Best Sellers' or card_product.tags contains 'bestseller'
+        assign p_badge = 'Best Sellers'
+        assign p_badge_type = 'bestseller'
+      elsif card_product.tags contains 'New' or card_product.tags contains 'new'
+        assign p_badge = 'New'
+        assign p_badge_type = 'new'
+      endif
+    endif
+  else
+    assign p_handle = demo_handle | default: 'marq-navy'
+    assign p_title = demo_title | default: 'Navy'
+    assign p_url = demo_url | default: '/products/' | append: p_handle
+    assign p_category = demo_category | default: 'Eau de Parfum'
+    assign p_family = demo_family | default: 'Fresh'
+    assign p_gender = demo_gender | default: 'Unisex'
+    assign p_occasion = demo_occasion | default: 'Daily & Office'
+    if demo_type != blank
+      assign p_type = demo_type
+    elsif p_category == 'Attar'
+      assign p_type = 'Attar • Perfumed Oil'
+    elsif p_category == 'Bakhoor'
+      assign p_type = 'Bakhoor • Incense'
+    else
+      assign p_type = p_family | append: ' • ' | append: p_gender
+    endif
+    assign p_vendor = demo_vendor | default: 'MARQ Perfumes'
+    assign p_price = demo_price | default: 120000
+    assign p_compare = demo_compare | default: 0
+    assign p_available = true
+    if demo_available == false
+      assign p_available = false
+    endif
+    assign p_variant_id = demo_variant_id | default: ''
+    assign p_img_1 = demo_image | default: default_card_img
+    assign p_img_2 = demo_hover_image | default: ''
+    assign p_badge = demo_badge | default: ''
+    assign p_badge_type = demo_badge_type | default: ''
+  endif
+
+  if p_category == 'Attar'
+    assign cat_href = '/collections/attar'
+  elsif p_category == 'Bakhoor'
+    assign cat_href = '/collections/bakhoor'
+  else
+    assign p_family_slug = p_family | handle
+    assign cat_href = '/collections/' | append: p_family_slug
+  endif
+-%}
+
+<article
+  class="product-card color-scheme-12"
+  data-product-card
+  data-handle="{{ p_handle }}"
+  data-title="{{ p_title | escape }}"
+  data-price="{{ p_price }}"
+  data-available="{{ p_available }}"
+  data-vendor="{{ p_vendor | escape }}"
+  data-category="{{ p_category | escape }}"
+  data-family="{{ p_family | escape }}"
+  data-gender="{{ p_gender | escape }}"
+  data-occasion="{{ p_occasion | escape }}"
+>
+  <div class="product-card__media-wrap">
+    {%- if p_badge != blank -%}
+      <span class="badge badge--{{ p_badge_type | default: 'bestseller' }}">{{ p_badge }}</span>
+    {%- endif -%}
+
+    <a href="{{ p_url }}" class="product-card__media-link" aria-label="{{ p_title | escape }}">
+      <img
+        src="{{ p_img_1 }}"
+        alt="{{ p_title | escape }}"
+        loading="lazy"
+        width="600"
+        height="600"
+        class="product-card__img product-card__img--primary"
+      >
+      {%- if p_img_2 != blank -%}
+        <img
+          src="{{ p_img_2 }}"
+          alt="{{ p_title | escape }}"
+          loading="lazy"
+          width="600"
+          height="600"
+          class="product-card__img product-card__img--hover"
+        >
+      {%- endif -%}
+    </a>
+  </div>
+
+  <div class="product-card__info">
+    <div class="product-card__meta">
+      <a href="{{ cat_href }}" class="product-card__category">{{ p_type }}</a>
+      <h3 class="product-card__title">
+        <a href="{{ p_url }}">{{ p_title }}</a>
+      </h3>
+      <div class="product-card__price-row">
+        <span class="product-card__price{% if p_compare > p_price %} is-sale{% endif %}">
+          {{ p_price | money }}
+        </span>
+        {%- if p_compare > p_price -%}
+          <s class="product-card__compare">{{ p_compare | money }}</s>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="product-card__quick-btn"
+      data-quick-view-trigger="{{ p_handle }}"
+      {% if p_variant_id != blank %}data-variant-id="{{ p_variant_id }}"{% endif %}
+      aria-label="Choose options for {{ p_title | escape }}"
+      title="Choose options"
+    >
+      {% render 'icon', name: 'bag' %}
+    </button>
+  </div>
+</article>

@@ -1,0 +1,28 @@
+<section class="marquee-section color-scheme-3" aria-label="Fragrance highlights">
+  <div class="marquee-track">
+    {%- for loop_i in (1..3) -%}
+      <div class="marquee-group" {% if loop_i > 1 %}aria-hidden="true"{% endif %}>
+        <span class="h3 marquee-phrase">Oceanic &amp; Crisp</span>
+        <a href="/collections/all" class="marquee-pill">Shop</a>
+        <span class="h3 marquee-phrase">Citrus &amp; Wild Berries</span>
+        <a href="/collections/all" class="marquee-pill">Shop</a>
+        <span class="h3 marquee-phrase">Dewy White Lily</span>
+        <a href="/collections/all" class="marquee-pill">Shop</a>
+        <span class="h3 marquee-phrase">12-Hour Eau de Parfum</span>
+        <a href="/collections/all" class="marquee-pill">Shop</a>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Marquee Strip",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Marquee Strip"
+    }
+  ]
+}
+{% endschema %}

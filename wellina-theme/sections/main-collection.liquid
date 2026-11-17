@@ -1,0 +1,263 @@
+{%- liquid
+  assign col_title = collection.title | default: 'All Creations' | remove: ' Collection' | remove: ' collection'
+  assign col_slug = collection.handle | default: 'all'
+
+  assign u_navy_h = 'marq-navy-hero.jpg' | asset_url
+  assign u_navy_2 = 'marq-navy-1.jpg' | asset_url
+  assign u_frost_h = 'marq-frost-hero.jpg' | asset_url
+  assign u_frost_2 = 'marq-frost-1.jpg' | asset_url
+  assign u_ocean_h = 'marq-ocean-breeze-hero.jpg' | asset_url
+  assign u_ocean_2 = 'marq-ocean-breeze.jpg' | asset_url
+  assign u_apple_h = 'marq-red-apple-hero.jpg' | asset_url
+  assign u_apple_2 = 'marq-red-apple.jpg' | asset_url
+  assign u_leather_h = 'marq-leather-night-hero.jpg' | asset_url
+  assign u_leather_2 = 'marq-leather-night.jpg' | asset_url
+  assign u_saffron_h = 'marq-saffron-glow-hero.jpg' | asset_url
+  assign u_saffron_2 = 'marq-saffron-glow.jpg' | asset_url
+  assign u_spice_h = 'marq-midnight-spice-hero.jpg' | asset_url
+  assign u_spice_2 = 'marq-midnight-spice.jpg' | asset_url
+  assign u_pearl_h = 'marq-pearl-hero.jpg' | asset_url
+  assign u_pearl_2 = 'marq-pearl.jpg' | asset_url
+  assign u_cherry_h = 'marq-dark-cherry-hero.jpg' | asset_url
+  assign u_cherry_2 = 'marq-dark-cherry.jpg' | asset_url
+  assign u_poud_h = 'marq-passion-oud-hero.jpg' | asset_url
+  assign u_poud_2 = 'marq-passion-oud.jpg' | asset_url
+  assign u_voud_h = 'marq-velvet-oud-hero.jpg' | asset_url
+  assign u_voud_2 = 'marq-velvet-oud.jpg' | asset_url
+  assign u_stay_h = 'marq-stay-close-hero.jpg' | asset_url
+  assign u_stay_2 = 'marq-stay-close.jpg' | asset_url
+  assign u_cotton_h = 'marq-cotton-hero.jpg' | asset_url
+  assign u_cotton_2 = 'marq-cotton.jpg' | asset_url
+
+  assign u_at_jas_h = 'marq-attar-jasmine-hero.jpg' | asset_url
+  assign u_at_jas_2 = 'marq-attar-jasmine.jpg' | asset_url
+  assign u_at_voud_h = 'marq-attar-velvet-oud-hero.jpg' | asset_url
+  assign u_at_voud_2 = 'marq-attar-velvet-oud.jpg' | asset_url
+  assign u_at_lav_h = 'marq-attar-lavender-sandal-hero.jpg' | asset_url
+  assign u_at_lav_2 = 'marq-attar-lavender-sandal.jpg' | asset_url
+  assign u_at_noud_h = 'marq-attar-night-oud-hero.jpg' | asset_url
+  assign u_at_noud_2 = 'marq-attar-night-oud.jpg' | asset_url
+  assign u_at_rose_h = 'marq-attar-rose-sandal-hero.jpg' | asset_url
+  assign u_at_rose_2 = 'marq-attar-rose-sandal.jpg' | asset_url
+
+  assign u_bk_c1 = 'marq-bakhoor-classic-1.jpg' | asset_url
+  assign u_bk_c2 = 'marq-bakhoor-classic-2.jpg' | asset_url
+  assign u_bk_o1 = 'marq-bakhoor-oud-1.jpg' | asset_url
+  assign u_bk_o2 = 'marq-bakhoor-oud-2.jpg' | asset_url
+  assign u_bk_r1 = 'marq-bakhoor-royal-1.jpg' | asset_url
+  assign u_bk_r2 = 'marq-bakhoor-royal-2.jpg' | asset_url
+-%}
+
+<section class="section-collection color-scheme-1" data-collection-page data-collection-slug="{{ col_slug }}">
+  <div class="page-width">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="{{ routes.root_url | default: '/' }}">Home</a>
+      <span>/</span>
+      <a href="/collections">Collections</a>
+      <span>/</span>
+      <span aria-current="page" data-collection-crumb>{{ col_title }}</span>
+    </nav>
+
+    <header class="collection-header">
+      <h1 class="collection-header__title" data-collection-heading>{{ col_title }}</h1>
+    </header>
+
+    <div class="collection-toolbar">
+      <div class="collection-toolbar__left">
+        <button
+          type="button"
+          class="filter-toggle-pill"
+          data-toggle-facets
+          aria-expanded="false"
+          aria-controls="CollectionFilterDrawer"
+        >
+          {% render 'icon', name: 'filter' %}
+          <span>Filters</span>
+          <span class="filter-toggle-pill__badge" data-active-filter-count hidden>0</span>
+        </button>
+        <span class="collection-count" data-collection-count>
+          {%- if collection != blank and collection.products_count > 0 -%}
+            {{ collection.products_count }} products
+          {%- else -%}
+            21 products
+          {%- endif -%}
+        </span>
+      </div>
+
+      <div class="collection-toolbar__right">
+        <label class="sort-control">
+          <span>Sort by</span>
+          <select class="pill-select" data-collection-sort aria-label="Sort products">
+            <option value="best-selling">Best selling</option>
+            <option value="featured">Featured</option>
+            <option value="title-asc">Alphabetically, A-Z</option>
+            <option value="title-desc">Alphabetically, Z-A</option>
+            <option value="price-asc">Price, low to high</option>
+            <option value="price-desc">Price, high to low</option>
+          </select>
+        </label>
+
+        <div class="density-control">
+          <span>View as</span>
+          <button type="button" class="density-btn is-active" data-grid-cols="3" aria-label="3 column grid">
+            {% render 'icon', name: 'grid-3' %}
+          </button>
+          <button type="button" class="density-btn" data-grid-cols="4" aria-label="4 column grid">
+            {% render 'icon', name: 'grid-4' %}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="collection-filter-backdrop" data-filter-backdrop aria-hidden="true"></div>
+
+    <aside
+      class="collection-filter-drawer color-scheme-1"
+      id="CollectionFilterDrawer"
+      data-filter-drawer
+      aria-hidden="true"
+      aria-label="Product Filters"
+    >
+      <div class="collection-filter-drawer__head">
+        <h2 class="collection-filter-drawer__title">Filters</h2>
+        <button type="button" class="circle-btn circle-btn--ghost" data-close-filter-drawer aria-label="Close filters">
+          {% render 'icon', name: 'close' %}
+        </button>
+      </div>
+
+      <div class="collection-filter-drawer__body" data-collection-sidebar>
+        <details class="facet-box" open>
+          <summary class="h5">Product Category <span class="facet-sign"></span></summary>
+          <div class="facet-box__body">
+            <label class="facet-check"><input type="checkbox" value="Eau de Parfum" data-facet-category><span>Eau de Parfum (13)</span></label>
+            <label class="facet-check"><input type="checkbox" value="Attar" data-facet-category><span>Attar &bull; Perfumed Oil (5)</span></label>
+            <label class="facet-check"><input type="checkbox" value="Bakhoor" data-facet-category><span>Bakhoor &bull; Incense (3)</span></label>
+          </div>
+        </details>
+
+        <details class="facet-box" open>
+          <summary class="h5">Scent Family <span class="facet-sign"></span></summary>
+          <div class="facet-box__body">
+            <label class="facet-check"><input type="checkbox" value="Fresh" data-facet-family><span>Fresh (4)</span></label>
+            <label class="facet-check"><input type="checkbox" value="Oriental" data-facet-family><span>Oriental (8)</span></label>
+            <label class="facet-check"><input type="checkbox" value="Woody" data-facet-family><span>Woody (6)</span></label>
+            <label class="facet-check"><input type="checkbox" value="Florals" data-facet-family><span>Florals (3)</span></label>
+          </div>
+        </details>
+
+        <details class="facet-box" open>
+          <summary class="h5">Gender <span class="facet-sign"></span></summary>
+          <div class="facet-box__body">
+            <label class="facet-check"><input type="checkbox" value="Men" data-facet-gender><span>Men (4)</span></label>
+            <label class="facet-check"><input type="checkbox" value="Women" data-facet-gender><span>Women (1)</span></label>
+            <label class="facet-check"><input type="checkbox" value="Unisex" data-facet-gender><span>Unisex (16)</span></label>
+          </div>
+        </details>
+
+        <details class="facet-box" open>
+          <summary class="h5">Occasion <span class="facet-sign"></span></summary>
+          <div class="facet-box__body">
+            <label class="facet-check"><input type="checkbox" value="Daily & Office" data-facet-occasion><span>Daily &amp; Office (6)</span></label>
+            <label class="facet-check"><input type="checkbox" value="Evening & Dates" data-facet-occasion><span>Evening &amp; Dates (7)</span></label>
+            <label class="facet-check"><input type="checkbox" value="Weddings & Formal" data-facet-occasion><span>Weddings &amp; Formal (7)</span></label>
+            <label class="facet-check"><input type="checkbox" value="Casual & Travel" data-facet-occasion><span>Casual &amp; Travel (1)</span></label>
+          </div>
+        </details>
+
+        <details class="facet-box" open>
+          <summary class="h5">Price (₹ INR) <span class="facet-sign"></span></summary>
+          <div class="facet-box__body">
+            <p class="facet-price-note">Starts from ₹250</p>
+            <input type="range" min="0" max="3000" step="50" value="3000" class="price-range-slider" data-facet-max-range aria-label="Maximum price in Rupees">
+            <div class="facet-price-inputs">
+              <label class="price-pill-field">
+                <span>₹</span>
+                <input type="number" min="0" max="3000" value="0" data-facet-min-price aria-label="Minimum price">
+              </label>
+              <span>&mdash;</span>
+              <label class="price-pill-field">
+                <span>₹</span>
+                <input type="number" min="0" max="3000" value="3000" data-facet-max-price aria-label="Maximum price">
+              </label>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="collection-filter-drawer__foot">
+        <button type="button" class="filter-drawer-reset-btn" data-reset-facets>Clear all</button>
+        <button type="button" class="filter-drawer-apply-btn" data-close-filter-drawer data-filter-apply-label>View 21 products</button>
+      </div>
+    </aside>
+
+    <div class="collection-layout" data-collection-layout>
+      <div class="collection-main">
+        {%- if collection != blank and collection.products_count > 0 -%}
+          {% paginate collection.products by 30 %}
+            <div class="collection-product-grid" data-collection-grid data-cols="3">
+              {%- if col_slug == 'all' -%}
+                {%- for prod in collection.products -%}
+                  {%- unless prod.type contains 'Attar' or prod.type contains 'Bakhoor' or prod.category == 'Attar' or prod.category == 'Bakhoor' -%}
+                    {% render 'product-card', card_product: prod %}
+                  {%- endunless -%}
+                {%- endfor -%}
+                {%- for prod in collection.products -%}
+                  {%- if prod.type contains 'Attar' or prod.category == 'Attar' -%}
+                    {% render 'product-card', card_product: prod %}
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- for prod in collection.products -%}
+                  {%- if prod.type contains 'Bakhoor' or prod.category == 'Bakhoor' -%}
+                    {% render 'product-card', card_product: prod %}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- else -%}
+                {%- for prod in collection.products -%}
+                  {% render 'product-card', card_product: prod %}
+                {%- endfor -%}
+              {%- endif -%}
+            </div>
+          {% endpaginate %}
+        {%- else -%}
+          <div class="collection-product-grid" data-collection-grid data-cols="3">
+            {%- comment -%} 1. 13 Eau de Parfums FIRST {%- endcomment -%}
+            {% render 'product-card', demo_handle: 'marq-navy', demo_title: 'Navy', demo_category: 'Eau de Parfum', demo_family: 'Fresh', demo_gender: 'Men', demo_occasion: 'Daily & Office', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_navy_h, demo_hover_image: u_navy_2 %}
+            {% render 'product-card', demo_handle: 'marq-passion-oud', demo_title: 'Passion Oud', demo_category: 'Eau de Parfum', demo_family: 'Woody', demo_gender: 'Unisex', demo_occasion: 'Weddings & Formal', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_poud_h, demo_hover_image: u_poud_2 %}
+            {% render 'product-card', demo_handle: 'marq-dark-cherry', demo_title: 'Dark Cherry', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Unisex', demo_occasion: 'Evening & Dates', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_cherry_h, demo_hover_image: u_cherry_2 %}
+            {% render 'product-card', demo_handle: 'marq-frost', demo_title: 'Frost', demo_category: 'Eau de Parfum', demo_family: 'Fresh', demo_gender: 'Unisex', demo_occasion: 'Daily & Office', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_frost_h, demo_hover_image: u_frost_2 %}
+            {% render 'product-card', demo_handle: 'marq-leather-night', demo_title: 'Leather Night', demo_category: 'Eau de Parfum', demo_family: 'Woody', demo_gender: 'Unisex', demo_occasion: 'Weddings & Formal', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_leather_h, demo_hover_image: u_leather_2 %}
+            {% render 'product-card', demo_handle: 'marq-midnight-spice', demo_title: 'Midnight Spice', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Men', demo_occasion: 'Evening & Dates', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_spice_h, demo_hover_image: u_spice_2 %}
+            {% render 'product-card', demo_handle: 'marq-velvet-oud', demo_title: 'Velvet Oud', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Unisex', demo_occasion: 'Weddings & Formal', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_voud_h, demo_hover_image: u_voud_2 %}
+            {% render 'product-card', demo_handle: 'marq-saffron-glow', demo_title: 'Saffron Glow', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Unisex', demo_occasion: 'Weddings & Formal', demo_price: 120000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_saffron_h, demo_hover_image: u_saffron_2 %}
+            {% render 'product-card', demo_handle: 'marq-pearl', demo_title: 'Pearl', demo_category: 'Eau de Parfum', demo_family: 'Woody', demo_gender: 'Unisex', demo_occasion: 'Evening & Dates', demo_price: 120000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_pearl_h, demo_hover_image: u_pearl_2 %}
+            {% render 'product-card', demo_handle: 'marq-cotton', demo_title: 'Cotton', demo_category: 'Eau de Parfum', demo_family: 'Florals', demo_gender: 'Women', demo_occasion: 'Daily & Office', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_cotton_h, demo_hover_image: u_cotton_2 %}
+            {% render 'product-card', demo_handle: 'marq-stay-close', demo_title: 'Stay Close', demo_category: 'Eau de Parfum', demo_family: 'Woody', demo_gender: 'Men', demo_occasion: 'Evening & Dates', demo_price: 120000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_stay_h, demo_hover_image: u_stay_2 %}
+            {% render 'product-card', demo_handle: 'marq-red-apple', demo_title: 'Red Apple', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Men', demo_occasion: 'Evening & Dates', demo_price: 120000, demo_image: u_apple_h, demo_hover_image: u_apple_2 %}
+            {% render 'product-card', demo_handle: 'marq-ocean-breeze', demo_title: 'Ocean Breeze', demo_category: 'Eau de Parfum', demo_family: 'Fresh', demo_gender: 'Unisex', demo_occasion: 'Casual & Travel', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_ocean_h, demo_hover_image: u_ocean_2 %}
+
+            {%- comment -%} 2. 5 Attars (Perfumed Oil) SECOND {%- endcomment -%}
+            {% render 'product-card', demo_handle: 'marq-velvet-oud-attar', demo_title: 'Velvet Oud Attar', demo_category: 'Attar', demo_family: 'Oriental', demo_gender: 'Unisex', demo_occasion: 'Weddings & Formal', demo_price: 25000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_at_voud_h, demo_hover_image: u_at_voud_2 %}
+            {% render 'product-card', demo_handle: 'marq-jasmine-attar', demo_title: 'Mogra Jasmine Attar', demo_category: 'Attar', demo_family: 'Florals', demo_gender: 'Unisex', demo_occasion: 'Daily & Office', demo_price: 25000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_at_jas_h, demo_hover_image: u_at_jas_2 %}
+            {% render 'product-card', demo_handle: 'marq-night-oud-attar', demo_title: 'Saffron Night Oud Attar', demo_category: 'Attar', demo_family: 'Woody', demo_gender: 'Unisex', demo_occasion: 'Evening & Dates', demo_price: 25000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_at_noud_h, demo_hover_image: u_at_noud_2 %}
+            {% render 'product-card', demo_handle: 'marq-taif-rose-attar', demo_title: 'Taif Rose & Sandal Attar', demo_category: 'Attar', demo_family: 'Florals', demo_gender: 'Unisex', demo_occasion: 'Weddings & Formal', demo_price: 25000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_at_rose_h, demo_hover_image: u_at_rose_2 %}
+            {% render 'product-card', demo_handle: 'marq-lavender-sandal-attar', demo_title: 'Lavender Sandal Attar', demo_category: 'Attar', demo_family: 'Fresh', demo_gender: 'Unisex', demo_occasion: 'Daily & Office', demo_price: 25000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_at_lav_h, demo_hover_image: u_at_lav_2 %}
+
+            {%- comment -%} 3. 3 Bakhoors (Incense Powder) THIRD {%- endcomment -%}
+            {% render 'product-card', demo_handle: 'marq-royal-bakhoor', demo_title: 'Royal Bakhoor', demo_category: 'Bakhoor', demo_family: 'Oriental', demo_gender: 'Unisex', demo_occasion: 'Weddings & Formal', demo_price: 120000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_bk_r1, demo_hover_image: u_bk_r2 %}
+            {% render 'product-card', demo_handle: 'marq-oud-bakhoor', demo_title: 'Oud Bakhoor', demo_category: 'Bakhoor', demo_family: 'Oriental', demo_gender: 'Unisex', demo_occasion: 'Evening & Dates', demo_price: 65000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_bk_o1, demo_hover_image: u_bk_o2 %}
+            {% render 'product-card', demo_handle: 'marq-classic-bakhoor', demo_title: 'Classic Bakhoor', demo_category: 'Bakhoor', demo_family: 'Woody', demo_gender: 'Unisex', demo_occasion: 'Daily & Office', demo_price: 50000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_bk_c1, demo_hover_image: u_bk_c2 %}
+          </div>
+        {%- endif -%}
+
+        <p class="collection-empty-msg" data-collection-empty hidden>No fragrances match the selected filters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": []
+}
+{% endschema %}

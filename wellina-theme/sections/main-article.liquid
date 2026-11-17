@@ -1,0 +1,37 @@
+<article class="section-pad color-scheme-1">
+  <div class="page-width page-width--narrow">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="{{ routes.root_url | default: '/' }}">Home</a>
+      <span>/</span>
+      <a href="/blogs/news">Journal</a>
+    </nav>
+
+    <h1 class="h1">{{ article.title | default: 'Inside Navy: Citrus Zest, Lavender & Sandalwood' }}</h1>
+    <p class="journal-card__meta">{{ article.published_at | default: 'now' | date: '%b %d, %Y' }} &bull; {{ article.author | default: 'MARQ Atelier' }}</p>
+
+    <div class="article-hero-img">
+      {%- if article != blank and article.image != blank -%}
+        <img src="{{ article.image | image_url: width: 1400 }}" alt="{{ article.title | escape }}">
+      {%- else -%}
+        <img src="{{ 'marq-slider-1.jpg' | asset_url }}" alt="MARQ Fragrance Journal">
+      {%- endif -%}
+    </div>
+
+    <div class="rte">
+      {%- if article != blank and article.content != blank -%}
+        {{ article.content }}
+      {%- else -%}
+        <p>Great modern perfumery captures contrast: the electric chill of freshly sliced lemon zest and crushed mint meeting aromatic lavender over rich, creamy woods.</p>
+        <p>In Navy Eau de Parfum, our perfumers pair cold-pressed Mediterranean bergamot with an aromatic pineapple-lavender heart and warm sandalwood—creating an effortless, twelve-hour signature trail housed in architectural fluted cobalt glass.</p>
+      {%- endif -%}
+    </div>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Main Article",
+  "settings": []
+}
+{% endschema %}
+

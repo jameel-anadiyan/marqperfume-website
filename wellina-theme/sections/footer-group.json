@@ -1,0 +1,17 @@
+{
+  "name": "Footer Group",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "tagline": "Crafted in small batches for lasting ocean-fresh presence.",
+        "show_instagram": true
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
+

@@ -1,0 +1,151 @@
+<section class="section-pad section-science-cards color-scheme-1">
+  <div class="page-width">
+    <div class="section-head-center">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="text-subheading">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subtext != blank -%}
+        <p class="section-subtext">{{ section.settings.subtext }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="science-cards-grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          case forloop.index
+            when 1
+              assign fb_img = 'marq-navy-hero.jpg' | asset_url
+              assign fb_url = '/collections/fresh'
+            when 2
+              assign fb_img = 'marq-dark-cherry-hero.jpg' | asset_url
+              assign fb_url = '/collections/oriental'
+            when 3
+              assign fb_img = 'marq-passion-oud-hero.jpg' | asset_url
+              assign fb_url = '/collections/woody'
+            else
+              assign fb_img = 'marq-cotton-hero.jpg' | asset_url
+              assign fb_url = '/collections/florals'
+          endcase
+          assign card_url = block.settings.link | default: fb_url
+        -%}
+        <article class="science-card" {{ block.shopify_attributes }}>
+          <a href="{{ card_url }}" class="science-card__media" aria-label="{{ block.settings.button_label | escape }}">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 1040 }}" alt="{{ block.settings.button_label | escape }}" loading="lazy">
+            {%- else -%}
+              <img src="{{ fb_img }}" alt="{{ block.settings.button_label | escape }}" loading="lazy">
+            {%- endif -%}
+          </a>
+          <div class="science-card__footer">
+            <a href="{{ card_url }}" class="science-card__cta">
+              <span>{{ block.settings.button_label }}</span>
+              <span class="science-card__cta-icon">{% render 'icon', name: 'arrow-right' %}</span>
+            </a>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scent Architecture",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Subheading",
+      "default": "SHOP BY SCENT FAMILY"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Four signature olfactory worlds"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Description",
+      "default": "Curated across Fresh, Oriental, Woody, and Floral collections—crafted for Men, Women, and Unisex wear."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Note Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card image"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Top pill badge",
+          "default": "Fresh Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card heading",
+          "default": "Crisp citrus, sea spray & aromatic lavender"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Explore Fresh"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Card link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scent Architecture",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "tag": "Fresh • 6 Scents",
+            "title": "Crisp citrus, ocean spray & aromatic mint",
+            "button_label": "Explore Fresh"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "tag": "Oriental • 5 Scents",
+            "title": "Black cherry, saffron, kulfi & warm vanilla",
+            "button_label": "Explore Oriental"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "tag": "Woody • 4 Scents",
+            "title": "Passionfruit oud, suede leather & sandalwood",
+            "button_label": "Explore Woody"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "tag": "Florals • 2 Scents",
+            "title": "Dewy Turkish rose, peony & airy cotton musk",
+            "button_label": "Explore Florals"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

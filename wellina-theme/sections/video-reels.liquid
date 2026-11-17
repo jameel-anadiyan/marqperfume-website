@@ -1,0 +1,98 @@
+{%- liquid
+  assign u_navy = 'marq-navy-hero.jpg' | asset_url
+  assign u_cherry = 'marq-dark-cherry-hero.jpg' | asset_url
+  assign u_poud = 'marq-passion-oud-hero.jpg' | asset_url
+  assign u_cotton = 'marq-cotton-hero.jpg' | asset_url
+  assign u_frost = 'marq-frost-hero.jpg' | asset_url
+-%}
+<section class="section-pad color-scheme-1" data-carousel>
+  <div class="page-width">
+    <div class="section-head-center">
+      <p class="text-subheading">{{ section.settings.eyebrow }}</p>
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="reels-carousel-track" data-carousel-track>
+      <article class="reel-card" data-open-story data-story-img-src="{{ u_navy }}" data-story-heading="Navy — Office Signature" data-story-text="Crisp lemon zest, lavender, and sandalwood that stays fresh for 10+ hours in Indian weather.">
+        <img src="{{ u_navy }}" alt="Navy" class="reel-card__bg" loading="lazy">
+        <span class="reel-card__play">{% render 'icon', name: 'play' %}</span>
+        <div class="reel-card__glass">
+          <img src="{{ u_navy }}" alt="Reviewer" class="reel-card__avatar" loading="lazy">
+          <h3 class="h4">Navy &bull; ₹1,200</h3>
+          <p>&ldquo;Crisp citrus and sandalwood that commands compliments all day.&rdquo;</p>
+        </div>
+      </article>
+
+      <article class="reel-card" data-open-story data-story-img-src="{{ u_poud }}" data-story-heading="Passion Oud — 5/5 Longevity" data-story-text="Exotic passionfruit colliding with smoky agarwood oud—pure luxury for weddings and gala nights.">
+        <img src="{{ u_poud }}" alt="Passion Oud" class="reel-card__bg" loading="lazy">
+        <div class="reel-card__glass">
+          <img src="{{ u_poud }}" alt="Reviewer" class="reel-card__avatar" loading="lazy">
+          <h3 class="h4">Passion Oud &bull; ₹1,200</h3>
+          <p>&ldquo;Exotic passionfruit and dark oud with beast-mode longevity.&rdquo;</p>
+        </div>
+      </article>
+
+      <article class="reel-card" data-open-story data-story-img-src="{{ u_cherry }}" data-story-heading="Dark Cherry — Date Night" data-story-text="Luscious black cherry liqueur, almond, and warm tonka bean—intoxicating from the very first spray.">
+        <img src="{{ u_cherry }}" alt="Dark Cherry" class="reel-card__bg" loading="lazy">
+        <span class="reel-card__play">{% render 'icon', name: 'play' %}</span>
+        <div class="reel-card__glass">
+          <img src="{{ u_cherry }}" alt="Reviewer" class="reel-card__avatar" loading="lazy">
+          <h3 class="h4">Dark Cherry &bull; ₹1,200</h3>
+          <p>&ldquo;Rich black cherry and almond—made for evening dates.&rdquo;</p>
+        </div>
+      </article>
+
+      <article class="reel-card" data-open-story data-story-img-src="{{ u_cotton }}" data-story-heading="Cotton — Airy Elegance" data-story-text="Sparkling mandarin, white peach, and clean cotton musk wrapped in soft skin-like woods.">
+        <img src="{{ u_cotton }}" alt="Cotton" class="reel-card__bg" loading="lazy">
+        <div class="reel-card__glass">
+          <img src="{{ u_cotton }}" alt="Reviewer" class="reel-card__avatar" loading="lazy">
+          <h3 class="h4">Cotton &bull; ₹1,200</h3>
+          <p>&ldquo;Crisp white florals and cotton musk that feel effortlessly regal.&rdquo;</p>
+        </div>
+      </article>
+
+      <article class="reel-card" data-open-story data-story-img-src="{{ u_frost }}" data-story-heading="Frost — Icy Freshness" data-story-text="Italian lemon, green apple, and plum over cool driftwood—built for Indian summers.">
+        <img src="{{ u_frost }}" alt="Frost" class="reel-card__bg" loading="lazy">
+        <span class="reel-card__play">{% render 'icon', name: 'play' %}</span>
+        <div class="reel-card__glass">
+          <img src="{{ u_frost }}" alt="Reviewer" class="reel-card__avatar" loading="lazy">
+          <h3 class="h4">Frost &bull; ₹1,200</h3>
+          <p>&ldquo;Icy citrus-apple freshness that beats the summer heat.&rdquo;</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="carousel-footer-controls">
+      <div class="slider-progress"><span data-carousel-progress style="width: 45%"></span></div>
+      <div class="slider-arrows">
+        <button type="button" class="circle-btn circle-btn--outline" data-carousel-prev aria-label="Previous stories">{% render 'icon', name: 'chevron-left' %}</button>
+        <button type="button" class="circle-btn circle-btn--outline" data-carousel-next aria-label="Next stories">{% render 'icon', name: 'chevron-right' %}</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scent Stories Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Subheading",
+      "default": "COMMUNITY IMPRESSIONS"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real Scent Stories"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scent Stories Carousel"
+    }
+  ]
+}
+{% endschema %}

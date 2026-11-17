@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "settings": {}
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Featured Formulations"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related"
+  ]
+}
+

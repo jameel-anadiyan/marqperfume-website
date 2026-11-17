@@ -1,0 +1,151 @@
+<footer class="site-footer color-scheme-2" role="contentinfo">
+  <div class="page-width">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a href="{{ routes.root_url | default: '/' }}" class="site-footer__logo">
+          {%- if settings.logo_footer != blank -%}
+            <img src="{{ settings.logo_footer | image_url: width: 340 }}" alt="{{ shop.name | default: 'MARQ Perfumes' | escape }}" width="165">
+          {%- else -%}
+            <img src="{{ 'marq-logo-white.png' | asset_url }}" alt="MARQ Perfumes" width="165">
+          {%- endif -%}
+        </a>
+        <h2 class="h1 site-footer__tagline">{{ section.settings.tagline }}</h2>
+      </div>
+
+      <div class="site-footer__columns">
+        <div class="footer-col">
+          <h3 class="h4 footer-col__heading">Categories</h3>
+          <ul>
+            <li><a href="/collections/perfumes">Eau de Parfum</a></li>
+            <li><a href="/collections/attar">Attar &bull; Perfumed Oil</a></li>
+            <li><a href="/collections/bakhoor">Bakhoor &bull; Incense</a></li>
+            <li><a href="/collections/oriental">Oriental &amp; Oud</a></li>
+            <li><a href="/collections/all">Shop All (21)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="h4 footer-col__heading">Company</h3>
+          <ul>
+            <li><a href="/pages/about">Our Story</a></li>
+            <li><a href="/pages/contact">Contact</a></li>
+            <li><a href="/pages/faq">FAQs</a></li>
+            <li><a href="/blogs/news">Fragrance Journal</a></li>
+            <li><a href="/pages/faq">Pan-India Shipping</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="h4 footer-col__heading">Information</h3>
+          <ul class="footer-col__contact">
+            <li>{{ section.settings.address }}</li>
+            <li><a href="mailto:{{ section.settings.email }}" class="link-underlined">{{ section.settings.email }}</a></li>
+            <li><a href="tel:+18882341234">{{ section.settings.phone }}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {%- if section.settings.show_instagram -%}
+      <div class="site-footer__insta">
+        <div class="site-footer__insta-head">
+          <h3 class="h4">Follow Us on Instagram</h3>
+          <a href="{{ settings.social_instagram | default: 'https://instagram.com' }}" target="_blank" rel="noopener" class="site-footer__insta-handle">
+            {{ settings.instagram_handle | default: '@marqperfumes' }}
+          </a>
+        </div>
+        <div class="site-footer__insta-grid">
+          <a href="{{ settings.social_instagram | default: 'https://instagram.com' }}" target="_blank" rel="noopener" class="insta-tile">
+            <img src="{{ 'marq-navy-hero.jpg' | asset_url }}" alt="Navy Eau de Parfum" loading="lazy" width="300" height="300">
+          </a>
+          <a href="{{ settings.social_instagram | default: 'https://instagram.com' }}" target="_blank" rel="noopener" class="insta-tile">
+            <img src="{{ 'marq-passion-oud-hero.jpg' | asset_url }}" alt="Passion Oud Eau de Parfum" loading="lazy" width="300" height="300">
+          </a>
+          <a href="{{ settings.social_instagram | default: 'https://instagram.com' }}" target="_blank" rel="noopener" class="insta-tile">
+            <img src="{{ 'marq-dark-cherry-hero.jpg' | asset_url }}" alt="Dark Cherry Eau de Parfum" loading="lazy" width="300" height="300">
+          </a>
+          <a href="{{ settings.social_instagram | default: 'https://instagram.com' }}" target="_blank" rel="noopener" class="insta-tile">
+            <img src="{{ 'marq-cotton-hero.jpg' | asset_url }}" alt="Cotton Eau de Parfum" loading="lazy" width="300" height="300">
+          </a>
+          <a href="{{ settings.social_instagram | default: 'https://instagram.com' }}" target="_blank" rel="noopener" class="insta-tile">
+            <img src="{{ 'marq-attar-velvet-oud-hero.jpg' | asset_url }}" alt="Velvet Oud Attar" loading="lazy" width="300" height="300">
+          </a>
+          <a href="{{ settings.social_instagram | default: 'https://instagram.com' }}" target="_blank" rel="noopener" class="insta-tile">
+            <img src="{{ 'marq-bakhoor-royal-1.jpg' | asset_url }}" alt="Royal Bakhoor" loading="lazy" width="300" height="300">
+          </a>
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="site-footer__bottom">
+      <div class="site-footer__socials">
+        <a href="{{ settings.social_twitter | default: '#' }}" aria-label="X">X</a>
+        <a href="{{ settings.social_instagram | default: '#' }}" aria-label="Instagram">Instagram</a>
+        <a href="{{ settings.social_tiktok | default: '#' }}" aria-label="TikTok">TikTok</a>
+        <a href="{{ settings.social_pinterest | default: '#' }}" aria-label="Pinterest">Pinterest</a>
+      </div>
+
+      <div class="site-footer__legal">
+        <a href="/pages/faq">Accessibility</a>
+        <a href="/policies/terms-of-service">Terms of Service</a>
+        <a href="/policies/privacy-policy">Privacy Policy</a>
+      </div>
+
+      <div class="site-footer__locale">
+        <span class="locale-pill">{{ cart.currency.iso_code | default: 'INR' }} / {{ request.locale.iso_code | default: 'EN' | upcase }}</span>
+      </div>
+
+      <div class="site-footer__payments" aria-label="Accepted payment methods">
+        <span class="pay-badge">UPI</span>
+        <span class="pay-badge">RuPay</span>
+        <span class="pay-badge">VISA</span>
+        <span class="pay-badge">Mastercard</span>
+        <span class="pay-badge">AMEX</span>
+        <span class="pay-badge">NetBanking</span>
+      </div>
+
+      <p class="site-footer__copy">
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name | default: 'MARQ Perfumes' }}, Powered by Shopify
+      </p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Brand statement",
+      "default": "Crafted in small batches for lasting ocean-fresh presence."
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "540 Madison Avenue, Suite 1800, New York"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Support email",
+      "default": "concierge@marqperfumes.com"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Support phone",
+      "default": "+1 888-234-1234 (toll-free)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_instagram",
+      "label": "Show Instagram gallery strip",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
+

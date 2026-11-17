@@ -1,0 +1,37 @@
+<section class="section-pad color-scheme-1">
+  <div class="page-width page-width--narrow">
+    <div class="section-head-center">
+      <p class="text-subheading">GET IN TOUCH</p>
+      <h1 class="h1">We&rsquo;re here to help</h1>
+      <p class="section-subtext">Have a question about our formulations, subscriptions, or your order? Reach out to our wellness concierge team.</p>
+    </div>
+
+    {% form 'contact', class: 'contact-form' %}
+      {%- if form.posted_successfully? -%}
+        <p class="form-success-banner">Thank you! Our wellness team has received your message.</p>
+      {%- endif -%}
+      <div class="contact-form__row">
+        <input type="text" name="contact[name]" placeholder="Your name" class="pill-input" required>
+        <input type="email" name="contact[email]" placeholder="Email address" class="pill-input" required>
+      </div>
+      <textarea name="contact[body]" rows="5" placeholder="How can we support your wellness journey?" class="rounded-textarea" required></textarea>
+      <button type="submit" class="btn btn--icon-solid">
+        <span class="btn__text-wrap"><span class="btn__text" data-text="Send Message">Send Message</span></span>
+        <span class="btn__icon-circle">{% render 'icon', name: 'chevron-right' %}</span>
+      </button>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Contact Form"
+    }
+  ]
+}
+{% endschema %}
+

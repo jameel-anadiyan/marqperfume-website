@@ -1,0 +1,934 @@
+{%- comment -%}
+  MARQ Perfumes Complete Catalog & Olfactory Data (from MARQ PRODUCT DATA .xlsx).
+  Powers Quick View, Predictive Search, Cart Drawer Upsells, Collection Facets,
+  and PDP Smells-Like / Intensity / Notes & Composition sections.
+{%- endcomment -%}
+{%- liquid
+  assign u_marq_attar_jasmine_hero_jpg = 'marq-attar-jasmine-hero.jpg' | asset_url
+  assign u_marq_attar_jasmine_jpg = 'marq-attar-jasmine.jpg' | asset_url
+  assign u_marq_attar_lavender_sandal_hero_jpg = 'marq-attar-lavender-sandal-hero.jpg' | asset_url
+  assign u_marq_attar_lavender_sandal_jpg = 'marq-attar-lavender-sandal.jpg' | asset_url
+  assign u_marq_attar_night_oud_hero_jpg = 'marq-attar-night-oud-hero.jpg' | asset_url
+  assign u_marq_attar_night_oud_jpg = 'marq-attar-night-oud.jpg' | asset_url
+  assign u_marq_attar_rose_sandal_hero_jpg = 'marq-attar-rose-sandal-hero.jpg' | asset_url
+  assign u_marq_attar_rose_sandal_jpg = 'marq-attar-rose-sandal.jpg' | asset_url
+  assign u_marq_attar_velvet_oud_hero_jpg = 'marq-attar-velvet-oud-hero.jpg' | asset_url
+  assign u_marq_attar_velvet_oud_jpg = 'marq-attar-velvet-oud.jpg' | asset_url
+  assign u_marq_bakhoor_classic_1_jpg = 'marq-bakhoor-classic-1.jpg' | asset_url
+  assign u_marq_bakhoor_classic_2_jpg = 'marq-bakhoor-classic-2.jpg' | asset_url
+  assign u_marq_bakhoor_oud_1_jpg = 'marq-bakhoor-oud-1.jpg' | asset_url
+  assign u_marq_bakhoor_oud_2_jpg = 'marq-bakhoor-oud-2.jpg' | asset_url
+  assign u_marq_bakhoor_royal_1_jpg = 'marq-bakhoor-royal-1.jpg' | asset_url
+  assign u_marq_bakhoor_royal_2_jpg = 'marq-bakhoor-royal-2.jpg' | asset_url
+  assign u_marq_cotton_hero_jpg = 'marq-cotton-hero.jpg' | asset_url
+  assign u_marq_cotton_jpg = 'marq-cotton.jpg' | asset_url
+  assign u_marq_dark_cherry_hero_jpg = 'marq-dark-cherry-hero.jpg' | asset_url
+  assign u_marq_dark_cherry_jpg = 'marq-dark-cherry.jpg' | asset_url
+  assign u_marq_frost_1_jpg = 'marq-frost-1.jpg' | asset_url
+  assign u_marq_frost_hero_jpg = 'marq-frost-hero.jpg' | asset_url
+  assign u_marq_leather_night_hero_jpg = 'marq-leather-night-hero.jpg' | asset_url
+  assign u_marq_leather_night_jpg = 'marq-leather-night.jpg' | asset_url
+  assign u_marq_midnight_spice_hero_jpg = 'marq-midnight-spice-hero.jpg' | asset_url
+  assign u_marq_midnight_spice_jpg = 'marq-midnight-spice.jpg' | asset_url
+  assign u_marq_navy_1_jpg = 'marq-navy-1.jpg' | asset_url
+  assign u_marq_navy_hero_jpg = 'marq-navy-hero.jpg' | asset_url
+  assign u_marq_note_apple_jpg = 'marq-note-apple.jpg' | asset_url
+  assign u_marq_note_aquatic_jpg = 'marq-note-aquatic.jpg' | asset_url
+  assign u_marq_note_cherry_jpg = 'marq-note-cherry.jpg' | asset_url
+  assign u_marq_note_citrus_jpg = 'marq-note-citrus.jpg' | asset_url
+  assign u_marq_note_cotton_jpg = 'marq-note-cotton.jpg' | asset_url
+  assign u_marq_note_lavender_jpg = 'marq-note-lavender.jpg' | asset_url
+  assign u_marq_note_oud_amber_jpg = 'marq-note-oud-amber.jpg' | asset_url
+  assign u_marq_note_passion_jpg = 'marq-note-passion.jpg' | asset_url
+  assign u_marq_note_rose_jpg = 'marq-note-rose.jpg' | asset_url
+  assign u_marq_note_saffron_jpg = 'marq-note-saffron.jpg' | asset_url
+  assign u_marq_note_spice_jpg = 'marq-note-spice.jpg' | asset_url
+  assign u_marq_note_vanilla_jpg = 'marq-note-vanilla.jpg' | asset_url
+  assign u_marq_note_whitefloral_jpg = 'marq-note-whitefloral.jpg' | asset_url
+  assign u_marq_note_woods_jpg = 'marq-note-woods.jpg' | asset_url
+  assign u_marq_ocean_breeze_hero_jpg = 'marq-ocean-breeze-hero.jpg' | asset_url
+  assign u_marq_ocean_breeze_jpg = 'marq-ocean-breeze.jpg' | asset_url
+  assign u_marq_passion_oud_hero_jpg = 'marq-passion-oud-hero.jpg' | asset_url
+  assign u_marq_passion_oud_jpg = 'marq-passion-oud.jpg' | asset_url
+  assign u_marq_pearl_hero_jpg = 'marq-pearl-hero.jpg' | asset_url
+  assign u_marq_pearl_jpg = 'marq-pearl.jpg' | asset_url
+  assign u_marq_perfume_packaging_jpg = 'marq-perfume-packaging.jpg' | asset_url
+  assign u_marq_red_apple_hero_jpg = 'marq-red-apple-hero.jpg' | asset_url
+  assign u_marq_red_apple_jpg = 'marq-red-apple.jpg' | asset_url
+  assign u_marq_saffron_glow_hero_jpg = 'marq-saffron-glow-hero.jpg' | asset_url
+  assign u_marq_saffron_glow_jpg = 'marq-saffron-glow.jpg' | asset_url
+  assign u_marq_stay_close_hero_jpg = 'marq-stay-close-hero.jpg' | asset_url
+  assign u_marq_stay_close_jpg = 'marq-stay-close.jpg' | asset_url
+  assign u_marq_velvet_oud_hero_jpg = 'marq-velvet-oud-hero.jpg' | asset_url
+  assign u_marq_velvet_oud_jpg = 'marq-velvet-oud.jpg' | asset_url
+-%}
+<script id="WellinaCatalogData" type="application/json">
+{
+  "shopifyProducts": [
+    {%- if collections['all'] != blank and collections['all'].products_count > 0 -%}
+      {%- for p in collections['all'].products limit: 30 -%}
+        {
+          "id": {{ p.id | json }},
+          "handle": {{ p.handle | json }},
+          "title": {{ p.title | remove_first: 'MARQ ' | remove_first: 'Marq ' | json }},
+          "vendor": {{ p.vendor | default: 'MARQ Perfumes' | json }},
+          "type": {{ p.type | default: 'Eau de Parfum' | json }},
+          "price": {{ p.price | default: 120000 }},
+          "compare_at_price": {{ p.compare_at_price | default: 0 }},
+          "available": {{ p.available | json }},
+          "url": {{ p.url | json }},
+          "description": {{ p.description | strip_html | truncate: 240 | json }},
+          "featured_image": {{ p.featured_image | image_url: width: 900 | json }},
+          "second_image": {% if p.images[1] != blank %}{{ p.images[1] | image_url: width: 900 | json }}{% else %}null{% endif %},
+          "images": [{%- for img in p.images limit: 6 -%}{{ img | image_url: width: 900 | json }}{% unless forloop.last %},{% endunless %}{%- endfor -%}],
+          "variants": [{%- for v in p.variants -%}{"id": {{ v.id | json }}, "title": {{ v.title | json }}, "price": {{ v.price | default: p.price }}, "compare_at_price": {{ v.compare_at_price | default: 0 }}, "available": {{ v.available | json }}}{% unless forloop.last %},{% endunless %}{%- endfor -%}]
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    {%- endif -%}
+  ],
+  "demoProducts": [
+    {
+      "id": 9201,
+      "handle": "marq-navy",
+      "aliases": [],
+      "title": "Navy",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Fresh \u2022 Men",
+      "family": "Fresh",
+      "gender": "Men",
+      "occasion": "Daily casual wear, Office & business meetings",
+      "occasion_tag": "Daily & Office",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 9,
+      "url": "/products/marq-navy",
+      "description": "Fresh, aromatic and citrusy with a refined, invigorating opening. Opens with Lemon Zest, Bergamot, Mint, unfolding into Lavender, Pineapple, Geranium over a lasting Sandalwood, Cedar, Amberwood base. Best suited for daily casual wear, office & business meetings.",
+      "featured_image": {{ u_marq_navy_hero_jpg | json }},
+      "second_image": {{ u_marq_navy_1_jpg | json }},
+      "images": [{{ u_marq_navy_hero_jpg | json }}, {{ u_marq_navy_1_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Lemon Zest", "Bergamot", "Mint", "Artemisia"],
+      "middle_notes": ["Lavender", "Pineapple", "Geranium", "Green Notes"],
+      "base_notes": ["Sandalwood", "Cedar", "Amberwood", "Iso E Super", "Tonka Bean"],
+      "sillage": 4.0,
+      "projection": 3.5,
+      "longevity": 4.0,
+      "smells_like": {
+        "first_spray": "Fresh, aromatic and citrusy with a refined, invigorating opening.",
+        "after_30_min": "Smooth, elegant and woody with a sophisticated aromatic heart.",
+        "dry_down": "Deep, creamy and sensual with rich sandalwood and warm cedar.",
+        "images": [{{ u_marq_note_citrus_jpg | json }}, {{ u_marq_note_lavender_jpg | json }}, {{ u_marq_note_woods_jpg | json }}]
+      },
+      "variants": [
+        { "id": 920101, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 920102, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9205,
+      "handle": "marq-frost",
+      "aliases": [],
+      "title": "Frost",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Fresh \u2022 Unisex",
+      "family": "Fresh",
+      "gender": "Unisex",
+      "occasion": "College & university, Daily casual wear, Outdoor social gatherings",
+      "occasion_tag": "Daily & Office",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 8,
+      "url": "/products/marq-frost",
+      "description": "Icy, citrusy and vibrant with a crisp, fruity freshness. Opens with Apple, Italian Lemon, Sicilian Bergamot, unfolding into Plum, Orange Blossom, Cardamom over a lasting Musk, Amber, Driftwood base. Best suited for college & university, daily casual wear, outdoor social gatherings.",
+      "featured_image": {{ u_marq_frost_hero_jpg | json }},
+      "second_image": {{ u_marq_frost_1_jpg | json }},
+      "images": [{{ u_marq_frost_hero_jpg | json }}, {{ u_marq_frost_1_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Apple", "Italian Lemon", "Sicilian Bergamot", "Star Anise"],
+      "middle_notes": ["Plum", "Orange Blossom", "Cardamom"],
+      "base_notes": ["Musk", "Amber", "Driftwood", "Moss"],
+      "sillage": 4.0,
+      "projection": 4.0,
+      "longevity": 4.0,
+      "smells_like": {
+        "first_spray": "Icy, citrusy and vibrant with a crisp, fruity freshness.",
+        "after_30_min": "Fresh, aquatic and aromatic with a smooth, subtly sweet heart.",
+        "dry_down": "Musky, woody and slightly ambery with a cool, lasting finish.",
+        "images": [{{ u_marq_note_citrus_jpg | json }}, {{ u_marq_note_whitefloral_jpg | json }}, {{ u_marq_note_woods_jpg | json }}]
+      },
+      "variants": [
+        { "id": 920501, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 920502, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9206,
+      "handle": "marq-ocean-breeze",
+      "aliases": [],
+      "title": "Ocean Breeze",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Fresh \u2022 Unisex",
+      "family": "Fresh",
+      "gender": "Unisex",
+      "occasion": "Summer holidays & travel, Daily casual wear, Daytime outings",
+      "occasion_tag": "Casual & Travel",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 12,
+      "url": "/products/marq-ocean-breeze",
+      "description": "Breezy coastal citrus splashed with cool mint and ocean mist. Opens with Bergamot, Sea Spray, Crushed Mint, unfolding into Neroli Blossom, Green Notes, Marine Calone over a lasting Driftwood, Ambergris, White Musk base. Best suited for summer holidays & travel, daily casual wear, daytime outings.",
+      "featured_image": {{ u_marq_ocean_breeze_hero_jpg | json }},
+      "second_image": {{ u_marq_ocean_breeze_jpg | json }},
+      "images": [{{ u_marq_ocean_breeze_hero_jpg | json }}, {{ u_marq_ocean_breeze_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Bergamot", "Sea Spray", "Crushed Mint", "Chilled Cucumber"],
+      "middle_notes": ["Neroli Blossom", "Green Notes", "Marine Calone"],
+      "base_notes": ["Driftwood", "Ambergris", "White Musk"],
+      "sillage": 3.5,
+      "projection": 3.5,
+      "longevity": 4.0,
+      "smells_like": {
+        "first_spray": "Breezy coastal citrus splashed with cool mint and ocean mist.",
+        "after_30_min": "Luminous neroli blossom and crisp green marine air.",
+        "dry_down": "Sun-bleached driftwood and clean mineral musk.",
+        "images": [{{ u_marq_note_aquatic_jpg | json }}, {{ u_marq_note_whitefloral_jpg | json }}, {{ u_marq_note_woods_jpg | json }}]
+      },
+      "variants": [
+        { "id": 920601, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 920602, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9207,
+      "handle": "marq-red-apple",
+      "aliases": [],
+      "title": "Red Apple",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Oriental \u2022 Men",
+      "family": "Oriental",
+      "gender": "Men",
+      "occasion": "Daily casual wear, Casual evening outings",
+      "occasion_tag": "Evening & Dates",
+      "badge": "",
+      "badge_type": "",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 10,
+      "url": "/products/marq-red-apple",
+      "description": "Juicy, fruity and fresh with a bright apple-citrus opening. Opens with Apple, Lemon, Bergamot, unfolding into Rose, Teak Wood, Patchouli over a lasting Vanilla, Musk base. Best suited for daily casual wear, casual evening outings.",
+      "featured_image": {{ u_marq_red_apple_hero_jpg | json }},
+      "second_image": {{ u_marq_red_apple_jpg | json }},
+      "images": [{{ u_marq_red_apple_hero_jpg | json }}, {{ u_marq_red_apple_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Apple", "Lemon", "Bergamot", "Orange Blossom"],
+      "middle_notes": ["Rose", "Teak Wood", "Patchouli"],
+      "base_notes": ["Vanilla", "Musk"],
+      "sillage": 3.5,
+      "projection": 3.5,
+      "longevity": 4.5,
+      "smells_like": {
+        "first_spray": "Juicy, fruity and fresh with a bright apple-citrus opening.",
+        "after_30_min": "Warm, sweet and aromatic with a smooth, spicy character.",
+        "dry_down": "Soft, woody and sensual with a warm, amber-like finish.",
+        "images": [{{ u_marq_note_apple_jpg | json }}, {{ u_marq_note_rose_jpg | json }}, {{ u_marq_note_vanilla_jpg | json }}]
+      },
+      "variants": [
+        { "id": 920701, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 920702, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9208,
+      "handle": "marq-leather-night",
+      "aliases": [],
+      "title": "Leather Night",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Woody \u2022 Unisex",
+      "family": "Woody",
+      "gender": "Unisex",
+      "occasion": "Evening Dinners, Weddings and formal events, Parties and special occasions",
+      "occasion_tag": "Weddings & Formal",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 6,
+      "url": "/products/marq-leather-night",
+      "description": "Bold, leathery and slightly spicy with a smooth, smoky edge. Opens with Cardamom, unfolding into Leather, Jasmine Sambac over a lasting Amber, Moss, Patchouli base. Best suited for evening dinners, weddings and formal events, parties and special occasions.",
+      "featured_image": {{ u_marq_leather_night_hero_jpg | json }},
+      "second_image": {{ u_marq_leather_night_jpg | json }},
+      "images": [{{ u_marq_leather_night_hero_jpg | json }}, {{ u_marq_leather_night_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Cardamom"],
+      "middle_notes": ["Leather", "Jasmine Sambac"],
+      "base_notes": ["Amber", "Moss", "Patchouli"],
+      "sillage": 4.0,
+      "projection": 4.0,
+      "longevity": 4.5,
+      "smells_like": {
+        "first_spray": "Bold, leathery and slightly spicy with a smooth, smoky edge.",
+        "after_30_min": "Rich, floral and textured with soft suede and warm leather.",
+        "dry_down": "Deep, smooth and sensual with dark leather, woods and earthy warmth.",
+        "images": [{{ u_marq_note_spice_jpg | json }}, {{ u_marq_note_whitefloral_jpg | json }}, {{ u_marq_note_oud_amber_jpg | json }}]
+      },
+      "variants": [
+        { "id": 920801, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 920802, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9209,
+      "handle": "marq-saffron-glow",
+      "aliases": [],
+      "title": "Saffron Glow",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Oriental \u2022 Unisex",
+      "family": "Oriental",
+      "gender": "Unisex",
+      "occasion": "Upscale dinners, creative workplaces, social gatherings, dates, formal occasions and special events",
+      "occasion_tag": "Weddings & Formal",
+      "badge": "New",
+      "badge_type": "new",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 8,
+      "url": "/products/marq-saffron-glow",
+      "description": "Bright, spicy and metallic with a distinctive saffron freshness. Opens with Musk, unfolding into Saffron over a lasting Ambroxan, Incense base. Best suited for upscale dinners, creative workplaces, social gatherings, dates, formal occasions and special events.",
+      "featured_image": {{ u_marq_saffron_glow_hero_jpg | json }},
+      "second_image": {{ u_marq_saffron_glow_jpg | json }},
+      "images": [{{ u_marq_saffron_glow_hero_jpg | json }}, {{ u_marq_saffron_glow_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Musk"],
+      "middle_notes": ["Saffron"],
+      "base_notes": ["Ambroxan", "Incense"],
+      "sillage": 4.0,
+      "projection": 4.0,
+      "longevity": 4.5,
+      "smells_like": {
+        "first_spray": "Bright, spicy and metallic with a distinctive saffron freshness.",
+        "after_30_min": "Smooth, airy and musky with an elegant, mineral-like character.",
+        "dry_down": "Clean, warm and subtly woody with a refined, skin-like musk.",
+        "images": [{{ u_marq_note_saffron_jpg | json }}, {{ u_marq_note_spice_jpg | json }}, {{ u_marq_note_oud_amber_jpg | json }}]
+      },
+      "variants": [
+        { "id": 920901, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 920902, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9210,
+      "handle": "marq-midnight-spice",
+      "aliases": [],
+      "title": "Midnight Spice",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Oriental \u2022 Men",
+      "family": "Oriental",
+      "gender": "Men",
+      "occasion": "Romantic dates, weddings, elegant dinners, celebrations and evening parties",
+      "occasion_tag": "Evening & Dates",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 9,
+      "url": "/products/marq-midnight-spice",
+      "description": "Warm, spicy and inviting with a rich, aromatic opening. Opens with Cardamom, Nutmeg, Saffron, unfolding into Kulfi, Rose, Mastic over a lasting Vanilla, Amber, Woody Notes base. Best suited for romantic dates, weddings, elegant dinners, celebrations and evening parties.",
+      "featured_image": {{ u_marq_midnight_spice_hero_jpg | json }},
+      "second_image": {{ u_marq_midnight_spice_jpg | json }},
+      "images": [{{ u_marq_midnight_spice_hero_jpg | json }}, {{ u_marq_midnight_spice_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Cardamom", "Nutmeg", "Saffron", "Mandarin Orange", "Neroli"],
+      "middle_notes": ["Kulfi", "Rose", "Mastic", "Orange Blossom", "Jasmine"],
+      "base_notes": ["Vanilla", "Amber", "Woody Notes", "Sandalwood"],
+      "sillage": 3.5,
+      "projection": 4.0,
+      "longevity": 4.0,
+      "smells_like": {
+        "first_spray": "Warm, spicy and inviting with a rich, aromatic opening.",
+        "after_30_min": "Creamy, sweet and luxurious with a decadent kulfi-like character.",
+        "dry_down": "Smooth, ambery and woody with a rich, sensual warmth.",
+        "images": [{{ u_marq_note_spice_jpg | json }}, {{ u_marq_note_rose_jpg | json }}, {{ u_marq_note_vanilla_jpg | json }}]
+      },
+      "variants": [
+        { "id": 921001, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 921002, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9211,
+      "handle": "marq-pearl",
+      "aliases": [],
+      "title": "Pearl",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Woody \u2022 Unisex",
+      "family": "Woody",
+      "gender": "Unisex",
+      "occasion": "Casual gatherings, dinners, parties, travel and special occasions",
+      "occasion_tag": "Evening & Dates",
+      "badge": "New",
+      "badge_type": "new",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 11,
+      "url": "/products/marq-pearl",
+      "description": "Fresh, bright and sparkling with an elegant, fruity-citrus feel. Opens with Raspberry, Orange Oil, Bergamot, unfolding into Caramel, Jasmine, Lavender over a lasting Sandalwood, Patchouli, Leatherwood base. Best suited for casual gatherings, dinners, parties, travel and special occasions.",
+      "featured_image": {{ u_marq_pearl_hero_jpg | json }},
+      "second_image": {{ u_marq_pearl_jpg | json }},
+      "images": [{{ u_marq_pearl_hero_jpg | json }}, {{ u_marq_pearl_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Raspberry", "Orange Oil", "Bergamot"],
+      "middle_notes": ["Caramel", "Jasmine", "Lavender"],
+      "base_notes": ["Sandalwood", "Patchouli", "Leatherwood"],
+      "sillage": 4.5,
+      "projection": 4.5,
+      "longevity": 4.5,
+      "smells_like": {
+        "first_spray": "Fresh, bright and sparkling with an elegant, fruity-citrus feel.",
+        "after_30_min": "Smooth, refined and softly floral with a luxurious, balanced heart.",
+        "dry_down": "Warm, musky and woody with a polished, sophisticated finish.",
+        "images": [{{ u_marq_note_citrus_jpg | json }}, {{ u_marq_note_whitefloral_jpg | json }}, {{ u_marq_note_woods_jpg | json }}]
+      },
+      "variants": [
+        { "id": 921101, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 921102, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9212,
+      "handle": "marq-dark-cherry",
+      "aliases": [],
+      "title": "Dark Cherry",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Oriental \u2022 Unisex",
+      "family": "Oriental",
+      "gender": "Unisex",
+      "occasion": "Romantic dates, dinners, parties, weddings and upscale social events",
+      "occasion_tag": "Evening & Dates",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 5,
+      "url": "/products/marq-dark-cherry",
+      "description": "Juicy, sweet and boozy with a luscious black-cherry opening. Opens with Bitter Almond, Black Cherry, Cherry Liqueur, unfolding into Sour Cherry, Plum, Turkish Rose over a lasting Vanilla, Tonka Bean, Cinnamon base. Best suited for romantic dates, dinners, parties, weddings and upscale social events.",
+      "featured_image": {{ u_marq_dark_cherry_hero_jpg | json }},
+      "second_image": {{ u_marq_dark_cherry_jpg | json }},
+      "images": [{{ u_marq_dark_cherry_hero_jpg | json }}, {{ u_marq_dark_cherry_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Bitter Almond", "Black Cherry", "Cherry Liqueur"],
+      "middle_notes": ["Sour Cherry", "Plum", "Turkish Rose", "Jasmine Sambac"],
+      "base_notes": ["Vanilla", "Tonka Bean", "Cinnamon", "Peru Balsam", "Sandalwood", "Benzoin", "Cloves", "Cedar", "Patchouli", "Vetiver"],
+      "sillage": 4.0,
+      "projection": 4.0,
+      "longevity": 4.0,
+      "smells_like": {
+        "first_spray": "Juicy, sweet and boozy with a luscious black-cherry opening.",
+        "after_30_min": "Rich, velvety and seductive with almond and delicate floral warmth.",
+        "dry_down": "Warm, smooth and sensual with tonka, balsamic woods and lingering sweetness.",
+        "images": [{{ u_marq_note_cherry_jpg | json }}, {{ u_marq_note_rose_jpg | json }}, {{ u_marq_note_vanilla_jpg | json }}]
+      },
+      "variants": [
+        { "id": 921201, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 921202, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9213,
+      "handle": "marq-passion-oud",
+      "aliases": [],
+      "title": "Passion Oud",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Woody \u2022 Unisex",
+      "family": "Woody",
+      "gender": "Unisex",
+      "occasion": "Luxury dinners, evening dates, weddings, celebrations and statement-making events",
+      "occasion_tag": "Weddings & Formal",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 6,
+      "url": "/products/marq-passion-oud",
+      "description": "Tart, juicy and tropical with a vivid passion-fruit opening. Opens with Passionfruit, Fruity Notes, Saffron, unfolding into Agarwood (Oud), Benzoin, Indonesian Patchouli Leaf over a lasting Leather, Akigalawood, Amber base. Best suited for luxury dinners, evening dates, weddings, celebrations and statement-making events.",
+      "featured_image": {{ u_marq_passion_oud_hero_jpg | json }},
+      "second_image": {{ u_marq_passion_oud_jpg | json }},
+      "images": [{{ u_marq_passion_oud_hero_jpg | json }}, {{ u_marq_passion_oud_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Passionfruit", "Fruity Notes", "Saffron", "Turkish Rose"],
+      "middle_notes": ["Agarwood (Oud)", "Benzoin", "Indonesian Patchouli Leaf"],
+      "base_notes": ["Leather", "Akigalawood", "Amber", "Vanilla", "Labdanum"],
+      "sillage": 4.5,
+      "projection": 4.5,
+      "longevity": 5.0,
+      "smells_like": {
+        "first_spray": "Tart, juicy and tropical with a vivid passion-fruit opening.",
+        "after_30_min": "Exotic, smoky and leathery with a striking fruity-oud contrast.",
+        "dry_down": "Deep, rich and resinous with dark oud, leather and lasting fruity warmth.",
+        "images": [{{ u_marq_note_passion_jpg | json }}, {{ u_marq_note_oud_amber_jpg | json }}, {{ u_marq_note_vanilla_jpg | json }}]
+      },
+      "variants": [
+        { "id": 921301, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 921302, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9214,
+      "handle": "marq-velvet-oud",
+      "aliases": [],
+      "title": "Velvet Oud",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Oriental \u2022 Unisex",
+      "family": "Oriental",
+      "gender": "Unisex",
+      "occasion": "Weddings, formal celebrations, luxury dinners, elegant evening events",
+      "occasion_tag": "Weddings & Formal",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 7,
+      "url": "/products/marq-velvet-oud",
+      "description": "Rich, rosy and powdery with a luxurious violet-tinged sweetness. Opens with Violet, Geranium, Ceylon Cinnamon, unfolding into Damask Rose, Turkish Rose over a lasting Agarwood (Oud), Vanilla, Amber base. Best suited for weddings, formal celebrations, luxury dinners, elegant evening events.",
+      "featured_image": {{ u_marq_velvet_oud_hero_jpg | json }},
+      "second_image": {{ u_marq_velvet_oud_jpg | json }},
+      "images": [{{ u_marq_velvet_oud_hero_jpg | json }}, {{ u_marq_velvet_oud_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Violet", "Geranium", "Ceylon Cinnamon", "Cardamom"],
+      "middle_notes": ["Damask Rose", "Turkish Rose"],
+      "base_notes": ["Agarwood (Oud)", "Vanilla", "Amber", "Benzoin", "Caramel", "Musk", "Cedar"],
+      "sillage": 4.5,
+      "projection": 4.5,
+      "longevity": 5.0,
+      "smells_like": {
+        "first_spray": "Rich, rosy and powdery with a luxurious violet-tinged sweetness.",
+        "after_30_min": "Smooth, velvety and opulent with rose, amber and delicate oud.",
+        "dry_down": "Deep, creamy and balsamic with sweet vanilla, woods and lingering amber.",
+        "images": [{{ u_marq_note_rose_jpg | json }}, {{ u_marq_note_saffron_jpg | json }}, {{ u_marq_note_oud_amber_jpg | json }}]
+      },
+      "variants": [
+        { "id": 921401, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 921402, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9215,
+      "handle": "marq-stay-close",
+      "aliases": [],
+      "title": "Stay Close",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Woody \u2022 Men",
+      "family": "Woody",
+      "gender": "Men",
+      "occasion": "Dinners, casual evenings, celebrations and social gatherings",
+      "occasion_tag": "Evening & Dates",
+      "badge": "New",
+      "badge_type": "new",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 10,
+      "url": "/products/marq-stay-close",
+      "description": "Warm, spicy and aromatic with a bold, slightly smoky opening. Opens with Lavender, unfolding into Vanilla over a lasting Agarwood (Oud) base. Best suited for dinners, casual evenings, celebrations and social gatherings.",
+      "featured_image": {{ u_marq_stay_close_hero_jpg | json }},
+      "second_image": {{ u_marq_stay_close_jpg | json }},
+      "images": [{{ u_marq_stay_close_hero_jpg | json }}, {{ u_marq_stay_close_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Lavender"],
+      "middle_notes": ["Vanilla"],
+      "base_notes": ["Agarwood (Oud)"],
+      "sillage": 4.0,
+      "projection": 4.0,
+      "longevity": 4.5,
+      "smells_like": {
+        "first_spray": "Warm, spicy and aromatic with a bold, slightly smoky opening.",
+        "after_30_min": "Sweet, rich and woody with a smooth, resinous character.",
+        "dry_down": "Deep, sensual and ambery with smoky oud and lasting sweetness.",
+        "images": [{{ u_marq_note_lavender_jpg | json }}, {{ u_marq_note_vanilla_jpg | json }}, {{ u_marq_note_oud_amber_jpg | json }}]
+      },
+      "variants": [
+        { "id": 921501, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 921502, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9217,
+      "handle": "marq-cotton",
+      "aliases": [],
+      "title": "Cotton",
+      "vendor": "MARQ Perfumes",
+      "category": "Eau de Parfum",
+      "type": "Florals \u2022 Women",
+      "family": "Florals",
+      "gender": "Women",
+      "occasion": "Daily wear, Office or professional settings, Brunch, shopping and daytime outings",
+      "occasion_tag": "Daily & Office",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 13,
+      "url": "/products/marq-cotton",
+      "description": "Crisp, airy and luminous with sparkling citrus and fresh white florals. Opens with Aldehydes, White Peach, Bergamot, unfolding into Orange Blossom, Lily-of-the-Valley, Petalia over a lasting Musk, Ambroxan, Akigalawood base. Best suited for daily wear, office or professional settings, brunch, shopping and daytime outings.",
+      "featured_image": {{ u_marq_cotton_hero_jpg | json }},
+      "second_image": {{ u_marq_cotton_jpg | json }},
+      "images": [{{ u_marq_cotton_hero_jpg | json }}, {{ u_marq_cotton_jpg | json }}, {{ u_marq_perfume_packaging_jpg | json }}],
+      "top_notes": ["Aldehydes", "White Peach", "Bergamot", "Mandarin Orange"],
+      "middle_notes": ["Orange Blossom", "Lily-of-the-Valley", "Petalia", "Nympheal", "Vetiver", "Mahonia"],
+      "base_notes": ["Musk", "Ambroxan", "Akigalawood", "Vanilla"],
+      "sillage": 3.5,
+      "projection": 3.5,
+      "longevity": 4.0,
+      "smells_like": {
+        "first_spray": "Crisp, airy and luminous with sparkling citrus and fresh white florals.",
+        "after_30_min": "Soft, clean and elegant with delicate florals and a cotton-like musk.",
+        "dry_down": "Smooth, musky and creamy with refined woods and a clean, skin-like warmth.",
+        "images": [{{ u_marq_note_citrus_jpg | json }}, {{ u_marq_note_cotton_jpg | json }}, {{ u_marq_note_whitefloral_jpg | json }}]
+      },
+      "variants": [
+        { "id": 921701, "title": "50ml", "price": 120000, "compare_at_price": 0, "available": true },
+        { "id": 921702, "title": "100ml", "price": 250000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9301,
+      "handle": "marq-jasmine-attar",
+      "aliases": [],
+      "title": "Mogra Jasmine Attar",
+      "vendor": "MARQ Perfumes",
+      "category": "Attar",
+      "type": "Attar \u2022 Perfumed Oil",
+      "family": "Florals",
+      "gender": "Unisex",
+      "occasion": "Daily prayers, festive gatherings, weddings, and serene evening wear",
+      "occasion_tag": "Daily & Office",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 25000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 14,
+      "url": "/products/marq-jasmine-attar",
+      "description": "Pure, dewy freshly plucked mogra jasmine blossoms with crisp green leaves. Opens with Dewy Green Leaf, Calabrian Bergamot, unfolding into Indian Sambac Jasmine (Mogra), White Tuberose over a lasting Mysore Sandalwood Oil, Clean White Musk base. Best suited for daily prayers, festive gatherings, weddings, and serene evening wear.",
+      "featured_image": {{ u_marq_attar_jasmine_hero_jpg | json }},
+      "second_image": {{ u_marq_attar_jasmine_jpg | json }},
+      "images": [{{ u_marq_attar_jasmine_hero_jpg | json }}, {{ u_marq_attar_jasmine_jpg | json }}],
+      "top_notes": ["Dewy Green Leaf", "Calabrian Bergamot"],
+      "middle_notes": ["Indian Sambac Jasmine (Mogra)", "White Tuberose"],
+      "base_notes": ["Mysore Sandalwood Oil", "Clean White Musk"],
+      "sillage": 4.0,
+      "projection": 4.0,
+      "longevity": 4.5,
+      "smells_like": {
+        "first_spray": "Pure, dewy freshly plucked mogra jasmine blossoms with crisp green leaves.",
+        "after_30_min": "Rich, intoxicating white floral nectar warming effortlessly on pulse points.",
+        "dry_down": "Creamy Mysore sandalwood oil and soft skin-hugging white musk.",
+        "images": [{{ u_marq_note_whitefloral_jpg | json }}, {{ u_marq_note_cotton_jpg | json }}, {{ u_marq_note_woods_jpg | json }}]
+      },
+      "variants": [
+        { "id": 930101, "title": "3ml", "price": 25000, "compare_at_price": 0, "available": true },
+        { "id": 930102, "title": "6ml", "price": 45000, "compare_at_price": 0, "available": true },
+        { "id": 930103, "title": "12ml", "price": 65000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9302,
+      "handle": "marq-velvet-oud-attar",
+      "aliases": [],
+      "title": "Velvet Oud Attar",
+      "vendor": "MARQ Perfumes",
+      "category": "Attar",
+      "type": "Attar \u2022 Perfumed Oil",
+      "family": "Oriental",
+      "gender": "Unisex",
+      "occasion": "Weddings, Nikah, festive celebrations, formal dinners, and evening majlis",
+      "occasion_tag": "Weddings & Formal",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 25000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 9,
+      "url": "/products/marq-velvet-oud-attar",
+      "description": "Opulent Kashmiri saffron threads melting into velvety red rose petals. Opens with Kashmiri Saffron, Spiced Cardamom, unfolding into Damask Rose Otto, Aged Agarwood (Oud) over a lasting Warm Amber Resin, Creamy Sandalwood, Velvet Musk base. Best suited for weddings, nikah, festive celebrations, formal dinners, and evening majlis.",
+      "featured_image": {{ u_marq_attar_velvet_oud_hero_jpg | json }},
+      "second_image": {{ u_marq_attar_velvet_oud_jpg | json }},
+      "images": [{{ u_marq_attar_velvet_oud_hero_jpg | json }}, {{ u_marq_attar_velvet_oud_jpg | json }}],
+      "top_notes": ["Kashmiri Saffron", "Spiced Cardamom"],
+      "middle_notes": ["Damask Rose Otto", "Aged Agarwood (Oud)"],
+      "base_notes": ["Warm Amber Resin", "Creamy Sandalwood", "Velvet Musk"],
+      "sillage": 4.5,
+      "projection": 4.5,
+      "longevity": 5.0,
+      "smells_like": {
+        "first_spray": "Opulent Kashmiri saffron threads melting into velvety red rose petals.",
+        "after_30_min": "Deep, smoky aged agarwood oud balanced by rich floral-spicy warmth.",
+        "dry_down": "Resinous golden amber and sandalwood oil lasting 14+ hours on skin and attire.",
+        "images": [{{ u_marq_note_saffron_jpg | json }}, {{ u_marq_note_rose_jpg | json }}, {{ u_marq_note_oud_amber_jpg | json }}]
+      },
+      "variants": [
+        { "id": 930201, "title": "3ml", "price": 25000, "compare_at_price": 0, "available": true },
+        { "id": 930202, "title": "6ml", "price": 45000, "compare_at_price": 0, "available": true },
+        { "id": 930203, "title": "12ml", "price": 65000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9303,
+      "handle": "marq-lavender-sandal-attar",
+      "aliases": [],
+      "title": "Lavender Sandal Attar",
+      "vendor": "MARQ Perfumes",
+      "category": "Attar",
+      "type": "Attar \u2022 Perfumed Oil",
+      "family": "Fresh",
+      "gender": "Unisex",
+      "occasion": "Office wear, daily mindfulness, daytime meetings, and travel",
+      "occasion_tag": "Daily & Office",
+      "badge": "New",
+      "badge_type": "new",
+      "price": 25000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 12,
+      "url": "/products/marq-lavender-sandal-attar",
+      "description": "Bright orange peel and calming French lavender with alcohol-free smoothness. Opens with Sweet Orange Zest, French Lavender, unfolding into Neroli Blossom, Clary Sage over a lasting Indian Sandalwood, Cedarwood, Soft Musk base. Best suited for office wear, daily mindfulness, daytime meetings, and travel.",
+      "featured_image": {{ u_marq_attar_lavender_sandal_hero_jpg | json }},
+      "second_image": {{ u_marq_attar_lavender_sandal_jpg | json }},
+      "images": [{{ u_marq_attar_lavender_sandal_hero_jpg | json }}, {{ u_marq_attar_lavender_sandal_jpg | json }}],
+      "top_notes": ["Sweet Orange Zest", "French Lavender"],
+      "middle_notes": ["Neroli Blossom", "Clary Sage"],
+      "base_notes": ["Indian Sandalwood", "Cedarwood", "Soft Musk"],
+      "sillage": 4.0,
+      "projection": 3.5,
+      "longevity": 4.5,
+      "smells_like": {
+        "first_spray": "Bright orange peel and calming French lavender with alcohol-free smoothness.",
+        "after_30_min": "Clean neroli white blossoms layered over aromatic herbal sage.",
+        "dry_down": "Silky, grounding Indian sandalwood and warm cedar.",
+        "images": [{{ u_marq_note_lavender_jpg | json }}, {{ u_marq_note_citrus_jpg | json }}, {{ u_marq_note_woods_jpg | json }}]
+      },
+      "variants": [
+        { "id": 930301, "title": "3ml", "price": 25000, "compare_at_price": 0, "available": true },
+        { "id": 930302, "title": "6ml", "price": 45000, "compare_at_price": 0, "available": true },
+        { "id": 930303, "title": "12ml", "price": 65000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9304,
+      "handle": "marq-night-oud-attar",
+      "aliases": [],
+      "title": "Saffron Night Oud Attar",
+      "vendor": "MARQ Perfumes",
+      "category": "Attar",
+      "type": "Attar \u2022 Perfumed Oil",
+      "family": "Woody",
+      "gender": "Unisex",
+      "occasion": "Evening gatherings, formal events, winter nights, and special occasions",
+      "occasion_tag": "Evening & Dates",
+      "badge": "New",
+      "badge_type": "new",
+      "price": 25000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 8,
+      "url": "/products/marq-night-oud-attar",
+      "description": "Mysterious smoky incense and fiery red saffron over luminous white jasmine. Opens with Red Saffron, Smoky Frankincense, unfolding into Night-Blooming Jasmine, Dark Agarwood (Oud) over a lasting Black Amber, Vetiver Root, Labdanum base. Best suited for evening gatherings, formal events, winter nights, and special occasions.",
+      "featured_image": {{ u_marq_attar_night_oud_hero_jpg | json }},
+      "second_image": {{ u_marq_attar_night_oud_jpg | json }},
+      "images": [{{ u_marq_attar_night_oud_hero_jpg | json }}, {{ u_marq_attar_night_oud_jpg | json }}],
+      "top_notes": ["Red Saffron", "Smoky Frankincense"],
+      "middle_notes": ["Night-Blooming Jasmine", "Dark Agarwood (Oud)"],
+      "base_notes": ["Black Amber", "Vetiver Root", "Labdanum"],
+      "sillage": 4.5,
+      "projection": 4.5,
+      "longevity": 5.0,
+      "smells_like": {
+        "first_spray": "Mysterious smoky incense and fiery red saffron over luminous white jasmine.",
+        "after_30_min": "Commanding dark agarwood oud oil radiating rich, resinous depth.",
+        "dry_down": "Smoky black amber and earthy vetiver that endures from dusk till dawn.",
+        "images": [{{ u_marq_note_saffron_jpg | json }}, {{ u_marq_note_whitefloral_jpg | json }}, {{ u_marq_note_oud_amber_jpg | json }}]
+      },
+      "variants": [
+        { "id": 930401, "title": "3ml", "price": 25000, "compare_at_price": 0, "available": true },
+        { "id": 930402, "title": "6ml", "price": 45000, "compare_at_price": 0, "available": true },
+        { "id": 930403, "title": "12ml", "price": 65000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9305,
+      "handle": "marq-taif-rose-attar",
+      "aliases": [],
+      "title": "Taif Rose & Sandal Attar",
+      "vendor": "MARQ Perfumes",
+      "category": "Attar",
+      "type": "Attar \u2022 Perfumed Oil",
+      "family": "Florals",
+      "gender": "Unisex",
+      "occasion": "Festive occasions, weddings, gifting, and traditional celebrations",
+      "occasion_tag": "Weddings & Formal",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 25000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 11,
+      "url": "/products/marq-taif-rose-attar",
+      "description": "Zesty sun-dried mandarin peel lifting lush, dewy crimson Taif rose. Opens with Mandarin Orange Peel, Pink Pepper, unfolding into Crimson Taif Rose, Rose Geranium over a lasting Aged Sandalwood Oil, Golden Amber, Sweet Musk base. Best suited for festive occasions, weddings, gifting, and traditional celebrations.",
+      "featured_image": {{ u_marq_attar_rose_sandal_hero_jpg | json }},
+      "second_image": {{ u_marq_attar_rose_sandal_jpg | json }},
+      "images": [{{ u_marq_attar_rose_sandal_hero_jpg | json }}, {{ u_marq_attar_rose_sandal_jpg | json }}],
+      "top_notes": ["Mandarin Orange Peel", "Pink Pepper"],
+      "middle_notes": ["Crimson Taif Rose", "Rose Geranium"],
+      "base_notes": ["Aged Sandalwood Oil", "Golden Amber", "Sweet Musk"],
+      "sillage": 4.0,
+      "projection": 4.0,
+      "longevity": 5.0,
+      "smells_like": {
+        "first_spray": "Zesty sun-dried mandarin peel lifting lush, dewy crimson Taif rose.",
+        "after_30_min": "Velvety, honeyed rose petals steeped in pure traditional sandalwood oil.",
+        "dry_down": "Warm, comforting sandalwood and golden amber with zero alcohol sharpness.",
+        "images": [{{ u_marq_note_rose_jpg | json }}, {{ u_marq_note_spice_jpg | json }}, {{ u_marq_note_woods_jpg | json }}]
+      },
+      "variants": [
+        { "id": 930501, "title": "3ml", "price": 25000, "compare_at_price": 0, "available": true },
+        { "id": 930502, "title": "6ml", "price": 45000, "compare_at_price": 0, "available": true },
+        { "id": 930503, "title": "12ml", "price": 65000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9401,
+      "handle": "marq-classic-bakhoor",
+      "aliases": [],
+      "title": "Classic Bakhoor",
+      "vendor": "MARQ Perfumes",
+      "category": "Bakhoor",
+      "type": "Bakhoor \u2022 Incense",
+      "family": "Woody",
+      "gender": "Unisex",
+      "occasion": "Home sanctuary, office, majlis, welcoming guests, and daily rituals",
+      "occasion_tag": "Daily & Office",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 50000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 15,
+      "url": "/products/marq-classic-bakhoor",
+      "description": "Steady, aromatic ribbons of saffron, cardamom, and rose-soaked agarwood. Opens with Saffron, Damask Rose Water, Green Cardamom, unfolding into Natural Agarwood Powder, Omani Frankincense, Sandalwood over a lasting Amber Resin, White Musk, Sweet Benzoin base. Best suited for home sanctuary, office, majlis, welcoming guests, and daily rituals.",
+      "featured_image": {{ u_marq_bakhoor_classic_1_jpg | json }},
+      "second_image": {{ u_marq_bakhoor_classic_2_jpg | json }},
+      "images": [{{ u_marq_bakhoor_classic_1_jpg | json }}, {{ u_marq_bakhoor_classic_2_jpg | json }}],
+      "top_notes": ["Saffron", "Damask Rose Water", "Green Cardamom"],
+      "middle_notes": ["Natural Agarwood Powder", "Omani Frankincense", "Sandalwood"],
+      "base_notes": ["Amber Resin", "White Musk", "Sweet Benzoin"],
+      "sillage": 4.5,
+      "projection": 4.5,
+      "longevity": 4.5,
+      "smells_like": {
+        "first_spray": "Steady, aromatic ribbons of saffron, cardamom, and rose-soaked agarwood.",
+        "after_30_min": "Rich, traditional sandalwood and frankincense enveloping the entire space.",
+        "dry_down": "Timeless warm amber and clean musk lingering in curtains and fabrics for hours.",
+        "images": [{{ u_marq_note_spice_jpg | json }}, {{ u_marq_note_woods_jpg | json }}, {{ u_marq_note_oud_amber_jpg | json }}]
+      },
+      "variants": [
+        { "id": 940101, "title": "Default Title", "price": 50000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9402,
+      "handle": "marq-oud-bakhoor",
+      "aliases": [],
+      "title": "Oud Bakhoor",
+      "vendor": "MARQ Perfumes",
+      "category": "Bakhoor",
+      "type": "Bakhoor \u2022 Incense",
+      "family": "Oriental",
+      "gender": "Unisex",
+      "occasion": "Evening gatherings, festive hosting, majlis, and luxury home ambiance",
+      "occasion_tag": "Evening & Dates",
+      "badge": "Best Sellers",
+      "badge_type": "bestseller",
+      "price": 65000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 10,
+      "url": "/products/marq-oud-bakhoor",
+      "description": "Deep, warm smoky oud aroma rising immediately from glowing embers. Opens with Smoky Agarwood, Black Pepper, Bergamot, unfolding into Cambodian Oud, Turkish Rose, Myrrh Resin over a lasting Dark Amber, Leatherwood, Indonesian Patchouli base. Best suited for evening gatherings, festive hosting, majlis, and luxury home ambiance.",
+      "featured_image": {{ u_marq_bakhoor_oud_1_jpg | json }},
+      "second_image": {{ u_marq_bakhoor_oud_2_jpg | json }},
+      "images": [{{ u_marq_bakhoor_oud_1_jpg | json }}, {{ u_marq_bakhoor_oud_2_jpg | json }}],
+      "top_notes": ["Smoky Agarwood", "Black Pepper", "Bergamot"],
+      "middle_notes": ["Cambodian Oud", "Turkish Rose", "Myrrh Resin"],
+      "base_notes": ["Dark Amber", "Leatherwood", "Indonesian Patchouli"],
+      "sillage": 5.0,
+      "projection": 4.5,
+      "longevity": 5.0,
+      "smells_like": {
+        "first_spray": "Deep, warm smoky oud aroma rising immediately from glowing embers.",
+        "after_30_min": "Velvety rose and resinous myrrh fused with dark Cambodian agarwood.",
+        "dry_down": "Rich, elegant amber-oud sanctuary scent that endures for hours.",
+        "images": [{{ u_marq_note_oud_amber_jpg | json }}, {{ u_marq_note_rose_jpg | json }}, {{ u_marq_note_vanilla_jpg | json }}]
+      },
+      "variants": [
+        { "id": 940201, "title": "Default Title", "price": 65000, "compare_at_price": 0, "available": true }
+      ]
+    },
+    {
+      "id": 9403,
+      "handle": "marq-royal-bakhoor",
+      "aliases": [],
+      "title": "Royal Bakhoor",
+      "vendor": "MARQ Perfumes",
+      "category": "Bakhoor",
+      "type": "Bakhoor \u2022 Incense",
+      "family": "Oriental",
+      "gender": "Unisex",
+      "occasion": "Weddings, Eid & festive celebrations, royal majlis, and luxury gifting",
+      "occasion_tag": "Weddings & Formal",
+      "badge": "New",
+      "badge_type": "new",
+      "price": 120000,
+      "compare_at_price": 0,
+      "available": true,
+      "stock": 8,
+      "url": "/products/marq-royal-bakhoor",
+      "description": "Regal saffron, honeyed rose, and golden resin opening with palace grandeur. Opens with Royal Saffron, Honeyed Rose, Ceylon Cinnamon, unfolding into Royal Agarwood (Oud), Golden Opoponax, Mysore Sandalwood over a lasting Crystalline Amber, Tonka Bean, Kashmiri Musk base. Best suited for weddings, eid & festive celebrations, royal majlis, and luxury gifting.",
+      "featured_image": {{ u_marq_bakhoor_royal_1_jpg | json }},
+      "second_image": {{ u_marq_bakhoor_royal_2_jpg | json }},
+      "images": [{{ u_marq_bakhoor_royal_1_jpg | json }}, {{ u_marq_bakhoor_royal_2_jpg | json }}],
+      "top_notes": ["Royal Saffron", "Honeyed Rose", "Ceylon Cinnamon"],
+      "middle_notes": ["Royal Agarwood (Oud)", "Golden Opoponax", "Mysore Sandalwood"],
+      "base_notes": ["Crystalline Amber", "Tonka Bean", "Kashmiri Musk"],
+      "sillage": 5.0,
+      "projection": 5.0,
+      "longevity": 5.0,
+      "smells_like": {
+        "first_spray": "Regal saffron, honeyed rose, and golden resin opening with palace grandeur.",
+        "after_30_min": "Luxurious royal woody aroma of aged oud chips and Mysore sandalwood.",
+        "dry_down": "Continuous, opulent amber, tonka, and musk perfuming every corner.",
+        "images": [{{ u_marq_note_saffron_jpg | json }}, {{ u_marq_note_oud_amber_jpg | json }}, {{ u_marq_note_vanilla_jpg | json }}]
+      },
+      "variants": [
+        { "id": 940301, "title": "Default Title", "price": 120000, "compare_at_price": 0, "available": true }
+      ]
+    }
+  ]
+}
+</script>

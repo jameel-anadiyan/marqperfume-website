@@ -1,0 +1,31 @@
+<section class="section-pad color-scheme-1">
+  <div class="page-width page-width--narrow seo-collapsible" data-seo-collapsible>
+    <h2 class="h2">{{ section.settings.heading }}</h2>
+    <div class="seo-collapsible__text" data-seo-text>
+      <p>
+        At MARQ Perfumes, every creation begins with crystalline Mediterranean citrus, aged agarwood oud, wild botanicals, and fine fragrance oils. We collaborate with master perfumers to compose clean, vegan, high-concentration Eau de Parfums, alcohol-free Rubbing Roller Attars, and artisanal Bakhoor Incense—rigorously crafted for luminous projection, effortless wearability, and lasting longevity. Whether you are drawn to Navy, Passion Oud, Dark Cherry, or Royal Bakhoor, each fluted cobalt flacon and jar is made to #MarkYourPresence.
+      </p>
+    </div>
+    <button type="button" class="link-underlined seo-collapsible__btn" data-seo-toggle>View More</button>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SEO Collapsible Copy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "About MARQ Perfumes"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SEO Collapsible Copy"
+    }
+  ]
+}
+{% endschema %}
+

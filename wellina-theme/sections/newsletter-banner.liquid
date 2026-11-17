@@ -1,0 +1,53 @@
+<section class="newsletter-section color-scheme-3">
+  <div class="page-width newsletter-section__inner">
+    <h2 class="h1">{{ section.settings.heading }}</h2>
+
+    {% form 'customer', class: 'newsletter-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="newsletter-form__pill-group">
+        <input
+          type="email"
+          name="contact[email]"
+          value="{{ form.email }}"
+          placeholder="Enter your email"
+          required
+          aria-label="Email"
+          class="newsletter-form__input"
+        >
+        <button type="submit" class="btn btn--dark newsletter-form__submit">
+          <span class="btn__text-wrap"><span class="btn__text" data-text="Sign Up">Sign Up</span></span>
+        </button>
+      </div>
+      {%- if form.posted_successfully? -%}
+        <p class="newsletter-form__success">Welcome to MARQ Perfumes.</p>
+      {%- endif -%}
+    {% endform %}
+
+    <p class="newsletter-section__disclaimer">{{ section.settings.disclaimer }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join the MARQ Atelier for private releases & scent notes"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "By subscribing you agree to the Terms of Use & Privacy Policy."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter Banner"
+    }
+  ]
+}
+{% endschema %}

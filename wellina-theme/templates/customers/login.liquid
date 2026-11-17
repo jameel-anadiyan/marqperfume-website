@@ -1,0 +1,20 @@
+<section class="section-pad color-scheme-1">
+  <div class="page-width page-width--narrow" style="max-width:48rem;">
+    <div class="section-head-center">
+      <p class="text-subheading">WELCOME BACK</p>
+      <h1 class="h1">{{ 'customer.login.title' | t }}</h1>
+    </div>
+    {% form 'customer_login', class: 'contact-form' %}
+      {{ form.errors | default_errors }}
+      <input type="email" name="customer[email]" placeholder="Email" class="pill-input" required>
+      <input type="password" name="customer[password]" placeholder="Password" class="pill-input" required>
+      <button type="submit" class="btn btn--primary btn--full">
+        <span class="btn__text-wrap"><span class="btn__text" data-text="Sign In">Sign In</span></span>
+      </button>
+      <p style="text-align:center;margin-top:1.6rem;">
+        <a href="{{ routes.account_register_url | default: '/account/register' }}" class="link-underlined">Create account</a>
+      </p>
+    {% endform %}
+  </div>
+</section>
+

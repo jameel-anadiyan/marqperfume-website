@@ -1,0 +1,67 @@
+<section class="section-pad color-scheme-4" data-countup-section>
+  <div class="page-width">
+    <div class="section-head-center">
+      <p class="text-subheading">{{ section.settings.eyebrow }}</p>
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="clinical-stats-grid">
+      <article class="stat-card color-scheme-1">
+        <div class="stat-card__num"><span data-countup="94">94</span>%</div>
+        <hr class="stat-card__divider">
+        <p>experienced vibrant aquatic-citrus sillage lasting 8 to 12 hours.</p>
+      </article>
+
+      <article class="stat-card color-scheme-1">
+        <div class="stat-card__num"><span data-countup="91">91</span>%</div>
+        <hr class="stat-card__divider">
+        <p>received compliments the very first day wearing Navy EDP.</p>
+      </article>
+
+      <article class="stat-card color-scheme-1">
+        <div class="stat-card__num"><span data-countup="96">96</span>%</div>
+        <hr class="stat-card__divider">
+        <p>described the white lily &amp; marine dry-down as crisp and never heavy.*</p>
+      </article>
+
+      <article class="stat-card color-scheme-1">
+        <div class="stat-card__num"><span data-countup="22">22</span>%</div>
+        <hr class="stat-card__divider">
+        <p>pure fine fragrance oil concentration in every fluted cobalt flacon.</p>
+      </article>
+    </div>
+
+    <p class="clinical-footnote">{{ section.settings.footnote }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Longevity Stats Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Subheading",
+      "default": "REMARKABLE SILLAGE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Blended to linger all day"
+    },
+    {
+      "type": "textarea",
+      "id": "footnote",
+      "label": "Footnote",
+      "default": "*Based on an independent wear study of 120 fragrance enthusiasts testing Navy Eau de Parfum over 14 days."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Longevity Stats Grid"
+    }
+  ]
+}
+{% endschema %}

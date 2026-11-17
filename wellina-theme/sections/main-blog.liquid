@@ -1,0 +1,59 @@
+<section class="section-pad color-scheme-1">
+  <div class="page-width">
+    <div class="section-head-center">
+      <p class="text-subheading">EDITORIAL</p>
+      <h1 class="h1">{{ blog.title | default: 'The Fragrance Journal' }}</h1>
+    </div>
+
+    <div class="journal-grid">
+      {%- if blog != blank and blog.articles_count > 0 -%}
+        {%- for article in blog.articles -%}
+          <article class="journal-card">
+            <a href="{{ article.url }}" class="journal-card__media">
+              {%- if article.image != blank -%}
+                <img src="{{ article.image | image_url: width: 900 }}" alt="{{ article.title | escape }}" loading="lazy">
+              {%- else -%}
+                <img src="{{ 'marq-slider-1.jpg' | asset_url }}" alt="{{ article.title | escape }}" loading="lazy">
+              {%- endif -%}
+            </a>
+            <h2 class="h4"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+            <p class="journal-card__meta">{{ article.published_at | date: '%b %d, %Y' }} &bull; {{ article.author }}</p>
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        <article class="journal-card">
+          <a href="/blogs/news/inside-marq-navy" class="journal-card__media">
+            <img src="{{ 'marq-slider-1.jpg' | asset_url }}" alt="Inside Navy: Citrus, Lavender & Sandalwood" loading="lazy">
+            <span class="journal-card__tag">Perfumery</span>
+          </a>
+          <h2 class="h4"><a href="/blogs/news/inside-marq-navy">Inside Navy: Citrus Zest, Lavender &amp; Sandalwood</a></h2>
+          <p class="journal-card__meta">Nov 12, 2026 &bull; MARQ Atelier</p>
+        </article>
+        <article class="journal-card">
+          <a href="/blogs/news/modern-marine-accords" class="journal-card__media">
+            <img src="{{ 'marq-slider-2.jpg' | asset_url }}" alt="The Craft of Modern Marine Accords" loading="lazy">
+            <span class="journal-card__tag">Ingredients</span>
+          </a>
+          <h2 class="h4"><a href="/blogs/news/modern-marine-accords">The Craft of Modern Marine &amp; Coastal Accords</a></h2>
+          <p class="journal-card__meta">Nov 08, 2026 &bull; MARQ Atelier</p>
+        </article>
+        <article class="journal-card">
+          <a href="/blogs/news/how-to-layer-edp" class="journal-card__media">
+            <img src="{{ 'marq-slider-3.jpg' | asset_url }}" alt="How to Layer Eau de Parfum for 12-Hour Sillage" loading="lazy">
+            <span class="journal-card__tag">Rituals</span>
+          </a>
+          <h2 class="h4"><a href="/blogs/news/how-to-layer-edp">How to Layer Eau de Parfum for 12-Hour Sillage</a></h2>
+          <p class="journal-card__meta">Nov 02, 2026 &bull; MARQ Atelier</p>
+        </article>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Blog",
+  "settings": []
+}
+{% endschema %}
+

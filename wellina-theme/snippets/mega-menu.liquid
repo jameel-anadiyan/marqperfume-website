@@ -1,0 +1,262 @@
+{%- comment -%}
+  Renders MARQ Perfumes Mega Menus including Eau de Parfum, Attar (Perfumed Oil), and Bakhoor (Incense).
+{%- endcomment -%}
+
+{%- case menu_key -%}
+  {%- when 'shop' -%}
+    <div class="mega-menu" id="MegaMenu-shop" data-mega-panel="shop" aria-hidden="true">
+      <div class="page-width">
+        <div class="mega-menu__shop-grid" data-mega-tabs>
+          <div class="mega-menu__tabs-col">
+            <button type="button" class="mega-menu__tab-trigger is-active" data-mega-tab-btn="fresh">
+              <span>Fresh</span>
+            </button>
+            <button type="button" class="mega-menu__tab-trigger" data-mega-tab-btn="oriental">
+              <span>Oriental</span>
+            </button>
+            <button type="button" class="mega-menu__tab-trigger" data-mega-tab-btn="woody">
+              <span>Woody &amp; Florals</span>
+            </button>
+            <button type="button" class="mega-menu__tab-trigger" data-mega-tab-btn="attar">
+              <span>Attar &bull; Oil</span>
+            </button>
+            <button type="button" class="mega-menu__tab-trigger" data-mega-tab-btn="bakhoor">
+              <span>Bakhoor &bull; Incense</span>
+            </button>
+            <a href="/collections/all" class="mega-menu__tab-trigger">
+              <span>Shop All (21)</span>
+            </a>
+          </div>
+
+          <div class="mega-menu__sublinks-col">
+            <div class="mega-menu__tab-panel is-active" data-mega-tab-panel="fresh">
+              <a href="/products/marq-navy" class="mega-thumb-link">
+                <img src="{{ 'marq-navy-hero.jpg' | asset_url }}" alt="Navy" loading="lazy">
+                <span>Navy</span>
+              </a>
+              <a href="/products/marq-frost" class="mega-thumb-link">
+                <img src="{{ 'marq-frost-hero.jpg' | asset_url }}" alt="Frost" loading="lazy">
+                <span>Frost</span>
+              </a>
+              <a href="/products/marq-ocean-breeze" class="mega-thumb-link">
+                <img src="{{ 'marq-ocean-breeze-hero.jpg' | asset_url }}" alt="Ocean Breeze" loading="lazy">
+                <span>Ocean Breeze</span>
+              </a>
+              <a href="/collections/fresh" class="mega-thumb-link">
+                <img src="{{ 'marq-navy-1.jpg' | asset_url }}" alt="Fresh Collection" loading="lazy">
+                <span>View All Fresh &rarr;</span>
+              </a>
+            </div>
+
+            <div class="mega-menu__tab-panel" data-mega-tab-panel="oriental">
+              <a href="/products/marq-dark-cherry" class="mega-thumb-link">
+                <img src="{{ 'marq-dark-cherry-hero.jpg' | asset_url }}" alt="Dark Cherry" loading="lazy">
+                <span>Dark Cherry</span>
+              </a>
+              <a href="/products/marq-velvet-oud" class="mega-thumb-link">
+                <img src="{{ 'marq-velvet-oud-hero.jpg' | asset_url }}" alt="Velvet Oud" loading="lazy">
+                <span>Velvet Oud</span>
+              </a>
+              <a href="/products/marq-midnight-spice" class="mega-thumb-link">
+                <img src="{{ 'marq-midnight-spice-hero.jpg' | asset_url }}" alt="Midnight Spice" loading="lazy">
+                <span>Midnight Spice</span>
+              </a>
+              <a href="/products/marq-saffron-glow" class="mega-thumb-link">
+                <img src="{{ 'marq-saffron-glow-hero.jpg' | asset_url }}" alt="Saffron Glow" loading="lazy">
+                <span>Saffron Glow</span>
+              </a>
+              <a href="/products/marq-red-apple" class="mega-thumb-link">
+                <img src="{{ 'marq-red-apple-hero.jpg' | asset_url }}" alt="Red Apple" loading="lazy">
+                <span>Red Apple</span>
+              </a>
+            </div>
+
+            <div class="mega-menu__tab-panel" data-mega-tab-panel="woody">
+              <a href="/products/marq-passion-oud" class="mega-thumb-link">
+                <img src="{{ 'marq-passion-oud-hero.jpg' | asset_url }}" alt="Passion Oud" loading="lazy">
+                <span>Passion Oud</span>
+              </a>
+              <a href="/products/marq-leather-night" class="mega-thumb-link">
+                <img src="{{ 'marq-leather-night-hero.jpg' | asset_url }}" alt="Leather Night" loading="lazy">
+                <span>Leather Night</span>
+              </a>
+              <a href="/products/marq-pearl" class="mega-thumb-link">
+                <img src="{{ 'marq-pearl-hero.jpg' | asset_url }}" alt="Pearl" loading="lazy">
+                <span>Pearl</span>
+              </a>
+              <a href="/products/marq-stay-close" class="mega-thumb-link">
+                <img src="{{ 'marq-stay-close-hero.jpg' | asset_url }}" alt="Stay Close" loading="lazy">
+                <span>Stay Close</span>
+              </a>
+              <a href="/products/marq-cotton" class="mega-thumb-link">
+                <img src="{{ 'marq-cotton-hero.jpg' | asset_url }}" alt="Cotton" loading="lazy">
+                <span>Cotton</span>
+              </a>
+            </div>
+
+            <div class="mega-menu__tab-panel" data-mega-tab-panel="attar">
+              <a href="/products/marq-jasmine-attar" class="mega-thumb-link">
+                <img src="{{ 'marq-attar-jasmine-hero.jpg' | asset_url }}" alt="Mogra Jasmine Attar" loading="lazy">
+                <span>Mogra Jasmine Attar</span>
+              </a>
+              <a href="/products/marq-velvet-oud-attar" class="mega-thumb-link">
+                <img src="{{ 'marq-attar-velvet-oud-hero.jpg' | asset_url }}" alt="Velvet Oud Attar" loading="lazy">
+                <span>Velvet Oud Attar</span>
+              </a>
+              <a href="/products/marq-lavender-sandal-attar" class="mega-thumb-link">
+                <img src="{{ 'marq-attar-lavender-sandal-hero.jpg' | asset_url }}" alt="Lavender Sandal Attar" loading="lazy">
+                <span>Lavender Sandal Attar</span>
+              </a>
+              <a href="/products/marq-night-oud-attar" class="mega-thumb-link">
+                <img src="{{ 'marq-attar-night-oud-hero.jpg' | asset_url }}" alt="Saffron Night Oud Attar" loading="lazy">
+                <span>Saffron Night Oud Attar</span>
+              </a>
+              <a href="/products/marq-taif-rose-attar" class="mega-thumb-link">
+                <img src="{{ 'marq-attar-rose-sandal-hero.jpg' | asset_url }}" alt="Taif Rose & Sandal Attar" loading="lazy">
+                <span>Taif Rose &amp; Sandal Attar</span>
+              </a>
+              <a href="/collections/attar" class="mega-thumb-link">
+                <img src="{{ 'marq-attar-roller.jpg' | asset_url }}" alt="All Attar Oils" loading="lazy">
+                <span>View All Attars &rarr;</span>
+              </a>
+            </div>
+
+            <div class="mega-menu__tab-panel" data-mega-tab-panel="bakhoor">
+              <a href="/products/marq-classic-bakhoor" class="mega-thumb-link">
+                <img src="{{ 'marq-bakhoor-classic-1.jpg' | asset_url }}" alt="Classic Bakhoor" loading="lazy">
+                <span>Classic Bakhoor</span>
+              </a>
+              <a href="/products/marq-oud-bakhoor" class="mega-thumb-link">
+                <img src="{{ 'marq-bakhoor-oud-1.jpg' | asset_url }}" alt="Oud Bakhoor" loading="lazy">
+                <span>Oud Bakhoor</span>
+              </a>
+              <a href="/products/marq-royal-bakhoor" class="mega-thumb-link">
+                <img src="{{ 'marq-bakhoor-royal-1.jpg' | asset_url }}" alt="Royal Bakhoor" loading="lazy">
+                <span>Royal Bakhoor</span>
+              </a>
+              <a href="/collections/bakhoor" class="mega-thumb-link">
+                <img src="{{ 'marq-bakhoor-royal-2.jpg' | asset_url }}" alt="All Bakhoor Incense" loading="lazy">
+                <span>View All Bakhoor &rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="mega-menu__promo-col">
+            <div class="mega-menu__promo-pair">
+              <a href="/collections/perfumes" class="mega-square-card">
+                <img src="{{ 'marq-navy-hero.jpg' | asset_url }}" alt="MARQ Eau de Parfum" loading="lazy">
+                <span class="mega-square-card__pill">Eau de Parfum</span>
+                <div class="mega-square-card__bottom">
+                  <h4 class="h4">Signature Perfumes</h4>
+                  <span class="circle-btn circle-btn--lime">{% render 'icon', name: 'chevron-right' %}</span>
+                </div>
+              </a>
+              <a href="/collections/attar" class="mega-square-card">
+                <img src="{{ 'marq-attar-velvet-oud-hero.jpg' | asset_url }}" alt="MARQ Rubbing Roller Attar" loading="lazy">
+                <span class="mega-square-card__pill">Perfumed Oil</span>
+                <div class="mega-square-card__bottom">
+                  <h4 class="h4">Roller Attar Oils</h4>
+                  <span class="circle-btn circle-btn--lime">{% render 'icon', name: 'chevron-right' %}</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {%- when 'collections' -%}
+    <div class="mega-menu" id="MegaMenu-collections" data-mega-panel="collections" aria-hidden="true">
+      <div class="page-width">
+        <div class="mega-menu__collections-grid">
+          <div class="mega-menu__link-columns">
+            <div class="mega-link-col">
+              <h4 class="h4">By Category</h4>
+              <ul>
+                <li><a href="/collections/perfumes">Eau de Parfum (13)</a></li>
+                <li><a href="/collections/attar">Attar / Perfumed Oil (5)</a></li>
+                <li><a href="/collections/bakhoor">Bakhoor / Incense (3)</a></li>
+                <li><a href="/collections/all" class="link-underlined">Shop All (21)</a></li>
+              </ul>
+            </div>
+            <div class="mega-link-col">
+              <h4 class="h4">By Scent Family</h4>
+              <ul>
+                <li><a href="/collections/fresh">Fresh</a></li>
+                <li><a href="/collections/oriental">Oriental</a></li>
+                <li><a href="/collections/woody">Woody</a></li>
+                <li><a href="/collections/florals">Florals</a></li>
+                <li><a href="/collections" class="link-underlined">All Collections</a></li>
+              </ul>
+            </div>
+            <div class="mega-link-col">
+              <h4 class="h4">By Gender &amp; Occasion</h4>
+              <ul>
+                <li><a href="/collections/men">Men</a></li>
+                <li><a href="/collections/women">Women</a></li>
+                <li><a href="/collections/unisex">Unisex</a></li>
+                <li><a href="/collections/daily-office">Daily &amp; Office</a></li>
+                <li><a href="/collections/weddings-formal">Weddings &amp; Majlis</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mega-menu__promo-pair">
+            <a href="/collections/attar" class="mega-square-card">
+              <img src="{{ 'marq-attar-velvet-oud-hero.jpg' | asset_url }}" alt="MARQ Rubbing Roller Attar" loading="lazy">
+              <span class="mega-square-card__pill">Perfumed Oil</span>
+              <div class="mega-square-card__bottom">
+                <h4 class="h4">MARQ Attar Collection</h4>
+                <span class="circle-btn circle-btn--lime">{% render 'icon', name: 'chevron-right' %}</span>
+              </div>
+            </a>
+            <a href="/collections/bakhoor" class="mega-square-card">
+              <img src="{{ 'marq-bakhoor-royal-2.jpg' | asset_url }}" alt="Royal Bakhoor Incense" loading="lazy">
+              <span class="mega-square-card__pill">Incense Powder</span>
+              <div class="mega-square-card__bottom">
+                <h4 class="h4">MARQ Bakhoor</h4>
+                <span class="circle-btn circle-btn--lime">{% render 'icon', name: 'chevron-right' %}</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {%- when 'pages' -%}
+    <div class="mega-menu" id="MegaMenu-pages" data-mega-panel="pages" aria-hidden="true">
+      <div class="page-width">
+        <div class="mega-menu__pages-grid">
+          <div class="mega-menu__editorial-intro">
+            <h4 class="h3">#MarkYourPresence &mdash; Fine Eau de Parfum, Attar Oils &amp; Artisanal Bakhoor.</h4>
+          </div>
+
+          <div class="mega-menu__story-cards">
+            <a href="/collections/perfumes" class="mega-story-card">
+              <img src="{{ 'marq-navy-hero.jpg' | asset_url }}" alt="Eau de Parfum" loading="lazy">
+              <span class="mega-story-card__cta">Perfumes {% render 'icon', name: 'arrow-right' %}</span>
+            </a>
+            <a href="/collections/attar" class="mega-story-card">
+              <img src="{{ 'marq-attar-jasmine-hero.jpg' | asset_url }}" alt="Attar Perfumed Oil" loading="lazy">
+              <span class="mega-story-card__cta">Attar Oils {% render 'icon', name: 'arrow-right' %}</span>
+            </a>
+            <a href="/collections/bakhoor" class="mega-story-card">
+              <img src="{{ 'marq-bakhoor-classic-1.jpg' | asset_url }}" alt="Bakhoor Incense" loading="lazy">
+              <span class="mega-story-card__cta">Bakhoor {% render 'icon', name: 'arrow-right' %}</span>
+            </a>
+          </div>
+
+          <div class="mega-link-col">
+            <ul>
+              <li><a href="/pages/about">Our Story</a></li>
+              <li><a href="/pages/faq">Fragrance FAQs</a></li>
+              <li><a href="/pages/contact">Contact Concierge</a></li>
+              <li><a href="/pages/contact">Boutique Locator</a></li>
+              <li><a href="/blogs/news">The Scent Journal</a></li>
+              <li><a href="/pages/faq">Pan-India Shipping</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+{%- endcase -%}

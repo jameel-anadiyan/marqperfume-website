@@ -1,0 +1,109 @@
+<section class="section-pad section-bakhoor-showcase color-scheme-1" data-bakhoor-showcase>
+  <div class="page-width">
+    <div class="bakhoor-editorial color-scheme-2" data-tabbed-slideshow>
+      <div class="bakhoor-editorial__slides">
+        <div class="bakhoor-editorial__slide is-active" data-ed-slide="0">
+          <div class="bakhoor-editorial__copy">
+            <span class="bakhoor-editorial__pill">ARTISANAL INCENSE POWDER &bull; BAKHOOR</span>
+            <h2 class="h1 bakhoor-editorial__title">Classic Bakhoor</h2>
+            <p class="bakhoor-editorial__desc">
+              Steady, aromatic ribbons of Kashmiri saffron, Damask rose water, green cardamom, and natural agarwood powder crafted to welcome guests and sanctify your space.
+            </p>
+            <div class="bakhoor-editorial__meta">
+              <span class="bakhoor-editorial__price">₹500</span>
+              <span class="bakhoor-editorial__tag">Artisanal Incense Jar &bull; Woody &amp; Amber</span>
+            </div>
+            <div class="bakhoor-editorial__actions">
+              {% render 'button', label: 'Shop Classic Bakhoor', href: '/products/marq-classic-bakhoor', style: 'icon-solid' %}
+              <a href="/collections/bakhoor" class="bakhoor-editorial__all-link">View All Bakhoor &rarr;</a>
+            </div>
+          </div>
+
+          <div class="bakhoor-editorial__media">
+            <a href="/products/marq-classic-bakhoor" class="bakhoor-square-frame" aria-label="Classic Bakhoor">
+              <img src="{{ 'marq-bakhoor-classic-1.jpg' | asset_url }}" alt="Classic Bakhoor Jar" class="bakhoor-square-frame__img bakhoor-square-frame__img--primary" loading="lazy">
+              <img src="{{ 'marq-bakhoor-classic-2.jpg' | asset_url }}" alt="Classic Bakhoor Aroma Profile" class="bakhoor-square-frame__img bakhoor-square-frame__img--hover" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="bakhoor-editorial__slide" data-ed-slide="1">
+          <div class="bakhoor-editorial__copy">
+            <span class="bakhoor-editorial__pill">ARTISANAL INCENSE POWDER &bull; BAKHOOR</span>
+            <h2 class="h1 bakhoor-editorial__title">Oud Bakhoor</h2>
+            <p class="bakhoor-editorial__desc">
+              Deep, resinous Cambodian agarwood fused with Turkish rose, golden myrrh resin, and dark Indonesian patchouli for rich evening gatherings and majlis rituals.
+            </p>
+            <div class="bakhoor-editorial__meta">
+              <span class="bakhoor-editorial__price">₹650</span>
+              <span class="bakhoor-editorial__tag">Artisanal Incense Jar &bull; Smoky Oud</span>
+            </div>
+            <div class="bakhoor-editorial__actions">
+              {% render 'button', label: 'Shop Oud Bakhoor', href: '/products/marq-oud-bakhoor', style: 'icon-solid' %}
+              <a href="/collections/bakhoor" class="bakhoor-editorial__all-link">View All Bakhoor &rarr;</a>
+            </div>
+          </div>
+
+          <div class="bakhoor-editorial__media">
+            <a href="/products/marq-oud-bakhoor" class="bakhoor-square-frame" aria-label="Oud Bakhoor">
+              <img src="{{ 'marq-bakhoor-oud-1.jpg' | asset_url }}" alt="Oud Bakhoor Jar" class="bakhoor-square-frame__img bakhoor-square-frame__img--primary" loading="lazy">
+              <img src="{{ 'marq-bakhoor-oud-2.jpg' | asset_url }}" alt="Oud Bakhoor Aroma Profile" class="bakhoor-square-frame__img bakhoor-square-frame__img--hover" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="bakhoor-editorial__slide" data-ed-slide="2">
+          <div class="bakhoor-editorial__copy">
+            <span class="bakhoor-editorial__pill">ARTISANAL INCENSE POWDER &bull; BAKHOOR</span>
+            <h2 class="h1 bakhoor-editorial__title">Royal Bakhoor</h2>
+            <p class="bakhoor-editorial__desc">
+              Regal saffron threads, honeyed rose petals, aged royal oud chips, and Mysore sandalwood enveloping weddings, Eid celebrations, and luxury interiors for hours.
+            </p>
+            <div class="bakhoor-editorial__meta">
+              <span class="bakhoor-editorial__price">₹1,200</span>
+              <span class="bakhoor-editorial__tag">Artisanal Incense Jar &bull; Royal Oriental</span>
+            </div>
+            <div class="bakhoor-editorial__actions">
+              {% render 'button', label: 'Shop Royal Bakhoor', href: '/products/marq-royal-bakhoor', style: 'icon-solid' %}
+              <a href="/collections/bakhoor" class="bakhoor-editorial__all-link">View All Bakhoor &rarr;</a>
+            </div>
+          </div>
+
+          <div class="bakhoor-editorial__media">
+            <a href="/products/marq-royal-bakhoor" class="bakhoor-square-frame" aria-label="Royal Bakhoor">
+              <img src="{{ 'marq-bakhoor-royal-1.jpg' | asset_url }}" alt="Royal Bakhoor Jar" class="bakhoor-square-frame__img bakhoor-square-frame__img--primary" loading="lazy">
+              <img src="{{ 'marq-bakhoor-royal-2.jpg' | asset_url }}" alt="Royal Bakhoor Aroma Profile" class="bakhoor-square-frame__img bakhoor-square-frame__img--hover" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="centered-editorial__tabs bakhoor-editorial__tabs" role="tablist">
+        <button type="button" class="ed-tab-btn is-active" data-ed-btn="0">
+          <img src="{{ 'marq-bakhoor-classic-1.jpg' | asset_url }}" alt="" class="ed-tab-btn__thumb" loading="lazy">
+          <span><span class="ed-tab-btn__num">1.</span> Classic Bakhoor &bull; ₹500</span>
+        </button>
+        <button type="button" class="ed-tab-btn" data-ed-btn="1">
+          <img src="{{ 'marq-bakhoor-oud-1.jpg' | asset_url }}" alt="" class="ed-tab-btn__thumb" loading="lazy">
+          <span><span class="ed-tab-btn__num">2.</span> Oud Bakhoor &bull; ₹650</span>
+        </button>
+        <button type="button" class="ed-tab-btn" data-ed-btn="2">
+          <img src="{{ 'marq-bakhoor-royal-1.jpg' | asset_url }}" alt="" class="ed-tab-btn__thumb" loading="lazy">
+          <span><span class="ed-tab-btn__num">3.</span> Royal Bakhoor &bull; ₹1,200</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bakhoor Square Showcase",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Bakhoor Square Showcase"
+    }
+  ]
+}
+{% endschema %}

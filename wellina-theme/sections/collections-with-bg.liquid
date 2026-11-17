@@ -1,0 +1,130 @@
+<section class="collections-bg color-scheme-2" data-collections-bg>
+  <div class="collections-bg__bgs">
+    <div class="collections-bg__bg is-active" data-col-bg="0">
+      <img src="{{ 'marq-navy-hero.jpg' | asset_url }}" alt="Eau de Parfum Collection" loading="lazy">
+      <span class="hero-slide__scrim"></span>
+    </div>
+    <div class="collections-bg__bg" data-col-bg="1">
+      <img src="{{ 'marq-attar-velvet-oud.jpg' | asset_url }}" alt="Attar Perfumed Oil Collection" loading="lazy">
+      <span class="hero-slide__scrim"></span>
+    </div>
+    <div class="collections-bg__bg" data-col-bg="2">
+      <img src="{{ 'marq-bakhoor-royal-2.jpg' | asset_url }}" alt="Bakhoor Incense Collection" loading="lazy">
+      <span class="hero-slide__scrim"></span>
+    </div>
+    <div class="collections-bg__bg" data-col-bg="3">
+      <img src="{{ 'marq-passion-oud-hero.jpg' | asset_url }}" alt="Oud & Oriental Collection" loading="lazy">
+      <span class="hero-slide__scrim"></span>
+    </div>
+  </div>
+
+  <div class="page-width collections-bg__inner">
+    <div class="collections-bg__left">
+      <p class="text-subheading">{{ section.settings.eyebrow }}</p>
+
+      <ul class="collections-bg__links">
+        <li>
+          <button type="button" class="collections-bg__trigger is-active" data-col-trigger="0">
+            <span>Eau de Parfum</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="collections-bg__trigger" data-col-trigger="1">
+            <span>Attar &bull; Oil</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="collections-bg__trigger" data-col-trigger="2">
+            <span>Bakhoor &bull; Incense</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="collections-bg__trigger" data-col-trigger="3">
+            <span>Oud &amp; Oriental</span>
+          </button>
+        </li>
+      </ul>
+
+      <p class="collections-bg__desc">{{ section.settings.description }}</p>
+
+      <div class="collections-bg__cta">
+        {% render 'button', label: 'Explore All 21 Creations', href: '/collections/all', style: 'icon-solid' %}
+      </div>
+    </div>
+
+    <div class="collections-bg__right">
+      <div class="col-spotlight-card color-scheme-1 is-active" data-col-card="0">
+        <a href="/collections/perfumes" class="col-spotlight-card__img">
+          <img src="{{ 'marq-navy-hero.jpg' | asset_url }}" alt="MARQ Eau de Parfum" loading="lazy">
+        </a>
+        <h3 class="h4">Eau de Parfum (13) &bull; ₹1,200</h3>
+        <p class="col-spotlight-card__sub">High-oil sprays across Fresh, Oriental, Woody, and Floral families with complimentary bottle engraving.</p>
+        <ul class="col-spotlight-card__checks">
+          <li><span class="check-dot">{% render 'icon', name: 'check' %}</span> 50 ml (₹1,200) &amp; 100 ml (₹2,500) flacons</li>
+          <li><span class="check-dot">{% render 'icon', name: 'check' %}</span> Free plaque personalisation</li>
+        </ul>
+      </div>
+
+      <div class="col-spotlight-card color-scheme-1" data-col-card="1">
+        <a href="/collections/attar" class="col-spotlight-card__img">
+          <img src="{{ 'marq-attar-velvet-oud-hero.jpg' | asset_url }}" alt="MARQ Rubbing Roller Attar" loading="lazy">
+        </a>
+        <h3 class="h4">Rubbing Roller Attar (5) &bull; From ₹250</h3>
+        <p class="col-spotlight-card__sub">100% alcohol-free concentrated perfumed oils in 3ml (₹250), 6ml (₹450), and 12ml (₹650) rollers.</p>
+        <ul class="col-spotlight-card__checks">
+          <li><span class="check-dot">{% render 'icon', name: 'check' %}</span> Mogra Jasmine, Velvet Oud &amp; Taif Rose</li>
+          <li><span class="check-dot">{% render 'icon', name: 'check' %}</span> 14+ hour skin &amp; fabric longevity</li>
+        </ul>
+      </div>
+
+      <div class="col-spotlight-card color-scheme-1" data-col-card="2">
+        <a href="/collections/bakhoor" class="col-spotlight-card__img">
+          <img src="{{ 'marq-bakhoor-royal-1.jpg' | asset_url }}" alt="Royal Bakhoor" loading="lazy">
+        </a>
+        <h3 class="h4">Bakhoor Incense (3) &bull; From ₹500</h3>
+        <p class="col-spotlight-card__sub">Finely blended agarwood, saffron, and amber incense powders for home, office, majlis, and celebrations.</p>
+        <ul class="col-spotlight-card__checks">
+          <li><span class="check-dot">{% render 'icon', name: 'check' %}</span> Classic (₹500), Oud (₹650) &amp; Royal (₹1,200)</li>
+          <li><span class="check-dot">{% render 'icon', name: 'check' %}</span> Slow, rich aromatic burn for hours</li>
+        </ul>
+      </div>
+
+      <div class="col-spotlight-card color-scheme-1" data-col-card="3">
+        <a href="/products/marq-passion-oud" class="col-spotlight-card__img">
+          <img src="{{ 'marq-passion-oud-hero.jpg' | asset_url }}" alt="Passion Oud" loading="lazy">
+        </a>
+        <h3 class="h4">Passion Oud &bull; ₹1,200</h3>
+        <p class="col-spotlight-card__sub">Exotic passionfruit, saffron &amp; smoky agarwood oud with 5/5 longevity.</p>
+        <ul class="col-spotlight-card__checks">
+          <li><span class="check-dot">{% render 'icon', name: 'check' %}</span> Woody &bull; Unisex</li>
+          <li><span class="check-dot">{% render 'icon', name: 'check' %}</span> Weddings &amp; statement occasions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections Showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Subheading",
+      "default": "SIGNATURE CATEGORIES"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Discover fine Eau de Parfum sprays, alcohol-free Rubbing Roller Attar oils, and artisanal Bakhoor incense powders."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collections Showcase"
+    }
+  ]
+}
+{% endschema %}

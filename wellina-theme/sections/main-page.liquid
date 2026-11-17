@@ -1,0 +1,25 @@
+<section class="section-pad color-scheme-1">
+  <div class="page-width page-width--narrow">
+    <div class="section-head-center">
+      <p class="text-subheading">MARQ PERFUMES</p>
+      <h1 class="h1">{{ page.title | default: 'Our Maison' }}</h1>
+    </div>
+
+    <div class="rte">
+      {%- if page != blank and page.content != blank -%}
+        {{ page.content }}
+      {%- else -%}
+        <p>MARQ Perfumes was founded on a singular conviction: fine coastal perfumery should feel simultaneously crisp, luminous, and unmistakably enduring.</p>
+        <p>Working alongside master perfumers and sustainable botanical distillers, we compose high-concentration 22% Eau de Parfum creations—uniting sun-ripened citrus, frosted wild berries, crystalline ocean spray, and dewy white water lily inside our signature fluted sapphire flacon.</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Page",
+  "settings": []
+}
+{% endschema %}
+

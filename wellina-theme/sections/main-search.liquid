@@ -1,0 +1,54 @@
+{%- liquid
+  assign u_navy_h = 'marq-navy-hero.jpg' | asset_url
+  assign u_navy_2 = 'marq-navy-1.jpg' | asset_url
+  assign u_poud_h = 'marq-passion-oud-hero.jpg' | asset_url
+  assign u_poud_2 = 'marq-passion-oud.jpg' | asset_url
+  assign u_cherry_h = 'marq-dark-cherry-hero.jpg' | asset_url
+  assign u_cherry_2 = 'marq-dark-cherry.jpg' | asset_url
+  assign u_cotton_h = 'marq-cotton-hero.jpg' | asset_url
+  assign u_cotton_2 = 'marq-cotton.jpg' | asset_url
+-%}
+<section class="section-pad color-scheme-1">
+  <div class="page-width">
+    <div class="section-head-center">
+      <p class="text-subheading">SEARCH</p>
+      <h1 class="h1">
+        {%- if search.performed -%}
+          Results for &ldquo;{{ search.terms | escape }}&rdquo;
+        {%- else -%}
+          Search our 21 signature creations
+        {%- endif -%}
+      </h1>
+      <form action="{{ routes.search_url | default: '/search' }}" method="get" class="search-page-form">
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search Navy, Oud, Attar, Bakhoor, Fresh..." class="pill-input">
+        <button type="submit" class="btn btn--primary">
+          <span class="btn__text-wrap"><span class="btn__text" data-text="Search">Search</span></span>
+        </button>
+      </form>
+    </div>
+
+    {%- if search.performed and search.results_count > 0 -%}
+      <div class="collection-product-grid" data-cols="4">
+        {%- for item in search.results -%}
+          {%- if item.object_type == 'product' -%}
+            {% render 'product-card', card_product: item %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="collection-product-grid" data-cols="4" data-search-page-grid>
+        {% render 'product-card', demo_handle: 'marq-navy', demo_title: 'Navy', demo_category: 'Eau de Parfum', demo_family: 'Fresh', demo_gender: 'Men', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_navy_h, demo_hover_image: u_navy_2 %}
+        {% render 'product-card', demo_handle: 'marq-passion-oud', demo_title: 'Passion Oud', demo_category: 'Eau de Parfum', demo_family: 'Woody', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_poud_h, demo_hover_image: u_poud_2 %}
+        {% render 'product-card', demo_handle: 'marq-dark-cherry', demo_title: 'Dark Cherry', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_cherry_h, demo_hover_image: u_cherry_2 %}
+        {% render 'product-card', demo_handle: 'marq-cotton', demo_title: 'Cotton', demo_category: 'Eau de Parfum', demo_family: 'Florals', demo_gender: 'Women', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_cotton_h, demo_hover_image: u_cotton_2 %}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Search",
+  "settings": []
+}
+{% endschema %}

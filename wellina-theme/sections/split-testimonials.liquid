@@ -1,0 +1,164 @@
+<section class="split-testimonials" data-testimonial-slider>
+  <div class="split-testimonials__left">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        case forloop.index
+          when 1
+            assign fb_photo = 'marq-navy-hero.jpg' | asset_url
+            assign fb_prod_img = 'marq-navy-hero.jpg' | asset_url
+            assign fb_prod_url = '/products/marq-navy'
+          when 2
+            assign fb_photo = 'marq-cotton-hero.jpg' | asset_url
+            assign fb_prod_img = 'marq-cotton-hero.jpg' | asset_url
+            assign fb_prod_url = '/products/marq-cotton'
+          else
+            assign fb_photo = 'marq-passion-oud-hero.jpg' | asset_url
+            assign fb_prod_img = 'marq-passion-oud-hero.jpg' | asset_url
+            assign fb_prod_url = '/products/marq-passion-oud'
+        endcase
+      -%}
+      <div class="split-testimonials__media{% if forloop.first %} is-active{% endif %}" data-testi-media="{{ forloop.index0 }}">
+        {%- if block.settings.lifestyle_image != blank -%}
+          <img src="{{ block.settings.lifestyle_image | image_url: width: 1600 }}" alt="{{ block.settings.author | escape }}" loading="lazy">
+        {%- else -%}
+          <img src="{{ fb_photo }}" alt="{{ block.settings.author | escape }}" loading="lazy">
+        {%- endif -%}
+
+        <div class="floating-product-tag color-scheme-1">
+          <img src="{{ fb_prod_img }}" alt="{{ block.settings.product_title | escape }}" loading="lazy">
+          <div class="floating-product-tag__info">
+            <strong>{{ block.settings.product_title }}</strong>
+            <span>{{ block.settings.product_price }}</span>
+          </div>
+          <a href="{{ fb_prod_url }}" class="btn btn--primary btn--sm">
+            <span class="btn__text-wrap"><span class="btn__text" data-text="Shop">Shop</span></span>
+          </a>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <div class="split-testimonials__right color-scheme-2">
+    <div class="split-testimonials__content">
+      <p class="text-subheading">{{ section.settings.eyebrow }}</p>
+
+      <div class="split-testimonials__quotes">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            case forloop.index
+              when 1
+                assign fb_avatar = 'marq-navy-hero.jpg' | asset_url
+              when 2
+                assign fb_avatar = 'marq-cotton-hero.jpg' | asset_url
+              else
+                assign fb_avatar = 'marq-passion-oud-hero.jpg' | asset_url
+            endcase
+          -%}
+          <div class="split-testimonials__quote-slide{% if forloop.first %} is-active{% endif %}" data-testi-slide="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            <blockquote class="h2">&ldquo;{{ block.settings.quote }}&rdquo;</blockquote>
+            <div class="testi-author">
+              <img src="{{ fb_avatar }}" alt="{{ block.settings.author | escape }}" loading="lazy">
+              <div>
+                <strong>{{ block.settings.author }}</strong>
+                <span>Verified Buyer</span>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="split-testimonials__nav">
+        <span class="slider-counter" data-testi-counter>1 / {{ section.blocks.size | at_least: 1 }}</span>
+        <div class="slider-arrows">
+          <button type="button" class="hero-arrow-btn" data-testi-prev aria-label="Previous review">{% render 'icon', name: 'chevron-left' %}</button>
+          <button type="button" class="hero-arrow-btn" data-testi-next aria-label="Next review">{% render 'icon', name: 'chevron-right' %}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Split Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Subheading",
+      "default": "WORN & LOVED"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Customer Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "lifestyle_image",
+          "label": "Lifestyle image"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Review quote",
+          "default": "Navy opens crisp with lemon zest and mint, then settles into rich sandalwood that projects effortlessly through an entire workday."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Customer name",
+          "default": "Aarav Mehta"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Tagged product title",
+          "default": "Navy"
+        },
+        {
+          "type": "text",
+          "id": "product_price",
+          "label": "Tagged product price",
+          "default": "₹1,200"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split Testimonials",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "quote": "Navy opens crisp with lemon zest and mint, then settles into rich sandalwood that projects effortlessly through an entire workday.",
+            "author": "Aarav Mehta",
+            "product_title": "Navy",
+            "product_price": "₹1,200"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "Cotton is pure airy elegance—sparkling citrus, white peach, and clean cotton musk that lingers on ethnic and office wear all day.",
+            "author": "Ananya Kapoor",
+            "product_title": "Cotton",
+            "product_price": "₹1,200"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "Passion Oud hits way above its price point. Vivid passionfruit over dark smoky oud—every wedding I wear it to, people ask what fragrance it is.",
+            "author": "Rohan Malhotra",
+            "product_title": "Passion Oud",
+            "product_price": "₹1,200"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

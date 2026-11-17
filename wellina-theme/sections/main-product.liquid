@@ -1,0 +1,512 @@
+{%- liquid
+  assign def_img_1 = 'marq-navy-hero.jpg' | asset_url
+  assign def_img_2 = 'marq-navy-1.jpg' | asset_url
+  assign def_img_3 = 'marq-perfume-packaging.jpg' | asset_url
+  assign def_note_1 = 'marq-note-citrus.jpg' | asset_url
+  assign def_note_2 = 'marq-note-lavender.jpg' | asset_url
+  assign def_note_3 = 'marq-note-woods.jpg' | asset_url
+  assign comp_img_1 = 'marq-dark-cherry-hero.jpg' | asset_url
+  assign comp_img_2 = 'marq-passion-oud-hero.jpg' | asset_url
+
+  if product != blank and product.title != blank
+    assign p_title = product.title | remove_first: 'MARQ ' | remove_first: 'Marq '
+    assign p_handle = product.handle
+    assign p_price = product.selected_or_first_available_variant.price | default: product.price
+    assign p_compare = product.selected_or_first_available_variant.compare_at_price | default: product.compare_at_price
+    assign p_price_100 = product.price_100 | default: 250000
+    assign p_compare_100 = product.compare_100 | default: 0
+    assign p_desc = product.description | strip_html | default: "Fresh, aromatic and citrusy with a refined, invigorating opening, unfolding into lavender and pineapple over rich sandalwood and warm cedar."
+    assign p_variant_id = product.selected_or_first_available_variant.id | default: 920101
+    assign p_size_label = product.selected_or_first_available_variant.title | default: '50ml'
+    assign p_category = product.category | default: 'Eau de Parfum'
+    assign p_family = product.family | default: 'Fresh'
+    assign p_gender = product.gender | default: 'Men'
+    assign p_occasion = product.occasion | default: 'Daily casual wear, Office & business meetings'
+    assign p_occasion_tag = product.occasion_tag | default: 'Daily & Office'
+    assign p_sillage = product.sillage | default: 4.0
+    assign p_projection = product.projection | default: 3.5
+    assign p_longevity = product.longevity | default: 4.0
+    assign p_first_spray = product.first_spray | default: 'Fresh, aromatic and citrusy with a refined, invigorating opening.'
+    assign p_after_30 = product.after_30_min | default: 'Smooth, elegant and woody with a sophisticated aromatic heart.'
+    assign p_dry_down = product.dry_down | default: 'Deep, creamy and sensual with rich sandalwood and warm cedar.'
+    assign n_img_1 = product.note_img_1 | default: def_note_1
+    assign n_img_2 = product.note_img_2 | default: def_note_2
+    assign n_img_3 = product.note_img_3 | default: def_note_3
+  else
+    assign p_title = 'Navy'
+    assign p_handle = 'marq-navy'
+    assign p_price = 120000
+    assign p_compare = 0
+    assign p_price_100 = 250000
+    assign p_compare_100 = 0
+    assign p_desc = "Fresh, aromatic and citrusy with a refined, invigorating opening. Opens with Lemon Zest, Bergamot, and Mint, unfolding into Lavender and Pineapple over a lasting Sandalwood and Cedar base."
+    assign p_variant_id = 920101
+    assign p_size_label = '50ml'
+    assign p_category = 'Eau de Parfum'
+    assign p_family = 'Fresh'
+    assign p_gender = 'Men'
+    assign p_occasion = 'Daily casual wear, Office & business meetings'
+    assign p_occasion_tag = 'Daily & Office'
+    assign p_sillage = 4.0
+    assign p_projection = 3.5
+    assign p_longevity = 4.0
+    assign p_first_spray = 'Fresh, aromatic and citrusy with a refined, invigorating opening.'
+    assign p_after_30 = 'Smooth, elegant and woody with a sophisticated aromatic heart.'
+    assign p_dry_down = 'Deep, creamy and sensual with rich sandalwood and warm cedar.'
+    assign n_img_1 = def_note_1
+    assign n_img_2 = def_note_2
+    assign n_img_3 = def_note_3
+  endif
+
+  assign sillage_pct = p_sillage | times: 20
+  assign projection_pct = p_projection | times: 20
+  assign longevity_pct = p_longevity | times: 20
+  assign family_slug = p_family | handle
+  assign gender_slug = p_gender | handle
+
+  if p_category == 'Attar'
+    assign crumb_col_title = 'Attar • Perfumed Oil'
+    assign crumb_col_url = '/collections/attar'
+    assign cat_pill_url = '/collections/attar'
+    assign unit_word = 'rollers'
+    assign stage_1_label = 'First Touch'
+    assign personalise_title = 'Personalise Your Attar'
+  elsif p_category == 'Bakhoor'
+    assign crumb_col_title = 'Bakhoor • Incense'
+    assign crumb_col_url = '/collections/bakhoor'
+    assign cat_pill_url = '/collections/bakhoor'
+    assign unit_word = 'jars'
+    assign stage_1_label = 'First Burn'
+    assign personalise_title = 'Personalise Your Jar'
+  else
+    assign crumb_col_title = p_family
+    assign crumb_col_url = '/collections/' | append: family_slug
+    assign cat_pill_url = '/collections/perfumes'
+    assign unit_word = 'flacons'
+    assign stage_1_label = 'First Spray'
+    assign personalise_title = 'Personalise Your Bottle'
+  endif
+-%}
+
+<section class="section-pdp color-scheme-1" data-pdp data-product-handle="{{ p_handle }}">
+  <div class="page-width">
+    <div class="pdp-grid">
+      <div class="pdp-gallery">
+        <div class="pdp-thumbs" data-pdp-thumbs>
+          {%- if product != blank and product.images.size > 0 -%}
+            {%- for img in product.images limit: 6 -%}
+              <button type="button" class="pdp-thumb{% if forloop.first %} is-active{% endif %}" data-thumb-target="pdp-media-{{ forloop.index0 }}">
+                <img src="{{ img | image_url: width: 280 }}" alt="{{ p_title | escape }} thumbnail {{ forloop.index }}">
+              </button>
+            {%- endfor -%}
+          {%- else -%}
+            <button type="button" class="pdp-thumb is-active" data-thumb-target="pdp-media-0">
+              <img src="{{ def_img_1 }}" alt="Navy Studio 1">
+            </button>
+            <button type="button" class="pdp-thumb" data-thumb-target="pdp-media-1">
+              <img src="{{ def_img_2 }}" alt="Navy Studio 2">
+            </button>
+            <button type="button" class="pdp-thumb" data-thumb-target="pdp-media-2">
+              <img src="{{ def_img_3 }}" alt="MARQ Perfume Packaging">
+            </button>
+          {%- endif -%}
+        </div>
+
+        <div class="pdp-media-stack" data-pdp-media-stack>
+          {%- if product != blank and product.images.size > 0 -%}
+            {%- for img in product.images limit: 6 -%}
+              <div class="pdp-media-item" id="pdp-media-{{ forloop.index0 }}">
+                <img src="{{ img | image_url: width: 1200 }}" alt="{{ p_title | escape }} {{ forloop.index }}" {% if forloop.first %}fetchpriority="high" data-pdp-primary-img{% else %}loading="lazy"{% endif %}>
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            <div class="pdp-media-item" id="pdp-media-0">
+              <img src="{{ def_img_1 }}" alt="Navy Eau de Parfum" fetchpriority="high" data-pdp-primary-img>
+            </div>
+            <div class="pdp-media-item" id="pdp-media-1">
+              <img src="{{ def_img_2 }}" alt="Navy Citrus & Lavender" loading="lazy">
+            </div>
+            <div class="pdp-media-item" id="pdp-media-2">
+              <img src="{{ def_img_3 }}" alt="MARQ Perfume Packaging" loading="lazy">
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="pdp-info">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="{{ routes.root_url | default: '/' }}">Home</a>
+          <span>/</span>
+          <a href="{{ crumb_col_url }}" data-pdp-crumb-col>{{ crumb_col_title }}</a>
+          <span>/</span>
+          <span aria-current="page" data-pdp-crumb>{{ p_title }}</span>
+        </nav>
+
+        <h1 class="pdp-title" data-pdp-title>{{ p_title }}</h1>
+
+        <div class="pdp-rating-row" aria-label="Rated 4.68 out of 5 stars">
+          <span class="pdp-stars" aria-hidden="true">
+            <svg viewBox="0 0 112 20" fill="none">
+              <defs>
+                <linearGradient id="pdpHalfStarGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="55%" stop-color="#F59E0B"/>
+                  <stop offset="55%" stop-color="#DCE4EE"/>
+                </linearGradient>
+              </defs>
+              <path d="M10 1.4L12.45 6.85L18.4 7.45L13.95 11.45L15.2 17.3L10 14.25L4.8 17.3L6.05 11.45L1.6 7.45L7.55 6.85L10 1.4Z" fill="#F59E0B"/>
+              <path d="M33 1.4L35.45 6.85L41.4 7.45L36.95 11.45L38.2 17.3L33 14.25L27.8 17.3L29.05 11.45L24.6 7.45L30.55 6.85L33 1.4Z" fill="#F59E0B"/>
+              <path d="M56 1.4L58.45 6.85L64.4 7.45L59.95 11.45L61.2 17.3L56 14.25L50.8 17.3L52.05 11.45L47.6 7.45L53.55 6.85L56 1.4Z" fill="#F59E0B"/>
+              <path d="M79 1.4L81.45 6.85L87.4 7.45L82.95 11.45L84.2 17.3L79 14.25L73.8 17.3L75.05 11.45L70.6 7.45L76.55 6.85L79 1.4Z" fill="#F59E0B"/>
+              <path d="M102 1.4L104.45 6.85L110.4 7.45L105.95 11.45L107.2 17.3L102 14.25L96.8 17.3L98.05 11.45L93.6 7.45L99.55 6.85L102 1.4Z" fill="url(#pdpHalfStarGrad)"/>
+            </svg>
+          </span>
+          <span class="pdp-rating-row__score" data-pdp-rating>4.68</span>
+          <span class="pdp-rating-row__sep" aria-hidden="true"></span>
+          <span class="pdp-rating-row__count" data-pdp-reviews>223 reviews</span>
+        </div>
+
+        <div class="variant-picker" data-pdp-variant-picker{% if p_category == 'Bakhoor' %} hidden{% endif %}>
+          <div class="variant-picker__label">Size:</div>
+          <div class="pdp-selector-row">
+            <div class="variant-picker__pills" data-pdp-variants>
+              {%- if product != blank and product.variants.size > 1 -%}
+                {%- for v in product.variants -%}
+                  <button
+                    type="button"
+                    class="variant-pill{% if forloop.first %} is-active{% endif %}"
+                    data-variant-id="{{ v.id }}"
+                    data-variant-title="{{ v.title | escape }}"
+                    data-variant-price="{{ v.price }}"
+                    data-variant-compare="{{ v.compare_at_price | default: 0 }}"
+                  >
+                    <span>{{ v.title }}</span>
+                  </button>
+                {%- endfor -%}
+              {%- else -%}
+                <button type="button" class="variant-pill is-active" data-variant-id="{{ p_variant_id }}" data-variant-title="50ml" data-variant-price="{{ p_price }}" data-variant-compare="{{ p_compare }}">
+                  <span>50ml</span>
+                </button>
+                <button type="button" class="variant-pill" data-variant-id="920102" data-variant-title="100ml" data-variant-price="{{ p_price_100 }}" data-variant-compare="{{ p_compare_100 }}">
+                  <span>100ml</span>
+                </button>
+              {%- endif -%}
+            </div>
+
+            <button
+              type="button"
+              class="variant-pill variant-pill--personalise"
+              data-open-personalise="pdp"
+              {% unless p_category == 'Eau de Parfum' %}hidden{% endunless %}
+            >
+              {% render 'icon', name: 'gift' %}
+              <span>Personalized</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pdp-pay-block">
+          <span class="pdp-pay-block__eyebrow">PAY IN FULL</span>
+          <div class="pdp-price-row">
+            <span class="pdp-price" data-pdp-price>{{ p_price | money }}</span>
+            {%- if p_compare > p_price -%}
+              <s class="pdp-compare" data-pdp-compare>{{ p_compare | money }}</s>
+            {%- endif -%}
+          </div>
+          <span class="pdp-pay-block__tax">Incl. of all taxes</span>
+        </div>
+
+        <div class="buy-actions" data-pdp-buy-box>
+          <input type="hidden" name="id" value="{{ p_variant_id }}" data-pdp-variant-input>
+
+          <div class="buy-actions__row">
+            <div class="qty-stepper qty-stepper--pdp" data-qty-stepper>
+              <button type="button" data-qty-minus aria-label="Decrease quantity">{% render 'icon', name: 'chevron-left' %}</button>
+              <input type="number" value="1" min="1" max="99" data-pdp-qty aria-label="Quantity">
+              <button type="button" data-qty-plus aria-label="Increase quantity">{% render 'icon', name: 'chevron-right' %}</button>
+            </div>
+            <button type="button" class="pdp-atc-btn" data-pdp-add>
+              <span>Add to cart</span>
+            </button>
+          </div>
+
+          <button type="button" class="pdp-buy-now-btn" data-pdp-buy-now>
+            <span>Buy it Now</span>
+            {% render 'upi-badges' %}
+          </button>
+        </div>
+
+        <div class="pdp-trust-strip">
+          <div class="pdp-trust-item">
+            {% render 'icon', name: 'truck' %}
+            <span>Free shipping ₹999+</span>
+          </div>
+          <div class="pdp-trust-item">
+            {% render 'icon', name: 'return' %}
+            <span>Easy return</span>
+          </div>
+          <div class="pdp-trust-item">
+            {% render 'icon', name: 'shield' %}
+            <span>UPI &amp; Safe checkout</span>
+          </div>
+        </div>
+
+        {%- comment -%}
+          1. Reference Section 1: "Smells like" (First Spray -> After 30 Mins -> Dry Down)
+        {%- endcomment -%}
+        <div class="pdp-smells-like" data-pdp-smells-like>
+          <h3 class="pdp-smells-like__heading">Smells like</h3>
+          <div class="pdp-smells-like__grid">
+            <div class="pdp-smells-stage">
+              <div class="pdp-smells-stage__avatar">
+                <img src="{{ n_img_1 }}" alt="{{ stage_1_label }}" loading="lazy" data-smells-img-1>
+              </div>
+              <h4 class="pdp-smells-stage__title" data-smells-stage-1>{{ stage_1_label }}</h4>
+              <p class="pdp-smells-stage__desc" data-smells-first>{{ p_first_spray }}</p>
+            </div>
+
+            <div class="pdp-smells-stage">
+              <div class="pdp-smells-stage__avatar">
+                <img src="{{ n_img_2 }}" alt="After 30 Mins" loading="lazy" data-smells-img-2>
+              </div>
+              <h4 class="pdp-smells-stage__title">After 30 Mins</h4>
+              <p class="pdp-smells-stage__desc" data-smells-mid>{{ p_after_30 }}</p>
+            </div>
+
+            <div class="pdp-smells-stage">
+              <div class="pdp-smells-stage__avatar">
+                <img src="{{ n_img_3 }}" alt="Dry Down" loading="lazy" data-smells-img-3>
+              </div>
+              <h4 class="pdp-smells-stage__title">Dry Down</h4>
+              <p class="pdp-smells-stage__desc" data-smells-dry>{{ p_dry_down }}</p>
+            </div>
+          </div>
+        </div>
+
+        {%- comment -%}
+          2 & 3. Reference Sections 2 & 3: "Intensity" (Sillage / Projection / Longevity) & "Notes & Composition"
+        {%- endcomment -%}
+        <div class="pdp-perfume-accordions">
+          <details class="pdp-perfume-acc" open>
+            <summary class="pdp-perfume-acc__head">
+              <span class="pdp-perfume-acc__title">
+                {% render 'icon', name: 'bolt' %}
+                <span>Intensity</span>
+              </span>
+              <span class="pdp-perfume-acc__toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="pdp-perfume-acc__body">
+              <div class="pdp-intensity-list">
+                <div class="intensity-meter">
+                  <div class="intensity-meter__track">
+                    <div class="intensity-meter__fill" data-intensity-sillage style="width: {{ sillage_pct }}%;">
+                      <span>Sillage</span>
+                    </div>
+                  </div>
+                  <div class="intensity-meter__caption">
+                    <span>the trail your perfume leaves behind</span>
+                    <span class="intensity-meter__icon">{% render 'icon', name: 'footprints' %}</span>
+                  </div>
+                </div>
+
+                <div class="intensity-meter">
+                  <div class="intensity-meter__track">
+                    <div class="intensity-meter__fill" data-intensity-projection style="width: {{ projection_pct }}%;">
+                      <span>Projection</span>
+                    </div>
+                  </div>
+                  <div class="intensity-meter__caption">
+                    <span>the reach of your scent</span>
+                    <span class="intensity-meter__icon">{% render 'icon', name: 'radiate' %}</span>
+                  </div>
+                </div>
+
+                <div class="intensity-meter">
+                  <div class="intensity-meter__track">
+                    <div class="intensity-meter__fill" data-intensity-longevity style="width: {{ longevity_pct }}%;">
+                      <span>Longevity</span>
+                    </div>
+                  </div>
+                  <div class="intensity-meter__caption">
+                    <span>how long your scent lasts</span>
+                    <span class="intensity-meter__icon">{% render 'icon', name: 'clock-history' %}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <details class="pdp-perfume-acc">
+            <summary class="pdp-perfume-acc__head">
+              <span class="pdp-perfume-acc__title">
+                {% render 'icon', name: 'leaf' %}
+                <span>Notes &amp; Composition</span>
+              </span>
+              <span class="pdp-perfume-acc__toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="pdp-perfume-acc__body">
+              <div class="pdp-notes-comp">
+                <div class="pdp-notes-group">
+                  <p class="pdp-notes-group__label"><span class="note-shape">&#9650;</span> Top Notes</p>
+                  <ul class="pdp-notes-group__list" data-pdp-top-notes>
+                    {%- if product != blank and product.top_notes != blank -%}
+                      {%- for n in product.top_notes -%}
+                        <li>{{ n }}</li>
+                      {%- endfor -%}
+                    {%- else -%}
+                      <li>Lemon Zest</li>
+                      <li>Bergamot</li>
+                      <li>Mint</li>
+                      <li>Artemisia</li>
+                    {%- endif -%}
+                  </ul>
+                </div>
+
+                <div class="pdp-notes-group">
+                  <p class="pdp-notes-group__label"><span class="note-shape note-shape--sq">&#9632;</span> Middle Notes</p>
+                  <ul class="pdp-notes-group__list" data-pdp-mid-notes>
+                    {%- if product != blank and product.middle_notes != blank -%}
+                      {%- for n in product.middle_notes -%}
+                        <li>{{ n }}</li>
+                      {%- endfor -%}
+                    {%- else -%}
+                      <li>Lavender</li>
+                      <li>Pineapple</li>
+                      <li>Geranium</li>
+                      <li>Green Notes</li>
+                    {%- endif -%}
+                  </ul>
+                </div>
+
+                <div class="pdp-notes-group">
+                  <p class="pdp-notes-group__label"><span class="note-shape">&#9660;</span> Base Notes</p>
+                  <ul class="pdp-notes-group__list" data-pdp-base-notes>
+                    {%- if product != blank and product.base_notes != blank -%}
+                      {%- for n in product.base_notes -%}
+                        <li>{{ n }}</li>
+                      {%- endfor -%}
+                    {%- else -%}
+                      <li>Sandalwood</li>
+                      <li>Cedar</li>
+                      <li>Amberwood</li>
+                      <li>Iso E Super</li>
+                      <li>Tonka Bean</li>
+                    {%- endif -%}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <details class="pdp-perfume-acc">
+            <summary class="pdp-perfume-acc__head">
+              <span class="pdp-perfume-acc__title">
+                {% render 'icon', name: 'occasion' %}
+                <span>Occasion &amp; Wear Guide</span>
+              </span>
+              <span class="pdp-perfume-acc__toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="pdp-perfume-acc__body pdp-occasion-body">
+              <p><strong>Best Suited For:</strong> <span data-pdp-occasion-text>{{ p_occasion }}</span></p>
+              <p><strong>Scent Category:</strong> <span data-pdp-collection-text>{{ p_family }} &bull; {{ p_gender }}</span></p>
+              <p data-pdp-wear-tip>Mist 2–4 sprays onto hydrated pulse points—wrists, collarbone, and behind the ears—from 15 cm away. Allow the fragrance to settle naturally without rubbing.</p>
+            </div>
+          </details>
+
+          <details class="pdp-perfume-acc">
+            <summary class="pdp-perfume-acc__head">
+              <span class="pdp-perfume-acc__title">
+                {% render 'icon', name: 'description' %}
+                <span>Description</span>
+              </span>
+              <span class="pdp-perfume-acc__toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="pdp-perfume-acc__body pdp-occasion-body">
+              <p data-pdp-desc>{{ p_desc }}</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="pickup-card">
+          <div>
+            <div class="pickup-status">
+              <span class="pickup-dot"></span>
+              <strong>Pickup available at MARQ Mumbai Flagship</strong>
+            </div>
+            <p>Usually ready in 24 hours</p>
+          </div>
+          <button type="button" class="circle-btn circle-btn--outline" data-open-pickup aria-label="View pickup store details">
+            {% render 'icon', name: 'chevron-right' %}
+          </button>
+        </div>
+
+        <div class="pdp-share-help">
+          <div class="pdp-share">
+            <span>Share:</span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url }}/products/{{ p_handle }}" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://pinterest.com/pin/create/button/?url={{ shop.url }}/products/{{ p_handle }}" target="_blank" rel="noopener">Pinterest</a>
+            <a href="https://twitter.com/intent/tweet?url={{ shop.url }}/products/{{ p_handle }}" target="_blank" rel="noopener">X</a>
+          </div>
+          <a href="/pages/contact" class="need-help-pill">Need Help ?</a>
+        </div>
+
+        <div class="pdp-complementary">
+          <h3 class="h4">Layer With</h3>
+          <div class="pdp-comp-card color-scheme-12">
+            <img src="{{ comp_img_1 }}" alt="Dark Cherry" loading="lazy">
+            <div class="pdp-comp-card__info">
+              <a href="/products/marq-dark-cherry"><strong>Dark Cherry</strong></a>
+              <span>₹1,200</span>
+            </div>
+            <button type="button" class="product-card__quick-btn" data-quick-add-handle="marq-dark-cherry" aria-label="Add Dark Cherry">
+              {% render 'icon', name: 'bag' %}
+            </button>
+          </div>
+
+          <div class="pdp-comp-card color-scheme-12">
+            <img src="{{ comp_img_2 }}" alt="Passion Oud" loading="lazy">
+            <div class="pdp-comp-card__info">
+              <a href="/products/marq-passion-oud"><strong>Passion Oud</strong></a>
+              <span>₹1,200</span>
+            </div>
+            <button type="button" class="product-card__quick-btn" data-quick-add-handle="marq-passion-oud" aria-label="Add Passion Oud">
+              {% render 'icon', name: 'bag' %}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sticky-atc-card color-scheme-1" data-sticky-atc aria-hidden="true">
+    <img
+      src="{{ def_img_1 }}"
+      alt="{{ p_title | escape }}"
+      class="sticky-atc-card__img"
+      data-sticky-atc-img
+    >
+    <div class="sticky-atc-card__meta">
+      <strong data-sticky-atc-title>{{ p_title }}</strong>
+      <div class="sticky-atc-card__prices">
+        <span class="is-sale" data-sticky-atc-price>{{ p_price | money }}</span>
+        <span class="sticky-atc-card__size" data-sticky-atc-size{% if p_category == 'Bakhoor' %} hidden{% endif %}>&bull; {{ p_size_label }}</span>
+      </div>
+    </div>
+    <button type="button" class="btn btn--primary btn--sm" data-pdp-add>
+      <span class="btn__text-wrap"><span class="btn__text" data-text="Add">Add</span></span>
+    </button>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_countdown",
+      "label": "Show flash sale countdown bar",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

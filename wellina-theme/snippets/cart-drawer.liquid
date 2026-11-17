@@ -1,0 +1,140 @@
+{%- comment -%}
+  Live Floating Right-Side Cart Drawer (20px radius, white body + #112D4A Deep Navy sticky footer).
+{%- endcomment -%}
+<aside class="floating-drawer cart-drawer color-scheme-1" id="CartDrawer" data-cart-drawer aria-hidden="true" role="dialog" aria-modal="true" aria-label="Your cart">
+  <div class="cart-drawer__header">
+    <h3 class="h3 cart-drawer__title">
+      Your cart <sup data-cart-count>{{ cart.item_count | default: 0 }}</sup>
+    </h3>
+    <button type="button" class="circle-btn circle-btn--ghost" data-close-drawers aria-label="Close cart">
+      {% render 'icon', name: 'close' %}
+    </button>
+  </div>
+
+  <div class="cart-shipping-bar" data-shipping-bar>
+    <p class="cart-shipping-bar__text" data-shipping-msg>
+      Spend <strong>₹1,000</strong> more to reach free shipping!
+    </p>
+    <div class="cart-shipping-bar__track">
+      <span class="cart-shipping-bar__fill" data-shipping-fill style="width: 0%"></span>
+    </div>
+  </div>
+
+  <div class="cart-drawer__scroll">
+    <div class="cart-drawer__empty" data-cart-empty {% if cart.item_count > 0 %}hidden{% endif %}>
+      <p>{{ 'sections.cart.empty' | t }}</p>
+      {% render 'button', label: 'Shop Bestsellers', href: '/collections/all', style: 'icon-solid' %}
+    </div>
+
+    <div class="cart-drawer__items" data-cart-items></div>
+
+    <div class="cart-upsell">
+      <div class="cart-upsell__header">
+        <h4 class="h4">Complete Your Scent Ritual</h4>
+        <div class="slider-arrows">
+          <button type="button" class="circle-btn circle-btn--sm" data-upsell-prev aria-label="Previous">{% render 'icon', name: 'chevron-left' %}</button>
+          <button type="button" class="circle-btn circle-btn--sm" data-upsell-next aria-label="Next">{% render 'icon', name: 'chevron-right' %}</button>
+        </div>
+      </div>
+      <div class="cart-upsell__track" data-upsell-track>
+        <div class="cart-upsell-card">
+          <img src="{{ 'marq-passion-oud-hero.jpg' | asset_url }}" alt="Passion Oud" loading="lazy">
+          <div class="cart-upsell-card__info">
+            <span class="cart-upsell-card__title">Passion Oud</span>
+            <span class="cart-upsell-card__price">₹1,200</span>
+          </div>
+          <button type="button" class="circle-btn circle-btn--lime" data-quick-add-handle="marq-passion-oud" aria-label="Add Passion Oud">{% render 'icon', name: 'bag' %}</button>
+        </div>
+        <div class="cart-upsell-card">
+          <img src="{{ 'marq-dark-cherry-hero.jpg' | asset_url }}" alt="Dark Cherry" loading="lazy">
+          <div class="cart-upsell-card__info">
+            <span class="cart-upsell-card__title">Dark Cherry</span>
+            <span class="cart-upsell-card__price">₹1,200</span>
+          </div>
+          <button type="button" class="circle-btn circle-btn--lime" data-quick-add-handle="marq-dark-cherry" aria-label="Add Dark Cherry">{% render 'icon', name: 'bag' %}</button>
+        </div>
+        <div class="cart-upsell-card">
+          <img src="{{ 'marq-cotton-hero.jpg' | asset_url }}" alt="Cotton" loading="lazy">
+          <div class="cart-upsell-card__info">
+            <span class="cart-upsell-card__title">Cotton</span>
+            <span class="cart-upsell-card__price">₹1,200</span>
+          </div>
+          <button type="button" class="circle-btn circle-btn--lime" data-quick-add-handle="marq-cotton" aria-label="Add Cotton">{% render 'icon', name: 'bag' %}</button>
+        </div>
+        <div class="cart-upsell-card">
+          <img src="{{ 'marq-frost-hero.jpg' | asset_url }}" alt="Frost" loading="lazy">
+          <div class="cart-upsell-card__info">
+            <span class="cart-upsell-card__title">Frost</span>
+            <span class="cart-upsell-card__price">₹1,200</span>
+          </div>
+          <button type="button" class="circle-btn circle-btn--lime" data-quick-add-handle="marq-frost" aria-label="Add Frost">{% render 'icon', name: 'bag' %}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-tool-panel" data-cart-tool-panel hidden>
+    <div class="cart-tool-panel__inner" data-tool-content="coupon" hidden>
+      <div class="cart-tool-panel__head">
+        <h4 class="h4">Discount code</h4>
+        <button type="button" data-close-tool>{% render 'icon', name: 'close' %}</button>
+      </div>
+      <input type="text" class="pill-input" placeholder="Enter promo code (e.g. MARQ10)" data-coupon-input>
+      <button type="button" class="btn btn--dark btn--full" data-apply-coupon>Apply Discount</button>
+    </div>
+
+    <div class="cart-tool-panel__inner" data-tool-content="note" hidden>
+      <div class="cart-tool-panel__head">
+        <h4 class="h4">Order notes</h4>
+        <button type="button" data-close-tool>{% render 'icon', name: 'close' %}</button>
+      </div>
+      <textarea class="rounded-textarea" rows="3" placeholder="Special instructions for your order..." data-cart-note>{{ cart.note }}</textarea>
+      <button type="button" class="btn btn--dark btn--full" data-save-note>Save Note</button>
+    </div>
+
+    <div class="cart-tool-panel__inner" data-tool-content="shipping" hidden>
+      <div class="cart-tool-panel__head">
+        <h4 class="h4">Estimate shipping</h4>
+        <button type="button" data-close-tool>{% render 'icon', name: 'close' %}</button>
+      </div>
+      <input type="text" class="pill-input" placeholder="Country / Region (India)" value="India">
+      <input type="text" class="pill-input" placeholder="PIN code (e.g. 400001)" data-zip-input>
+      <button type="button" class="btn btn--dark btn--full" data-calc-shipping>Calculate Shipping</button>
+      <p class="cart-tool-panel__msg" data-shipping-calc-result hidden></p>
+    </div>
+  </div>
+
+  <div class="cart-drawer__footer color-scheme-2">
+    <div class="cart-drawer__summary-row">
+      <div>
+        <div class="cart-drawer__total-line">
+          <span>Estimated total</span>
+          <strong data-cart-subtotal>{{ cart.total_price | default: 0 | money }}</strong>
+        </div>
+        <p class="cart-drawer__tax-note">Taxes and shipping calculated at checkout.</p>
+      </div>
+
+      <div class="cart-drawer__tools">
+        <button type="button" class="cart-tool-btn" data-open-tool="coupon" title="Discount code" aria-label="Discount code">
+          {% render 'icon', name: 'coupon' %}
+        </button>
+        <button type="button" class="cart-tool-btn" data-open-tool="note" title="Order notes" aria-label="Order notes">
+          {% render 'icon', name: 'note' %}
+        </button>
+        <button type="button" class="cart-tool-btn" data-open-tool="shipping" title="Estimate shipping" aria-label="Estimate shipping">
+          {% render 'icon', name: 'truck' %}
+        </button>
+      </div>
+    </div>
+
+    <div class="cart-drawer__ctas">
+      <a href="{{ routes.cart_url | default: '/cart' }}" class="btn btn--outline-light">
+        <span class="btn__text-wrap"><span class="btn__text" data-text="View Cart">View Cart</span></span>
+      </a>
+      <a href="/checkout" class="btn btn--primary" data-checkout-btn>
+        <span class="btn__text-wrap"><span class="btn__text" data-text="Check Out">Check Out</span></span>
+      </a>
+    </div>
+  </div>
+</aside>
+

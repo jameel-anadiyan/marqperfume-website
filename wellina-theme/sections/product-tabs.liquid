@@ -1,0 +1,198 @@
+{%- liquid
+  assign u_navy_h = 'marq-navy-hero.jpg' | asset_url
+  assign u_navy_2 = 'marq-navy-1.jpg' | asset_url
+  assign u_frost_h = 'marq-frost-hero.jpg' | asset_url
+  assign u_frost_2 = 'marq-frost-1.jpg' | asset_url
+  assign u_ocean_h = 'marq-ocean-breeze-hero.jpg' | asset_url
+  assign u_ocean_2 = 'marq-ocean-breeze.jpg' | asset_url
+  assign u_leather_h = 'marq-leather-night-hero.jpg' | asset_url
+  assign u_leather_2 = 'marq-leather-night.jpg' | asset_url
+  assign u_saffron_h = 'marq-saffron-glow-hero.jpg' | asset_url
+  assign u_saffron_2 = 'marq-saffron-glow.jpg' | asset_url
+  assign u_spice_h = 'marq-midnight-spice-hero.jpg' | asset_url
+  assign u_spice_2 = 'marq-midnight-spice.jpg' | asset_url
+  assign u_cherry_h = 'marq-dark-cherry-hero.jpg' | asset_url
+  assign u_cherry_2 = 'marq-dark-cherry.jpg' | asset_url
+  assign u_poud_h = 'marq-passion-oud-hero.jpg' | asset_url
+  assign u_poud_2 = 'marq-passion-oud.jpg' | asset_url
+  assign u_voud_h = 'marq-velvet-oud-hero.jpg' | asset_url
+  assign u_voud_2 = 'marq-velvet-oud.jpg' | asset_url
+  assign u_cotton_h = 'marq-cotton-hero.jpg' | asset_url
+  assign u_cotton_2 = 'marq-cotton.jpg' | asset_url
+  assign u_pearl_h = 'marq-pearl-hero.jpg' | asset_url
+  assign u_pearl_2 = 'marq-pearl.jpg' | asset_url
+  assign u_stay_h = 'marq-stay-close-hero.jpg' | asset_url
+  assign u_stay_2 = 'marq-stay-close.jpg' | asset_url
+  assign u_apple_h = 'marq-red-apple-hero.jpg' | asset_url
+  assign u_apple_2 = 'marq-red-apple.jpg' | asset_url
+
+  assign u_at_jas_h = 'marq-attar-jasmine-hero.jpg' | asset_url
+  assign u_at_jas_2 = 'marq-attar-jasmine.jpg' | asset_url
+  assign u_at_voud_h = 'marq-attar-velvet-oud-hero.jpg' | asset_url
+  assign u_at_voud_2 = 'marq-attar-velvet-oud.jpg' | asset_url
+  assign u_at_lav_h = 'marq-attar-lavender-sandal-hero.jpg' | asset_url
+  assign u_at_lav_2 = 'marq-attar-lavender-sandal.jpg' | asset_url
+  assign u_at_noud_h = 'marq-attar-night-oud-hero.jpg' | asset_url
+  assign u_at_noud_2 = 'marq-attar-night-oud.jpg' | asset_url
+  assign u_at_rose_h = 'marq-attar-rose-sandal-hero.jpg' | asset_url
+  assign u_at_rose_2 = 'marq-attar-rose-sandal.jpg' | asset_url
+
+  assign u_bk_c1 = 'marq-bakhoor-classic-1.jpg' | asset_url
+  assign u_bk_c2 = 'marq-bakhoor-classic-2.jpg' | asset_url
+  assign u_bk_o1 = 'marq-bakhoor-oud-1.jpg' | asset_url
+  assign u_bk_o2 = 'marq-bakhoor-oud-2.jpg' | asset_url
+  assign u_bk_r1 = 'marq-bakhoor-royal-1.jpg' | asset_url
+  assign u_bk_r2 = 'marq-bakhoor-royal-2.jpg' | asset_url
+-%}
+<section
+  class="section-pad section-product-tabs color-scheme-1{% if section.settings.overlap_hero %} section-overlap-top{% endif %}"
+  data-product-tabs
+>
+  <div class="page-width">
+    <div class="section-head-split">
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+      <div class="pill-tabs" role="tablist">
+        <button type="button" class="pill-tab" role="tab" aria-selected="false" data-tab-trigger="bestsellers">
+          Best Sellers
+        </button>
+        <button type="button" class="pill-tab is-active" role="tab" aria-selected="true" data-tab-trigger="perfumes">
+          Eau de Parfum
+        </button>
+        <button type="button" class="pill-tab" role="tab" aria-selected="false" data-tab-trigger="attar">
+          Attar &bull; Oil
+        </button>
+        <button type="button" class="pill-tab" role="tab" aria-selected="false" data-tab-trigger="bakhoor">
+          Bakhoor &bull; Incense
+        </button>
+      </div>
+    </div>
+
+    <div class="tab-carousel-panel" data-tab-panel="bestsellers" data-carousel hidden>
+      <div class="product-carousel-track" data-carousel-track>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-navy', demo_title: 'Navy', demo_category: 'Eau de Parfum', demo_family: 'Fresh', demo_gender: 'Men', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_navy_h, demo_hover_image: u_navy_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-passion-oud', demo_title: 'Passion Oud', demo_category: 'Eau de Parfum', demo_family: 'Woody', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_poud_h, demo_hover_image: u_poud_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-velvet-oud-attar', demo_title: 'Velvet Oud Attar', demo_category: 'Attar', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 25000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_at_voud_h, demo_hover_image: u_at_voud_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-royal-bakhoor', demo_title: 'Royal Bakhoor', demo_category: 'Bakhoor', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_bk_r1, demo_hover_image: u_bk_r2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-dark-cherry', demo_title: 'Dark Cherry', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_cherry_h, demo_hover_image: u_cherry_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-jasmine-attar', demo_title: 'Mogra Jasmine Attar', demo_category: 'Attar', demo_family: 'Florals', demo_gender: 'Unisex', demo_price: 25000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_at_jas_h, demo_hover_image: u_at_jas_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-oud-bakhoor', demo_title: 'Oud Bakhoor', demo_category: 'Bakhoor', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 65000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_bk_o1, demo_hover_image: u_bk_o2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-cotton', demo_title: 'Cotton', demo_category: 'Eau de Parfum', demo_family: 'Florals', demo_gender: 'Women', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_cotton_h, demo_hover_image: u_cotton_2 %}</div>
+      </div>
+
+      <div class="carousel-footer-controls">
+        <div class="slider-progress"><span data-carousel-progress style="width: 35%"></span></div>
+        <div class="slider-arrows">
+          <button type="button" class="circle-btn circle-btn--outline" data-carousel-prev aria-label="Previous products">{% render 'icon', name: 'chevron-left' %}</button>
+          <button type="button" class="circle-btn circle-btn--outline" data-carousel-next aria-label="Next products">{% render 'icon', name: 'chevron-right' %}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-carousel-panel is-active" data-tab-panel="perfumes" data-carousel>
+      <div class="product-carousel-track" data-carousel-track>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-navy', demo_title: 'Navy', demo_category: 'Eau de Parfum', demo_family: 'Fresh', demo_gender: 'Men', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_navy_h, demo_hover_image: u_navy_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-passion-oud', demo_title: 'Passion Oud', demo_category: 'Eau de Parfum', demo_family: 'Woody', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_poud_h, demo_hover_image: u_poud_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-dark-cherry', demo_title: 'Dark Cherry', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_cherry_h, demo_hover_image: u_cherry_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-frost', demo_title: 'Frost', demo_category: 'Eau de Parfum', demo_family: 'Fresh', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_frost_h, demo_hover_image: u_frost_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-leather-night', demo_title: 'Leather Night', demo_category: 'Eau de Parfum', demo_family: 'Woody', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_leather_h, demo_hover_image: u_leather_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-midnight-spice', demo_title: 'Midnight Spice', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Men', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_spice_h, demo_hover_image: u_spice_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-velvet-oud', demo_title: 'Velvet Oud', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_voud_h, demo_hover_image: u_voud_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-cotton', demo_title: 'Cotton', demo_category: 'Eau de Parfum', demo_family: 'Florals', demo_gender: 'Women', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_cotton_h, demo_hover_image: u_cotton_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-saffron-glow', demo_title: 'Saffron Glow', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_saffron_h, demo_hover_image: u_saffron_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-pearl', demo_title: 'Pearl', demo_category: 'Eau de Parfum', demo_family: 'Woody', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_pearl_h, demo_hover_image: u_pearl_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-stay-close', demo_title: 'Stay Close', demo_category: 'Eau de Parfum', demo_family: 'Woody', demo_gender: 'Men', demo_price: 120000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_stay_h, demo_hover_image: u_stay_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-red-apple', demo_title: 'Red Apple', demo_category: 'Eau de Parfum', demo_family: 'Oriental', demo_gender: 'Men', demo_price: 120000, demo_image: u_apple_h, demo_hover_image: u_apple_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-ocean-breeze', demo_title: 'Ocean Breeze', demo_category: 'Eau de Parfum', demo_family: 'Fresh', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_ocean_h, demo_hover_image: u_ocean_2 %}</div>
+      </div>
+
+      <div class="carousel-footer-controls">
+        <div class="slider-progress"><span data-carousel-progress style="width: 35%"></span></div>
+        <div class="slider-arrows">
+          <button type="button" class="circle-btn circle-btn--outline" data-carousel-prev aria-label="Previous products">{% render 'icon', name: 'chevron-left' %}</button>
+          <button type="button" class="circle-btn circle-btn--outline" data-carousel-next aria-label="Next products">{% render 'icon', name: 'chevron-right' %}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-carousel-panel" data-tab-panel="attar" data-carousel hidden>
+      <div class="product-carousel-track" data-carousel-track>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-jasmine-attar', demo_title: 'Mogra Jasmine Attar', demo_category: 'Attar', demo_family: 'Florals', demo_gender: 'Unisex', demo_price: 25000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_at_jas_h, demo_hover_image: u_at_jas_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-velvet-oud-attar', demo_title: 'Velvet Oud Attar', demo_category: 'Attar', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 25000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_at_voud_h, demo_hover_image: u_at_voud_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-lavender-sandal-attar', demo_title: 'Lavender Sandal Attar', demo_category: 'Attar', demo_family: 'Fresh', demo_gender: 'Unisex', demo_price: 25000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_at_lav_h, demo_hover_image: u_at_lav_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-night-oud-attar', demo_title: 'Saffron Night Oud Attar', demo_category: 'Attar', demo_family: 'Woody', demo_gender: 'Unisex', demo_price: 25000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_at_noud_h, demo_hover_image: u_at_noud_2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-taif-rose-attar', demo_title: 'Taif Rose & Sandal Attar', demo_category: 'Attar', demo_family: 'Florals', demo_gender: 'Unisex', demo_price: 25000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_at_rose_h, demo_hover_image: u_at_rose_2 %}</div>
+      </div>
+
+      <div class="carousel-footer-controls">
+        <div class="slider-progress"><span data-carousel-progress style="width: 55%"></span></div>
+        <div class="slider-arrows">
+          <button type="button" class="circle-btn circle-btn--outline" data-carousel-prev aria-label="Previous products">{% render 'icon', name: 'chevron-left' %}</button>
+          <button type="button" class="circle-btn circle-btn--outline" data-carousel-next aria-label="Next products">{% render 'icon', name: 'chevron-right' %}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-carousel-panel" data-tab-panel="bakhoor" data-carousel hidden>
+      <div class="product-carousel-track" data-carousel-track>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-classic-bakhoor', demo_title: 'Classic Bakhoor', demo_category: 'Bakhoor', demo_family: 'Woody', demo_gender: 'Unisex', demo_price: 50000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_bk_c1, demo_hover_image: u_bk_c2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-oud-bakhoor', demo_title: 'Oud Bakhoor', demo_category: 'Bakhoor', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 65000, demo_badge: 'Best Sellers', demo_badge_type: 'bestseller', demo_image: u_bk_o1, demo_hover_image: u_bk_o2 %}</div>
+        <div class="carousel-cell">{% render 'product-card', demo_handle: 'marq-royal-bakhoor', demo_title: 'Royal Bakhoor', demo_category: 'Bakhoor', demo_family: 'Oriental', demo_gender: 'Unisex', demo_price: 120000, demo_badge: 'New', demo_badge_type: 'new', demo_image: u_bk_r1, demo_hover_image: u_bk_r2 %}</div>
+      </div>
+
+      <div class="carousel-footer-controls">
+        <div class="slider-progress"><span data-carousel-progress style="width: 100%"></span></div>
+        <div class="slider-arrows">
+          <button type="button" class="circle-btn circle-btn--outline" data-carousel-prev aria-label="Previous products">{% render 'icon', name: 'chevron-left' %}</button>
+          <button type="button" class="circle-btn circle-btn--outline" data-carousel-next aria-label="Next products">{% render 'icon', name: 'chevron-right' %}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Tabs Carousel",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "overlap_hero",
+      "label": "Overlap rounded top over Hero section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find your signature scent"
+    },
+    {
+      "type": "text",
+      "id": "tab_1_label",
+      "label": "First tab label",
+      "default": "Best Sellers"
+    },
+    {
+      "type": "text",
+      "id": "tab_2_label",
+      "label": "Second tab label",
+      "default": "Eau de Parfum"
+    },
+    {
+      "type": "collection",
+      "id": "collection_1",
+      "label": "First tab collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection_2",
+      "label": "Second tab collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Tabs Carousel"
+    }
+  ]
+}
+{% endschema %}

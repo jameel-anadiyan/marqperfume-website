@@ -1,0 +1,79 @@
+{%- comment -%}
+  Floating Right-Side Quick View Drawer-Modal (20px radius, 16px inset).
+{%- endcomment -%}
+<aside class="floating-drawer quick-view-drawer color-scheme-1" id="QuickViewDrawer" data-quick-view-drawer aria-hidden="true" role="dialog" aria-modal="true" aria-label="Quick view">
+  <div class="quick-view__header">
+    <span class="badge badge--sale" data-qv-badge>Sale</span>
+    <button type="button" class="circle-btn circle-btn--ghost" data-close-drawers aria-label="Close">
+      {% render 'icon', name: 'close' %}
+    </button>
+  </div>
+
+  <div class="quick-view__body">
+    <h2 class="pdp-title quick-view__title" data-qv-title>Navy</h2>
+
+    <div class="quick-view__gallery">
+      <div class="quick-view__slides" data-qv-slides></div>
+      <div class="quick-view__slider-bar">
+        <span class="slider-counter" data-qv-counter>1 / 2</span>
+        <div class="slider-progress"><span data-qv-progress style="width: 50%"></span></div>
+        <div class="slider-arrows">
+          <button type="button" class="circle-btn circle-btn--outline" data-qv-prev aria-label="Previous image">{% render 'icon', name: 'chevron-left' %}</button>
+          <button type="button" class="circle-btn circle-btn--outline" data-qv-next aria-label="Next image">{% render 'icon', name: 'chevron-right' %}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="variant-picker" data-qv-variant-picker>
+      <div class="variant-picker__label">Size: <span data-qv-selected-size hidden>50ml</span></div>
+      <div class="pdp-selector-row pdp-selector-row--qv">
+        <div class="variant-picker__pills" data-qv-variants>
+          <button type="button" class="variant-pill is-active" data-size="50ml"><span>50ml</span></button>
+          <button type="button" class="variant-pill" data-size="100ml"><span>100ml</span></button>
+        </div>
+        <button type="button" class="variant-pill variant-pill--personalise" data-open-personalise="qv">
+          {% render 'icon', name: 'gift' %}
+          <span>Personalized</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="pdp-pay-block pdp-pay-block--qv">
+      <span class="pdp-pay-block__eyebrow">PAY IN FULL</span>
+      <div class="pdp-price-row">
+        <span class="pdp-price" data-qv-price>₹1,200</span>
+        <s class="pdp-compare" data-qv-compare hidden></s>
+      </div>
+      <span class="pdp-pay-block__tax">Incl. of all taxes</span>
+    </div>
+
+    <p class="quick-view__desc" data-qv-desc hidden>
+      Fresh, aromatic and citrusy with a refined, invigorating opening of lemon zest, bergamot, and mint over rich sandalwood and warm cedar.
+    </p>
+
+    <div class="buy-actions">
+      <div class="buy-actions__row">
+        <div class="qty-stepper qty-stepper--pdp" data-qty-stepper>
+          <button type="button" data-qty-minus aria-label="Decrease quantity">{% render 'icon', name: 'chevron-left' %}</button>
+          <input type="number" value="1" min="1" max="99" data-qv-qty aria-label="Quantity">
+          <button type="button" data-qty-plus aria-label="Increase quantity">{% render 'icon', name: 'chevron-right' %}</button>
+        </div>
+        <button type="button" class="pdp-atc-btn" data-qv-add>
+          <span>Add to cart</span>
+        </button>
+      </div>
+      <button type="button" class="pdp-buy-now-btn" data-qv-buy-now>
+        <span>Buy it Now</span>
+        {% render 'upi-badges' %}
+      </button>
+    </div>
+  </div>
+
+  <div class="quick-view__footer">
+    <a href="/products/marq-navy" class="quick-view__details-link" data-qv-url>
+      <span>View more details</span>
+      {% render 'icon', name: 'chevron-right' %}
+    </a>
+  </div>
+</aside>
+

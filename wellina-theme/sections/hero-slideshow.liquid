@@ -1,0 +1,173 @@
+<section
+  class="section-hero color-scheme-2"
+  data-slideshow
+  data-autoplay="{{ section.settings.autoplay }}"
+  data-interval="{{ section.settings.interval | times: 1000 }}"
+>
+  <div class="hero-slides">
+    {%- if section.blocks.size > 0 -%}
+      {%- for block in section.blocks -%}
+        {%- liquid
+          case forloop.index
+            when 1
+              assign fallback_img = 'marq-slider-3.jpg' | asset_url
+            when 2
+              assign fallback_img = 'marq-slider-1.jpg' | asset_url
+            else
+              assign fallback_img = 'marq-slider-2.jpg' | asset_url
+          endcase
+        -%}
+        <div class="hero-slide{% if forloop.first %} is-active{% endif %}" data-slide-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <div class="hero-slide__media">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 2400 }}" alt="{{ block.settings.heading_line_1 | escape }}" {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+            {%- else -%}
+              <img src="{{ fallback_img }}" alt="{{ block.settings.heading_line_1 | escape }}" {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+            {%- endif -%}
+            <span class="hero-slide__scrim"></span>
+          </div>
+
+          <div class="page-width hero-slide__content-wrap">
+            <div class="hero-slide__content">
+              {%- if block.settings.eyebrow != blank -%}
+                <p class="text-subheading hero-slide__eyebrow">{{ block.settings.eyebrow }}</p>
+              {%- endif -%}
+              <h1 class="display-title hero-slide__heading">
+                {{ block.settings.heading_line_1 }}<br>
+                {{ block.settings.heading_line_2 }} <em>{{ block.settings.heading_italic }}</em>
+              </h1>
+              {%- if block.settings.button_label != blank -%}
+                <div class="hero-slide__cta">
+                  {%- assign slide_url = block.settings.button_link | default: '/collections/all' -%}
+                  {% render 'button', label: block.settings.button_label, href: slide_url, style: 'icon-solid' %}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+
+  <div class="page-width hero-controls">
+    <div class="hero-controls__left">
+      <span class="slider-counter" data-slide-counter>1 / {{ section.blocks.size | at_least: 1 }}</span>
+      <div class="slider-progress slider-progress--light">
+        <span data-slide-progress style="width: 33.33%"></span>
+      </div>
+    </div>
+    <div class="hero-controls__arrows">
+      <button type="button" class="hero-arrow-btn" data-slide-prev aria-label="Previous slide">{% render 'icon', name: 'chevron-left' %}</button>
+      <button type="button" class="hero-arrow-btn" data-slide-next aria-label="Next slide">{% render 'icon', name: 'chevron-right' %}</button>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Slideshow",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "interval",
+      "min": 4,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 6
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Hero Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background image"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Subheading",
+          "default": "MARQ PERFUMES • EAU DE PARFUM"
+        },
+        {
+          "type": "text",
+          "id": "heading_line_1",
+          "label": "Heading line 1",
+          "default": "Sparkling citrus"
+        },
+        {
+          "type": "text",
+          "id": "heading_line_2",
+          "label": "Heading line 2",
+          "default": "kissed by"
+        },
+        {
+          "type": "text",
+          "id": "heading_italic",
+          "label": "Italic emphasis phrase",
+          "default": "crushed ice."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop Navy"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Slideshow",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "DEWY BOTANICALS & WHITE LILY",
+            "heading_line_1": "Pure serenity",
+            "heading_line_2": "that lingers",
+            "heading_italic": "all day.",
+            "button_label": "Discover Collection"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "MARQ PERFUMES • EAU DE PARFUM",
+            "heading_line_1": "Sparkling citrus",
+            "heading_line_2": "kissed by",
+            "heading_italic": "crushed ice.",
+            "button_label": "Shop Navy"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "SIGNATURE MARINE ACCORD",
+            "heading_line_1": "Feel the rush",
+            "heading_line_2": "of deep",
+            "heading_italic": "ocean waves.",
+            "button_label": "Explore the Scent"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,28 @@
+{%- if section.settings.enable_bar -%}
+  <div class="announcement-bar color-scheme-3">
+    <div class="page-width announcement-bar__inner">
+      <p>{{ section.settings.text }}</p>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_bar",
+      "label": "Show announcement bar",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "Free pan-India shipping on all orders above ₹999"
+    }
+  ]
+}
+{% endschema %}
+

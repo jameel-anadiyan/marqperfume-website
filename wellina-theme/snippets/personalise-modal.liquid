@@ -1,0 +1,131 @@
+{%- comment -%}
+  Personalisation / Bottle Engraving Modal (#PersonaliseModal).
+  Displays MARQ's brushed-silver plaque bottle (marq-personalisation-bottle.jpg)
+  with live laser-engraved text preview, 6 font choices, and Add to cart action.
+{%- endcomment -%}
+<div class="center-modal personalise-modal" id="PersonaliseModal" data-personalise-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="PersonaliseModalTitle">
+  <div class="center-modal__card personalise-modal__card color-scheme-1">
+    <button type="button" class="personalise-modal__close" data-close-modals aria-label="Close personalisation window">
+      {% render 'icon', name: 'close' %}
+    </button>
+
+    <div class="personalise-modal__grid">
+      <div class="personalise-modal__media">
+        <div class="engraving-stage">
+          <img
+            src="{{ 'marq-personalisation-bottle.jpg' | asset_url }}"
+            alt="MARQ Perfumes Personalised Engraving Bottle"
+            class="engraving-stage__img"
+            width="900"
+            height="900"
+          >
+
+          <div
+            class="engraving-stage__custom-text is-font-classic"
+            data-engrave-preview
+            aria-live="polite"
+          ></div>
+
+          <div class="engraving-stage__perfume-name" data-engrave-perfume-label>
+            NAVY
+          </div>
+        </div>
+      </div>
+
+      <div class="personalise-modal__form">
+        <p class="personalise-modal__product-tag" data-engrave-context>
+          Navy &bull; 50ml
+        </p>
+
+        <div class="personalise-modal__label-row">
+          <label for="EngravingTextInput" class="personalise-modal__heading" id="PersonaliseModalTitle">
+            Text For Engraving
+          </label>
+          <span class="personalise-modal__counter" data-engrave-counter>0 / 15</span>
+        </div>
+
+        <input
+          id="EngravingTextInput"
+          type="text"
+          maxlength="15"
+          class="personalise-modal__input"
+          placeholder="Write your text here..."
+          autocomplete="off"
+          spellcheck="false"
+          data-engrave-input
+        >
+
+        <p class="personalise-modal__heading personalise-modal__heading--fonts">
+          Choose Font
+        </p>
+
+        <div class="personalise-font-grid" role="radiogroup" aria-label="Choose engraving font">
+          <button
+            type="button"
+            class="personalise-font-btn is-font-classic is-active"
+            data-engrave-font="Classic"
+            data-font-class="is-font-classic"
+            aria-pressed="true"
+          >
+            Classic
+          </button>
+          <button
+            type="button"
+            class="personalise-font-btn is-font-elegant"
+            data-engrave-font="Elegant"
+            data-font-class="is-font-elegant"
+            aria-pressed="false"
+          >
+            Elegant
+          </button>
+          <button
+            type="button"
+            class="personalise-font-btn is-font-playful"
+            data-engrave-font="Playful"
+            data-font-class="is-font-playful"
+            aria-pressed="false"
+          >
+            PLAYFUL
+          </button>
+          <button
+            type="button"
+            class="personalise-font-btn is-font-cursive"
+            data-engrave-font="Cursive"
+            data-font-class="is-font-cursive"
+            aria-pressed="false"
+          >
+            Cursive
+          </button>
+          <button
+            type="button"
+            class="personalise-font-btn is-font-roman"
+            data-engrave-font="Roman"
+            data-font-class="is-font-roman"
+            aria-pressed="false"
+          >
+            ROMAN
+          </button>
+          <button
+            type="button"
+            class="personalise-font-btn is-font-sleek"
+            data-engrave-font="Sleek"
+            data-font-class="is-font-sleek"
+            aria-pressed="false"
+          >
+            Sleek
+          </button>
+        </div>
+
+        <div class="personalise-modal__actions">
+          <button type="button" class="personalise-action-btn personalise-action-btn--cancel" data-close-modals>
+            Cancel
+          </button>
+          <button type="button" class="personalise-action-btn personalise-action-btn--submit" data-engrave-submit disabled>
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

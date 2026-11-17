@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {}
+    },
+    "seo": {
+      "type": "seo-collapsible",
+      "settings": {
+        "heading": "About MARQ Perfumes"
+      }
+    },
+    "benefits": {
+      "type": "benefit-icons",
+      "settings": {
+        "heading": "The MARQ Perfume Standard"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter-banner",
+      "settings": {
+        "heading": "Join the MARQ Private List for launches & exclusive editions",
+        "disclaimer": "By subscribing you agree to the Terms of Use & Privacy Policy."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "seo",
+    "benefits",
+    "newsletter"
+  ]
+}
+

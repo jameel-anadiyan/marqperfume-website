@@ -1,0 +1,176 @@
+<div
+  class="header-wrapper{% if template.name == 'index' and section.settings.floating_on_home %} header-wrapper--floating{% endif %}"
+  data-sticky-header
+  data-enable-sticky="{{ section.settings.enable_sticky }}"
+>
+  <header class="site-header color-scheme-2" role="banner">
+    <div class="site-header__inner">
+      <div class="site-header__left">
+        <button type="button" class="header-icon-btn mobile-menu-btn" data-open-mobile-menu aria-label="Open menu">
+          {% render 'icon', name: 'menu' %}
+        </button>
+
+        <nav class="header-nav" aria-label="Primary">
+          <ul class="header-nav__list">
+            <li class="header-nav__item" data-mega-item="shop">
+              <a href="/collections/perfumes" class="header-nav__link" data-mega-trigger="shop" aria-expanded="false">
+                <span>Perfumes</span>
+                {% render 'icon', name: 'chevron-down' %}
+              </a>
+              {% render 'mega-menu', menu_key: 'shop' %}
+            </li>
+
+            <li class="header-nav__item">
+              <a href="/collections/attar" class="header-nav__link">
+                <span>Attar</span>
+              </a>
+            </li>
+
+            <li class="header-nav__item">
+              <a href="/collections/bakhoor" class="header-nav__link">
+                <span>Bakhoor</span>
+              </a>
+            </li>
+
+            <li class="header-nav__item" data-mega-item="collections">
+              <a href="/collections" class="header-nav__link" data-mega-trigger="collections" aria-expanded="false">
+                <span>Collections</span>
+                {% render 'icon', name: 'chevron-down' %}
+              </a>
+              {% render 'mega-menu', menu_key: 'collections' %}
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-header__logo">
+        <a href="{{ routes.root_url | default: '/' }}" class="header-logo-link" aria-label="{{ shop.name | default: settings.brand_name | default: 'MARQ Perfumes' }}">
+          {%- if settings.logo_light != blank -%}
+            <img
+              src="{{ settings.logo_light | image_url: width: 320 }}"
+              alt="{{ shop.name | default: 'MARQ Perfumes' | escape }}"
+              width="{{ settings.logo_width | default: 130 }}"
+              class="header-logo-img"
+            >
+          {%- else -%}
+            <img
+              src="{{ 'marq-logo-white.png' | asset_url }}"
+              alt="{{ settings.brand_name | default: 'MARQ Perfumes' | escape }}"
+              width="{{ settings.logo_width | default: 130 }}"
+              class="header-logo-img"
+            >
+          {%- endif -%}
+        </a>
+      </div>
+
+      <div class="site-header__right">
+        <div class="header-search" data-predictive-search>
+          <form action="{{ routes.search_url | default: '/search' }}" method="get" role="search" class="header-search__form">
+            <input
+              type="search"
+              name="q"
+              value="{{ search.terms | escape }}"
+              placeholder="{{ 'general.search.placeholder' | t }}"
+              class="header-search__input"
+              autocomplete="off"
+              data-search-input
+              aria-label="{{ 'general.search.placeholder' | t }}"
+            >
+            <button type="submit" class="header-search__submit" aria-label="Search">
+              {% render 'icon', name: 'search' %}
+            </button>
+          </form>
+          {% render 'predictive-search' %}
+        </div>
+
+        <button type="button" class="header-icon-btn mobile-search-btn" data-mobile-search-toggle aria-label="Search">
+          {% render 'icon', name: 'search' %}
+        </button>
+
+        <a href="{{ routes.account_url | default: '/account/login' }}" class="header-icon-btn" aria-label="Account">
+          {% render 'icon', name: 'user' %}
+        </a>
+
+        <a href="{{ routes.cart_url | default: '/cart' }}" class="header-icon-btn header-cart-btn" data-open-cart aria-label="Cart">
+          {% render 'icon', name: 'bag' %}
+          <span class="cart-count-bubble" data-header-cart-count>{{ cart.item_count | default: 0 }}</span>
+        </a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<aside class="mobile-nav-drawer color-scheme-1" id="MobileNavDrawer" data-mobile-drawer aria-hidden="true">
+  <div class="mobile-nav-drawer__head">
+    <a href="{{ routes.root_url | default: '/' }}" class="mobile-nav-drawer__logo">
+      {%- if settings.logo_dark != blank -%}
+        <img src="{{ settings.logo_dark | image_url: width: 240 }}" alt="{{ shop.name | default: 'MARQ Perfumes' | escape }}" width="115">
+      {%- else -%}
+        <img src="{{ 'marq-logo-blue.png' | asset_url }}" alt="MARQ Perfumes" width="115">
+      {%- endif -%}
+    </a>
+    <button type="button" class="circle-btn circle-btn--ghost" data-close-drawers aria-label="Close menu">
+      {% render 'icon', name: 'close' %}
+    </button>
+  </div>
+
+  <div class="mobile-nav-drawer__body">
+    <form action="{{ routes.search_url | default: '/search' }}" method="get" class="mobile-nav-search">
+      <input type="search" name="q" placeholder="Search fine fragrances..." class="pill-input">
+    </form>
+
+    <details class="mobile-nav-acc" open>
+      <summary class="h3">Categories {% render 'icon', name: 'chevron-down' %}</summary>
+      <div class="mobile-nav-acc__links">
+        <a href="/collections/perfumes">Eau de Parfum (13)</a>
+        <a href="/collections/attar">Attar &bull; Perfumed Oil (5)</a>
+        <a href="/collections/bakhoor">Bakhoor &bull; Incense (3)</a>
+        <a href="/collections/fresh">Fresh</a>
+        <a href="/collections/oriental">Oriental</a>
+        <a href="/collections/woody">Woody</a>
+        <a href="/collections/florals">Florals</a>
+        <a href="/collections/all">Shop All (21)</a>
+      </div>
+    </details>
+
+    <details class="mobile-nav-acc">
+      <summary class="h3">By Gender &amp; Occasion {% render 'icon', name: 'chevron-down' %}</summary>
+      <div class="mobile-nav-acc__links">
+        <a href="/collections/men">Men</a>
+        <a href="/collections/women">Women</a>
+        <a href="/collections/unisex">Unisex</a>
+        <a href="/collections/daily-office">Daily &amp; Office Wear</a>
+        <a href="/collections/evening-dates">Evening &amp; Date Night</a>
+        <a href="/collections/weddings-formal">Weddings &amp; Formal</a>
+      </div>
+    </details>
+
+    <a href="/products/marq-navy" class="mobile-nav-direct h3">Navy Flagship</a>
+  </div>
+</aside>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Enable sticky header on scroll",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "floating_on_home",
+      "label": "Floating rounded bar over Hero on homepage",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
+

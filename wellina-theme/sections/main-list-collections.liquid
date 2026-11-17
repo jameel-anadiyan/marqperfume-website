@@ -1,0 +1,90 @@
+<section class="section-pad color-scheme-1">
+  <div class="page-width">
+    <div class="section-head-center">
+      <p class="text-subheading">THE HOUSE OF MARQ</p>
+      <h1 class="h1">Shop by Category &amp; Collection</h1>
+      <p class="section-subtext">Explore fine Eau de Parfums, alcohol-free Rubbing Roller Attars, and artisanal Bakhoor Incense Powders.</p>
+    </div>
+
+    <div class="science-cards-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+      <article class="science-card">
+        <a href="/collections/attar" class="science-card__media">
+          <img src="{{ 'marq-attar-velvet-oud-hero.jpg' | asset_url }}" alt="Attar Perfumed Oil" loading="lazy">
+        </a>
+        <div class="science-card__footer">
+          <a href="/collections/attar" class="science-card__cta">
+            <span>Explore Attars</span>
+            <span class="science-card__cta-icon">{% render 'icon', name: 'arrow-right' %}</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="science-card">
+        <a href="/collections/bakhoor" class="science-card__media">
+          <img src="{{ 'marq-bakhoor-royal-1.jpg' | asset_url }}" alt="Bakhoor Incense Powder" loading="lazy">
+        </a>
+        <div class="science-card__footer">
+          <a href="/collections/bakhoor" class="science-card__cta">
+            <span>Explore Bakhoor</span>
+            <span class="science-card__cta-icon">{% render 'icon', name: 'arrow-right' %}</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="science-card">
+        <a href="/collections/fresh" class="science-card__media">
+          <img src="{{ 'marq-navy-hero.jpg' | asset_url }}" alt="Fresh Collection" loading="lazy">
+        </a>
+        <div class="science-card__footer">
+          <a href="/collections/fresh" class="science-card__cta">
+            <span>Explore Fresh</span>
+            <span class="science-card__cta-icon">{% render 'icon', name: 'arrow-right' %}</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="science-card">
+        <a href="/collections/oriental" class="science-card__media">
+          <img src="{{ 'marq-dark-cherry-hero.jpg' | asset_url }}" alt="Oriental Collection" loading="lazy">
+        </a>
+        <div class="science-card__footer">
+          <a href="/collections/oriental" class="science-card__cta">
+            <span>Explore Oriental</span>
+            <span class="science-card__cta-icon">{% render 'icon', name: 'arrow-right' %}</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="science-card">
+        <a href="/collections/woody" class="science-card__media">
+          <img src="{{ 'marq-passion-oud-hero.jpg' | asset_url }}" alt="Woody Collection" loading="lazy">
+        </a>
+        <div class="science-card__footer">
+          <a href="/collections/woody" class="science-card__cta">
+            <span>Explore Woody</span>
+            <span class="science-card__cta-icon">{% render 'icon', name: 'arrow-right' %}</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="science-card">
+        <a href="/collections/florals" class="science-card__media">
+          <img src="{{ 'marq-cotton-hero.jpg' | asset_url }}" alt="Florals Collection" loading="lazy">
+        </a>
+        <div class="science-card__footer">
+          <a href="/collections/florals" class="science-card__cta">
+            <span>Explore Florals</span>
+            <span class="science-card__cta-icon">{% render 'icon', name: 'arrow-right' %}</span>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections List",
+  "settings": []
+}
+{% endschema %}

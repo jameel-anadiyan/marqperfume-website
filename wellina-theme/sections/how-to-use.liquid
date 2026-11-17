@@ -1,0 +1,32 @@
+<section class="section-pad color-scheme-1">
+  <div class="page-width">
+    <div class="how-to-use-grid">
+      <div class="how-to-use__media">
+        <img
+          src="{{ 'marq-slider-3.jpg' | asset_url }}"
+          alt="How to wear MARQ Eau de Parfum"
+          loading="lazy"
+        >
+      </div>
+      <div class="how-to-use__text">
+        <p class="text-subheading">THE SCENT RITUAL</p>
+        <h2 class="h1">Two pulse-point mists.<br>Luminous sillage all day</h2>
+        <p>Mist your MARQ Eau de Parfum onto warm, hydrated pulse points—wrists, collarbone, and behind the ears—from 15 cm away. Allow the fine mist to settle naturally without rubbing so the citrus, floral, and oud notes unfold uninterrupted.</p>
+        {% render 'button', label: 'Explore Layering', href: '/collections/all', style: 'icon-solid' %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How To Use Split",
+  "settings": [],
+  "presets": [
+    {
+      "name": "How To Use Split"
+    }
+  ]
+}
+{% endschema %}
+

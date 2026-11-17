@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js{% if settings.enable_animations %} wellina-motion{% endif %}" lang="{{ request.locale.iso_code | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.scheme_2_bg | default: '#112D4A' }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- else -%}
+      <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23112D4A'/%3E%3Crect x='11' y='5' width='10' height='3.2' rx='1.6' fill='none' stroke='%23DCEAF5' stroke-width='1.5'/%3E%3Ctext x='16' y='24' font-family='Helvetica,Arial,sans-serif' font-weight='600' font-size='15' fill='%23FFFFFF' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name | default: 'MARQ Perfumes' }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {%- if settings.load_wellina_fonts != false -%}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Fredoka:wght@600&family=Geist:wght@400;500;600&family=Great+Vibes&family=Instrument+Serif:ital@0;1&family=Lobster+Two:ital,wght@1,700&family=Michroma&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    {%- endif -%}
+
+    {{ content_for_header }}
+
+    <style>
+      @font-face {
+        font-family: 'Eurostile Extended Medium';
+        src: local('Eurostile Extended Medium'),
+             local('EurostileExt-Med'),
+             local('Eurostile-ExtendedTwo'),
+             local('Eurostile Extended');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Eurostile Extended Bold';
+        src: local('Eurostile Extended Bold'),
+             local('EurostileExt-Bol'),
+             local('EurostileExt-Bla'),
+             local('Eurostile-ExtendedTwo'),
+             local('Eurostile Extended');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --font-heading--family: 'Instrument Serif', Georgia, serif;
+        --font-highlight--family: 'Instrument Serif', Georgia, serif;
+        --font-body--family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        --font-eurostile-ext: 'Eurostile Extended Medium', 'Eurostile Extended', 'Michroma', sans-serif;
+        --font-eurostile-ext-bold: 'Eurostile Extended Bold', 'Eurostile Extended', 'Eurostile Extended Medium', 'Michroma', sans-serif;
+
+        --page-width: {{ settings.page_width | default: 1440 | divided_by: 10.0 }}rem;
+        --page-width-narrow: 88.0rem;
+        --page-width-press: 111.0rem;
+        --header-height: 7.0rem;
+        --button-height: 5.0rem;
+
+        --radius-pill: {{ settings.button_radius | default: 60 | divided_by: 10.0 }}rem;
+        --radius-card: {{ settings.card_radius | default: 20 | divided_by: 10.0 }}rem;
+        --radius-md: 1.2rem;
+        --radius-sm: 1.0rem;
+
+        --logo-width: {{ settings.logo_width | default: 130 }}px;
+        --logo-width-mobile: {{ settings.logo_width_mobile | default: 105 }}px;
+
+        --color-brand-blue: #245284;
+        --color-brand-white: #FFFFFF;
+        --color-brand-mist: #DCEAF5;
+        --color-brand-navy: #112D4A;
+
+        --color-forest: {{ settings.scheme_2_bg | default: '#112D4A' }};
+        --color-forest-elevated: {{ settings.scheme_2_surface | default: '#245284' }};
+        --color-sage-mint: {{ settings.scheme_3_bg | default: '#DCEAF5' }};
+        --color-oat-lime: {{ settings.scheme_4_bg | default: '#EAF3FA' }};
+        --color-sage-circle: {{ settings.icon_circle_bg | default: '#DCEAF5' }};
+        --color-lime: {{ settings.accent_lime | default: '#DCEAF5' }};
+        --color-lime-text: {{ settings.accent_lime_text | default: '#112D4A' }};
+        --color-card-surface: {{ settings.card_surface | default: '#F2F7FB' }};
+        --color-sale: {{ settings.sale_color | default: '#245284' }};
+        --color-sale-tint: #DCEAF5;
+        --color-badge-bestseller: {{ settings.badge_bestseller | default: '#245284' }};
+        --color-badge-new: {{ settings.badge_new | default: '#112D4A' }};
+        --color-badge-popular: #245284;
+        --color-badge-soldout: #8B9EB3;
+        --color-shipping-green: {{ settings.shipping_green | default: '#245284' }};
+
+        --color-bg: {{ settings.scheme_1_bg | default: '#FFFFFF' }};
+        --color-bg-secondary: {{ settings.scheme_1_bg_secondary | default: '#EEF4FA' }};
+        --color-text: {{ settings.scheme_1_text | default: '#112D4A' }};
+        --color-text-muted: rgba(17, 45, 74, 0.72);
+        --color-border: rgba(17, 45, 74, 0.12);
+        --color-btn-bg: #245284;
+        --color-btn-text: #FFFFFF;
+        --color-btn-secondary-bg: #DCEAF5;
+        --color-btn-secondary-text: #112D4A;
+
+        --ease-smooth: cubic-bezier(0.3, 1, 0.3, 1);
+        --ease-drawer: cubic-bezier(0.7, 0, 0.2, 1);
+      }
+    </style>
+
+    {{ 'wellina-base.css' | asset_url | stylesheet_tag }}
+    {{ 'wellina-components.css' | asset_url | stylesheet_tag }}
+    {{ 'wellina-sections.css' | asset_url | stylesheet_tag }}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      window.WellinaConfig = {
+        moneyFormat: {{ shop.money_format | default: '₹0' | json }},
+        currency: 'INR',
+        freeShippingThreshold: {{ settings.free_shipping_threshold | default: 1000 | times: 100 }},
+        enableCartDrawer: {{ settings.enable_cart_drawer | default: true | json }},
+        enableQuickView: {{ settings.enable_quick_view | default: true | json }},
+        enablePredictiveSearch: {{ settings.enable_predictive_search | default: true | json }},
+        routes: {
+          root: '{{ routes.root_url | default: "/" }}',
+          cartUrl: '{{ routes.cart_url | default: "/cart" }}',
+          cartAddUrl: '{{ routes.cart_add_url | default: "/cart/add" }}',
+          cartChangeUrl: '{{ routes.cart_change_url | default: "/cart/change" }}',
+          cartUpdateUrl: '{{ routes.cart_update_url | default: "/cart/update" }}',
+          searchUrl: '{{ routes.search_url | default: "/search" }}',
+          predictiveSearchUrl: '{{ routes.predictive_search_url | default: "/search/suggest" }}'
+        }
+      };
+    </script>
+  </head>
+
+  <body class="template-{{ template.name | default: 'index' | handle }}{% if template.name == 'index' %} is-homepage{% endif %} color-scheme-1">
+    <a class="skip-to-content-link visually-hidden" href="#MainContent">
+      {{ 'general.accessibility.skip_to_text' | t }}
+    </a>
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" class="main-content" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    <div class="wellina-backdrop" data-global-backdrop aria-hidden="true"></div>
+
+    {% render 'cart-drawer' %}
+    {% render 'quick-view-modal' %}
+    {% render 'personalise-modal' %}
+    {% render 'video-story-modal' %}
+    {% render 'wellina-catalog-data' %}
+
+    <script src="{{ 'wellina-theme.js' | asset_url }}" defer="defer"></script>
+  </body>
+</html>
+

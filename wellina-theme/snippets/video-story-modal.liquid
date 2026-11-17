@@ -1,0 +1,77 @@
+{%- comment -%}
+  Modals for PDP Scent Story Impressions, Pickup Availability Drawer, and Full Fragrance Notes.
+{%- endcomment -%}
+<div class="center-modal" id="StoryVideoModal" data-story-modal aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="center-modal__card center-modal__card--story color-scheme-2">
+    <button type="button" class="circle-btn circle-btn--light center-modal__close" data-close-modals aria-label="Close">
+      {% render 'icon', name: 'close' %}
+    </button>
+    <div class="story-modal__media">
+      <img src="{{ 'marq-navy-hero.jpg' | asset_url }}" alt="Scent story" data-story-img>
+      <div class="story-modal__caption">
+        <h4 class="h3" data-story-title>Chilled Citrus &amp; Ice</h4>
+        <p data-story-quote>&ldquo;Opens with vibrant lime, sweet orange zest, and frosted berries that stay crisp and luminous all day.&rdquo;</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="center-modal" id="IngredientsModal" data-ingredients-modal aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="center-modal__card color-scheme-1">
+    <div class="center-modal__head">
+      <div>
+        <span class="text-subheading">FULL FRAGRANCE ARCHITECTURE</span>
+        <h3 class="h2">Master Botanical &amp; Marine Notes</h3>
+      </div>
+      <button type="button" class="circle-btn circle-btn--ghost" data-close-modals aria-label="Close">
+        {% render 'icon', name: 'close' %}
+      </button>
+    </div>
+    <div class="ingredients-modal__list">
+      <div class="ingredient-fact-row">
+        <strong>Cold-Pressed Lime &amp; Sweet Orange (Top Accord)</strong>
+        <span>Sun-ripened Mediterranean citrus oils distilled over ice for an immediate effervescent opening.</span>
+      </div>
+      <div class="ingredient-fact-row">
+        <strong>Frosted Wild Berries &amp; Blackcurrant Bud (Top-Heart)</strong>
+        <span>Crisp Nordic berry nuances lending vibrant depth and chilled fruit luminosity.</span>
+      </div>
+      <div class="ingredient-fact-row">
+        <strong>Atlantic Sea Spray &amp; White Water Lily (Heart Accord)</strong>
+        <span>Crystalline ozonic wave accord softened by dewy white lily petals and green neroli leaf.</span>
+      </div>
+      <div class="ingredient-fact-row">
+        <strong>Mineral Driftwood &amp; Clean Skin Musk (Base Accord)</strong>
+        <span>Sun-bleached coastal cedar and molecular ambroxan anchoring 12+ hours of refined sillage.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aside class="floating-drawer pickup-drawer color-scheme-1" id="PickupDrawer" data-pickup-drawer aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="cart-drawer__header">
+    <h3 class="h3">Pickup Availability</h3>
+    <button type="button" class="circle-btn circle-btn--ghost" data-close-drawers aria-label="Close">
+      {% render 'icon', name: 'close' %}
+    </button>
+  </div>
+  <div class="pickup-drawer__body">
+    <div class="pickup-location-card">
+      <div class="pickup-status">
+        <span class="pickup-dot"></span>
+        <strong>MARQ Mumbai Flagship Boutique</strong>
+      </div>
+      <p>Pickup available, usually ready in 24 hours</p>
+      <address>Kala Ghoda, Fort, Mumbai, Maharashtra 400001<br>+91 98200 12345</address>
+    </div>
+    <div class="pickup-location-card">
+      <div class="pickup-status">
+        <span class="pickup-dot"></span>
+        <strong>MARQ Bengaluru Design Atelier</strong>
+      </div>
+      <p>Pickup available, usually ready in 24 hours</p>
+      <address>100 Feet Road, Indiranagar, Bengaluru, Karnataka 560038<br>+91 98450 12345</address>
+    </div>
+  </div>
+</aside>
+

@@ -1,0 +1,67 @@
+<section class="section-pad color-scheme-1" data-carousel>
+  <div class="page-width">
+    <div class="section-head-center">
+      <p class="text-subheading">OLFACTIVE PYRAMID</p>
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="ingredients-track" data-carousel-track>
+      <article class="ingredient-card color-scheme-12">
+        <img src="{{ 'marq-note-citrus.jpg' | asset_url }}" alt="Sparkling Lime & Bergamot" loading="lazy">
+        <h3 class="h3">Sparkling Lime &amp; Bergamot</h3>
+        <p>Cold-pressed Mediterranean citrus zest opening with immediate sunlit vibrancy.</p>
+      </article>
+      <article class="ingredient-card color-scheme-12">
+        <img src="{{ 'marq-note-cherry.jpg' | asset_url }}" alt="Black Cherry & Almond" loading="lazy">
+        <h3 class="h3">Black Cherry &amp; Almond</h3>
+        <p>Luscious dark cherry liqueur and bitter almond lending velvety evening depth.</p>
+      </article>
+      <article class="ingredient-card color-scheme-12">
+        <img src="{{ 'marq-note-aquatic.jpg' | asset_url }}" alt="Atlantic Sea Spray" loading="lazy">
+        <h3 class="h3">Atlantic Sea Spray</h3>
+        <p>Crystalline ozonic marine wave accord evoking cool coastal air over open water.</p>
+      </article>
+      <article class="ingredient-card color-scheme-12">
+        <img src="{{ 'marq-note-saffron.jpg' | asset_url }}" alt="Kashmiri Red Saffron" loading="lazy">
+        <h3 class="h3">Kashmiri Red Saffron</h3>
+        <p>Warm golden saffron threads radiating opulent spice across EDP, Attar, and Bakhoor.</p>
+      </article>
+      <article class="ingredient-card color-scheme-12">
+        <img src="{{ 'marq-note-oud-amber.jpg' | asset_url }}" alt="Aged Agarwood Oud" loading="lazy">
+        <h3 class="h3">Aged Agarwood Oud</h3>
+        <p>Resinous smoky agarwood and golden amber delivering 12+ hour sillage.</p>
+      </article>
+      <article class="ingredient-card color-scheme-12">
+        <img src="{{ 'marq-note-woods.jpg' | asset_url }}" alt="Sandalwood & Cedar" loading="lazy">
+        <h3 class="h3">Sandalwood &amp; Cedar</h3>
+        <p>Creamy Mysore sandalwood and warm cedarwood grounding the dry-down in luxury.</p>
+      </article>
+    </div>
+
+    <div class="section-foot-center">
+      <button type="button" class="btn btn--primary" data-open-ingredients>
+        <span class="btn__text-wrap"><span class="btn__text" data-text="View Full Fragrance Notes">View Full Fragrance Notes</span></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Fragrance Notes Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Master botanical & marine notes"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fragrance Notes Carousel"
+    }
+  ]
+}
+{% endschema %}
+

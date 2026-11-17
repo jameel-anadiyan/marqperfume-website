@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {}
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Complete your daily ritual"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related"
+  ]
+}
+

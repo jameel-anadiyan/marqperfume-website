@@ -1,0 +1,20 @@
+{% layout none %}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ shop.name }} Gift Card</title>
+    {{ content_for_header }}
+    {{ 'wellina-base.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body class="color-scheme-2" style="min-height:100vh;display:grid;place-items:center;padding:4rem;text-align:center;">
+    <div>
+      <p class="text-subheading">GIFT CARD</p>
+      <h1 class="display-title">{{ gift_card.initial_value | money }}</h1>
+      <p style="margin:2rem 0;font-size:2rem;letter-spacing:0.15em;">{{ gift_card.code | format_code }}</p>
+      <a href="{{ shop.url }}" class="btn btn--primary">Start Shopping</a>
+    </div>
+  </body>
+</html>
+

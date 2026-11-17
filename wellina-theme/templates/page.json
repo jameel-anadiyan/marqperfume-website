@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "benefits": {
+      "type": "benefit-icons",
+      "settings": {
+        "heading": "The MARQ Perfume Standard"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "benefits"
+  ]
+}
+

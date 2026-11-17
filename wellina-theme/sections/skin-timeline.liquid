@@ -1,0 +1,124 @@
+<section class="section-pad color-scheme-1">
+  <div class="page-width">
+    <div class="section-head-center">
+      <p class="text-subheading">{{ section.settings.eyebrow }}</p>
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="skin-timeline-grid">
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <span class="timeline-dot"></span>
+          <span class="week-pill">Top Notes • 0–15 Min</span>
+          <h3 class="h3">Icy Citrus &amp; Wild Berries</h3>
+          <p>An immediate burst of freshly sliced lime, sun-ripened orange zest, and frosted wild blueberries awakens the senses.</p>
+        </div>
+
+        <div class="timeline-step">
+          <span class="timeline-dot"></span>
+          <span class="week-pill">Heart Notes • 15 Min–4 Hrs</span>
+          <h3 class="h3">Oceanic Wave &amp; Dewy Lily</h3>
+          <p>Crystalline marine sea spray merges seamlessly with water-kissed white lily petals for a luminous, airy aura.</p>
+        </div>
+
+        <div class="timeline-step">
+          <span class="timeline-dot"></span>
+          <span class="week-pill">Dry-Down • 4–12+ Hrs</span>
+          <h3 class="h3">Mineral Driftwood &amp; Clean Musk</h3>
+          <p>Warm coastal cedarwood, sheer mineral ambergris, and velvety skin musk leave an unforgettable trail all day.</p>
+        </div>
+      </div>
+
+      <div class="timeline-collage">
+        <div class="timeline-collage__main">
+          {%- if section.settings.image_main != blank -%}
+            <img src="{{ section.settings.image_main | image_url: width: 900 }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+          {%- else -%}
+            <img src="{{ 'marq-navy-hero.jpg' | asset_url }}" alt="Navy Eau de Parfum" loading="lazy">
+          {%- endif -%}
+        </div>
+
+        <div class="timeline-collage__secondary">
+          {%- if section.settings.image_secondary != blank -%}
+            <img src="{{ section.settings.image_secondary | image_url: width: 640 }}" alt="Frost Citrus & Ice" loading="lazy">
+          {%- else -%}
+            <img src="{{ 'marq-frost-hero.jpg' | asset_url }}" alt="Frost Citrus & Ice" loading="lazy">
+          {%- endif -%}
+        </div>
+
+        <div class="rotating-stamp" aria-hidden="true">
+          <svg viewBox="0 0 140 140" class="rotating-stamp__svg">
+            <defs>
+              <path id="stampCircle-{{ section.id }}" d="M 70, 70 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0"/>
+            </defs>
+            <text>
+              <textPath href="#stampCircle-{{ section.id }}" startOffset="0%">
+                {{ section.settings.stamp_text }}
+              </textPath>
+            </text>
+          </svg>
+          <span class="rotating-stamp__center">
+            {% render 'icon', name: 'heart' %}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-foot-center">
+      {%- assign cta_link = section.settings.button_link | default: '/products/marq-navy' -%}
+      {% render 'button', label: section.settings.button_label, href: cta_link, style: 'primary' %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Olfactory Timeline",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Subheading",
+      "default": "THE OLFACTORY PYRAMID"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A scent that evolves on skin."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_main",
+      "label": "Primary fragrance image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_secondary",
+      "label": "Overlapping note image"
+    },
+    {
+      "type": "text",
+      "id": "stamp_text",
+      "label": "Rotating badge text",
+      "default": "MARQ PERFUMES • FINE EAU DE PARFUM • "
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Explore the Notes"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Olfactory Timeline"
+    }
+  ]
+}
+{% endschema %}

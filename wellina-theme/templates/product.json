@@ -1,0 +1,97 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "show_countdown": true
+      }
+    },
+    "ingredients": {
+      "type": "ingredients-carousel",
+      "settings": {
+        "heading": "Master botanical & marine notes"
+      }
+    },
+    "marquee": {
+      "type": "marquee-strip",
+      "settings": {}
+    },
+    "stats": {
+      "type": "clinical-stats",
+      "settings": {
+        "eyebrow": "LONG-LASTING SILLAGE",
+        "heading": "Composed to linger effortlessly",
+        "footnote": "*Independent consumer wear study across 120 fragrance enthusiasts evaluating 12-hour skin projection and clarity."
+      }
+    },
+    "banner": {
+      "type": "full-banner",
+      "settings": {}
+    },
+    "how_to_use": {
+      "type": "how-to-use",
+      "settings": {}
+    },
+    "philosophy": {
+      "type": "philosophy-cards",
+      "settings": {
+        "heading": "The art of modern perfumery"
+      }
+    },
+    "timeline": {
+      "type": "skin-timeline",
+      "settings": {
+        "eyebrow": "SCENT EVOLUTION",
+        "heading": "A fragrance that unfolds.",
+        "stamp_text": "MARQ PERFUMES • FINE EAU DE PARFUM • ",
+        "button_label": "Explore Notes"
+      }
+    },
+    "comparison": {
+      "type": "comparison-table",
+      "settings": {}
+    },
+    "reels": {
+      "type": "video-reels",
+      "settings": {
+        "eyebrow": "SCENT STORIES",
+        "heading": "Signature Moments"
+      }
+    },
+    "benefits": {
+      "type": "benefit-icons",
+      "settings": {
+        "heading": "The MARQ Perfume Standard"
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Discover more fragrances"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter-banner",
+      "settings": {
+        "heading": "Join the MARQ Private List for launches & exclusive editions",
+        "disclaimer": "By subscribing you agree to the Terms of Use & Privacy Policy."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ingredients",
+    "marquee",
+    "stats",
+    "banner",
+    "how_to_use",
+    "philosophy",
+    "timeline",
+    "comparison",
+    "reels",
+    "benefits",
+    "related",
+    "newsletter"
+  ]
+}
+

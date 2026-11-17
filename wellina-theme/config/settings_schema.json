@@ -1,0 +1,296 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "MARQ Perfumes",
+    "theme_version": "1.1.0",
+    "theme_author": "MARQ Studio",
+    "theme_documentation_url": "https://help.shopify.com/en/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com/en/questions"
+  },
+  {
+    "name": "Brand & Logo",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand wordmark text",
+        "default": "MARQ Perfumes"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_light",
+        "label": "Header logo (white on Deep Navy header)"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_dark",
+        "label": "Drawer logo (Primary Blue on white surface)"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_footer",
+        "label": "Footer logo (Logo White on Deep Navy)"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 60,
+        "max": 220,
+        "step": 5,
+        "unit": "px",
+        "label": "Desktop logo width",
+        "default": 130
+      },
+      {
+        "type": "range",
+        "id": "logo_width_mobile",
+        "min": 60,
+        "max": 160,
+        "step": 5,
+        "unit": "px",
+        "label": "Mobile logo width",
+        "default": 105
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image"
+      }
+    ]
+  },
+  {
+    "name": "Color Palette",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Scheme 1 — Logo White (Default)"
+      },
+      {
+        "type": "color",
+        "id": "scheme_1_bg",
+        "label": "Background",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "scheme_1_bg_secondary",
+        "label": "Secondary surface",
+        "default": "#EEF4FA"
+      },
+      {
+        "type": "color",
+        "id": "scheme_1_text",
+        "label": "Primary text (Deep Navy)",
+        "default": "#112D4A"
+      },
+      {
+        "type": "header",
+        "content": "Scheme 2 — MARQ Deep Navy & Primary Blue"
+      },
+      {
+        "type": "color",
+        "id": "scheme_2_bg",
+        "label": "Deep Navy background",
+        "default": "#112D4A"
+      },
+      {
+        "type": "color",
+        "id": "scheme_2_surface",
+        "label": "Primary Brand Blue surface",
+        "default": "#245284"
+      },
+      {
+        "type": "color",
+        "id": "scheme_2_text",
+        "label": "Logo White text",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Scheme 3 & 4 — MARQ Light Mist Blue"
+      },
+      {
+        "type": "color",
+        "id": "scheme_3_bg",
+        "label": "Light Mist Blue background",
+        "default": "#DCEAF5"
+      },
+      {
+        "type": "color",
+        "id": "scheme_4_bg",
+        "label": "Soft Ice Mist background",
+        "default": "#EAF3FA"
+      },
+      {
+        "type": "color",
+        "id": "icon_circle_bg",
+        "label": "Benefit icon circle (Light Mist Blue)",
+        "default": "#DCEAF5"
+      },
+      {
+        "type": "header",
+        "content": "Buttons, Cards & Badges"
+      },
+      {
+        "type": "color",
+        "id": "accent_lime",
+        "label": "Brand Mist highlight (nav pills & dark CTAs)",
+        "default": "#DCEAF5"
+      },
+      {
+        "type": "color",
+        "id": "accent_lime_text",
+        "label": "Brand Mist highlight text (Deep Navy)",
+        "default": "#112D4A"
+      },
+      {
+        "type": "color",
+        "id": "card_surface",
+        "label": "Product card surface",
+        "default": "#F2F7FB"
+      },
+      {
+        "type": "color",
+        "id": "sale_color",
+        "label": "Sale / Flash countdown / Low stock accent",
+        "default": "#245284"
+      },
+      {
+        "type": "color",
+        "id": "badge_bestseller",
+        "label": "Best Sellers badge (Primary Brand Blue)",
+        "default": "#245284"
+      },
+      {
+        "type": "color",
+        "id": "badge_new",
+        "label": "New badge (Deep Navy)",
+        "default": "#112D4A"
+      },
+      {
+        "type": "color",
+        "id": "shipping_green",
+        "label": "Free shipping bar (Primary Brand Blue)",
+        "default": "#245284"
+      }
+    ]
+  },
+  {
+    "name": "Typography & Layout",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "load_wellina_fonts",
+        "label": "Load Instrument Serif + Geist web fonts",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "page_width",
+        "min": 1200,
+        "max": 1600,
+        "step": 20,
+        "unit": "px",
+        "label": "Max container width",
+        "default": 1440
+      },
+      {
+        "type": "range",
+        "id": "card_radius",
+        "min": 0,
+        "max": 32,
+        "step": 2,
+        "unit": "px",
+        "label": "Card & media corner radius",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "button_radius",
+        "min": 0,
+        "max": 60,
+        "step": 4,
+        "unit": "px",
+        "label": "Button & pill corner radius",
+        "default": 60
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_animations",
+        "label": "Enable smooth scroll & entrance motion",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart, Search & Demo",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_cart_drawer",
+        "label": "Open slide-out Cart Drawer on Add to Cart",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "free_shipping_threshold",
+        "min": 0,
+        "max": 3000,
+        "step": 50,
+        "unit": "₹",
+        "label": "Free shipping threshold (₹)",
+        "default": 1000
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_quick_view",
+        "label": "Enable Quick View drawer on product cards",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_predictive_search",
+        "label": "Enable Predictive Search dropdown in header",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_demo_fallback",
+        "label": "Show MARQ Perfumes starter showcase when store catalog is empty",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "instagram_handle",
+        "label": "Instagram handle",
+        "default": "@marqperfumes"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      },
+      {
+        "type": "url",
+        "id": "social_twitter",
+        "label": "X (Twitter) URL"
+      },
+      {
+        "type": "url",
+        "id": "social_pinterest",
+        "label": "Pinterest URL"
+      }
+    ]
+  }
+]
+
