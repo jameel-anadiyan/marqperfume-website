@@ -1,9 +1,10 @@
-# macOS & Python
+# macOS, Build Output & Python
 .DS_Store
 **/.DS_Store
 __pycache__/
 *.py[cod]
 *.log
+dist/
 
 # Raw local source asset folders (already optimized & included inside wellina-theme/assets/)
 ATTAR*
@@ -17,3 +18,4 @@ logo and brand colour /
 personilisation image /
 untitled folder/
 PACKAGING IMAGE .png
+
