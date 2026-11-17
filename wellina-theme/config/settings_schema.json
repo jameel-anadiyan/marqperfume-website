@@ -181,7 +181,7 @@
       {
         "type": "checkbox",
         "id": "load_wellina_fonts",
-        "label": "Load Cormorant Garamond + Lato + Geist web fonts",
+        "label": "Load Anek Tamil + Geist web fonts",
         "default": true
       },
       {

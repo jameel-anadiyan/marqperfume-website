@@ -202,45 +202,45 @@ h1, h2, h3, h4, h5, h6, p, blockquote, figure {
 .display-title,
 .h1, .h2, .h3, .h4, .h5 {
   font-family: var(--font-heading--family);
-  font-weight: 600;
-  letter-spacing: -0.008em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .display-title em,
 .h1 em, .h2 em, .h3 em {
   font-family: var(--font-highlight--family);
-  font-style: italic;
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .display-title {
-  font-size: clamp(4.6rem, calc(3.6vw + 1.85rem), 6.4rem);
-  line-height: 1.12;
+  font-size: clamp(4.2rem, calc(3.2vw + 1.6rem), 5.8rem);
+  line-height: 1.14;
 }
 
 .h1 {
-  font-size: clamp(3.2rem, calc(2.6vw + 1.1rem), 4.5rem);
-  line-height: 1.16;
+  font-size: clamp(2.9rem, calc(2.2vw + 1.0rem), 4.0rem);
+  line-height: 1.18;
 }
 
 .h2 {
-  font-size: clamp(2.688rem, calc(2.246vw + 0.966rem), 3.84rem);
-  line-height: 1.28;
+  font-size: clamp(2.4rem, calc(1.8vw + 0.9rem), 3.3rem);
+  line-height: 1.24;
 }
 
 .h3 {
-  font-size: clamp(2.352rem, calc(1.965vw + 0.845rem), 3.36rem);
-  line-height: 1.32;
+  font-size: clamp(2.0rem, calc(1.5vw + 0.8rem), 2.8rem);
+  line-height: 1.28;
 }
 
 .h4 {
-  font-size: clamp(1.92rem, calc(1.404vw + 0.844rem), 2.64rem);
-  line-height: 1.38;
+  font-size: clamp(1.75rem, calc(1.1vw + 0.8rem), 2.2rem);
+  line-height: 1.34;
 }
 
 .h5 {
-  font-size: clamp(1.92rem, calc(0.468vw + 1.561rem), 2.16rem);
-  line-height: 1.45;
+  font-size: clamp(1.6rem, calc(0.4vw + 1.4rem), 1.85rem);
+  line-height: 1.4;
 }
 
 .text-subheading {
