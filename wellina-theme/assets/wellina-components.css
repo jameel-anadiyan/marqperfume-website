@@ -329,16 +329,19 @@
 
 .mega-menu__tab-trigger {
   text-align: left;
-  font-family: var(--font-heading--family);
-  font-size: 2.5rem;
-  color: rgba(17, 45, 74, 0.52);
-  padding-block: 0.4rem;
+  font-family: var(--font-lato);
+  font-size: 1.85rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(17, 45, 74, 0.62);
+  padding-block: 0.5rem;
   transition: color 0.2s ease;
 }
 
 .mega-menu__tab-trigger.is-active,
 .mega-menu__tab-trigger:hover {
   color: #245284;
+  font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 0.5rem;
 }
